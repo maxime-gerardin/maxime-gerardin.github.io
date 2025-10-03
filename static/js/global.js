@@ -1,4 +1,7 @@
 function setLoadingIcon() {
+    if(portfolioTemplate.info.logoCircle) {
+        document.getElementById("loading-img").classList.add("circle")
+    }
     document.getElementById("loading-img").src = portfolioTemplate.info.logo;
 }
 
@@ -79,17 +82,29 @@ function applyConfigStyles(document)
 // =====================================================================
 // =====================================================================
 
+function setVideoUrl(videoElm, url)
+{
+    videoElm.src = url
+    videoElm.load()
+    videoElm.onloadeddata = () => {
+        videoElm.play().catch();
+    };
+}
+
+// =====================================================================
+// =====================================================================
+
 function fillHeader()
 {
     let portfolioLogo = document.getElementById("portfolio-logo");
     if("info" in portfolioTemplate) {
+        if (portfolioTemplate.info.logoCircle) {
+            portfolioLogo.classList.add("circle")
+        }
         portfolioLogo.src = portfolioTemplate.info.logo;
         portfolioLogo.alt = portfolioTemplate.info.logoAlt;
         document.querySelector("link[rel~='icon']").href = portfolioTemplate.info.logo
         document.querySelector("title").innerText = portfolioTemplate.info.fullName;
-        if (portfolioTemplate.info.logoCircle) {
-            portfolioLogo.style.borderRadius = "50%";
-        }
     }
 }
 
@@ -160,18 +175,12 @@ async function waitForAllMedia() {
             m.onloadeddata = m.onerror = () => resolve();
         }
     })));
-
-    console.log("Toutes les images et vidéos sont chargées !");
 }
 
 // =====================================================================
 // =====================================================================
 
 async function displayPage(callback) {
-    
-    if(portfolioTemplate.info.logoCircle) {
-        document.getElementById("loading-img").classList.add("circle")
-    }
 
     await waitForAllMedia()
 

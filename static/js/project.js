@@ -93,7 +93,11 @@ function createMediasGridLayout(project, projectMedias)
             projectMedia.src = media.src
             showOrHide(media, "text", projectMediaClone.querySelector(".project-media-text"))
 
-            if (media.type === "video") projectMedia.controls = media.controls ?? false
+            if (media.type === "video") {
+                projectMedia.controls = media.controls ?? false
+                projectMedia.load()
+                projectMedia.play().catch();
+            }
             projectMedias.appendChild(projectMediaClone)
         })
     })
@@ -109,7 +113,7 @@ function fillProjectInfo() {
         let projectTitleNode = document.getElementById("project-title");
         let projectThumbnailNode = document.getElementById("project-thumbnail");
         projectTitleNode.innerHTML = project.name;
-        projectThumbnailNode.src = project.videoThumbnail;
+        setVideoUrl(projectThumbnailNode, project.videoThumbnail)
         if (project.client) {
             createProjectBoardRow("Client", project.client)
         }

@@ -102,7 +102,7 @@ function fillProjects ()
             let projectTag = projectClone.querySelector(".project-tag")
 
             projectLink.href = `./project.html#${slugify(project.name)}`
-            projectThumbnail.src = project.videoThumbnail
+            setVideoUrl(projectThumbnail, project.videoThumbnail)
             projectTitle.innerText = project.name
             projectTag.innerText = project.tags?.[0]
             observer.observe(projectElement);
