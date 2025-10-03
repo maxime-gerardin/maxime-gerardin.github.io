@@ -1,0 +1,359 @@
+:root {
+    --bg-color: #050505;
+    --text-color: whitesmoke;
+    --default-font-size: 16px;
+    --section-margin: 6rem;
+    --less-opacity: .75;
+    --side-margin: 1rem;
+    --border-color: rgba(128, 128, 128, 0.4);
+    --footer-size: 90%;
+}
+
+* {
+    margin:0;
+    line-height:normal;
+    box-sizing: border-box;
+}
+
+a {
+    color : var(--text-color);
+    text-decoration : none;
+}
+
+html {
+    font-size: var(--default-font-size);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color : var(--text-color);
+    background-color: var(--bg-color);
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.opaque {
+    opacity: 1;
+}
+
+.transparent {
+    opacity: 0;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid darkgray;
+    margin: 0 calc((100% - var(--footer-size)) / 2);
+    opacity: 0.2;
+}
+
+#loading-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#loading-img {
+    width: 8rem;
+    animation: loadingPulse 0.5s infinite ease-in-out;
+}
+
+@keyframes loadingPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.75;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.75;
+    }
+}
+
+#page-container {
+    transition: opacity 0.5s ease;
+}
+
+#portfolio-header {
+    padding: 1rem 0 0 1rem;
+}
+
+#portfolio-logo {
+    scale: 0;
+    display: block;
+    width: 4rem;
+    transition: scale 0.35s ease-in-out;
+}
+#portfolio-logo.scaled {
+    scale: 1;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+#footer {
+    display: flex;
+    width: var(--footer-size);
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+#footer-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+#footer-portfolio-name {
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.footer-section-title {
+    opacity: var(--less-opacity);
+    text-transform: uppercase;
+}
+
+.footer-section-item-link {
+    width: fit-content;
+}
+
+.footer-section-item-icon {
+    vertical-align: middle;
+    width: 1.5rem;
+}
+
+.footer-section-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.75rem;
+}
+
+.footer-section-item {
+    display: flex;
+    column-gap: 0.75rem;
+    align-items: center;
+}
+
+#portfolio-copy-footer {
+    text-transform: uppercase;
+    padding-top: 1rem;
+    opacity: 0.5;
+    font-weight: bold;
+}
+
+
+@media (min-width: 600px) and (max-width: 767px) {
+    :root {
+        --default-font-size: 18px;
+    }
+    #portfolio-logo {
+        width: 5rem;
+    }
+    #portfolio-name {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+        --default-font-size: 22px;
+    }
+    #portfolio-logo {
+        width: 5rem;
+    }
+}
+
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    :root {
+        --default-font-size: 24px;
+    }
+    #portfolio-logo {
+        width: 5rem;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1599px) {
+    :root {
+        --default-font-size: 26px;
+    }
+    #portfolio-logo {
+        width: 4rem;
+    }
+    footer {
+        padding: 1rem 0;
+    }
+    #footer {
+        justify-content: center;
+        row-gap: 5rem;
+    }
+    #footer-info {
+        flex-direction: row;
+        font-size: 0.75rem;
+        column-gap: 7rem;
+    }
+    .footer-section-item-icon {
+        width: 1rem;
+    }
+    #footer-portfolio-name {
+        font-size: 1.25rem;
+        width: 30%;
+    }
+    #portfolio-copy-footer{
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 1600px) and (max-width: 1919px) {
+    :root {
+        --default-font-size: 28px;
+    }
+    #portfolio-logo {
+        width: 5rem;
+    }
+    footer {
+        padding: 1rem 0;
+    }
+    #footer {
+        justify-content: center;
+        row-gap: 5rem;
+    }
+    #footer-info {
+        flex-direction: row;
+        font-size: 0.75rem;
+        column-gap: 10rem;
+    }
+    .footer-section-item-icon {
+        width: 1rem;
+    }
+    #footer-portfolio-name {
+        font-size: 1.25rem;
+        width: 20%;
+    }
+    #portfolio-copy-footer{
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 1920px) and (max-width: 2559px) {
+    :root {
+        --default-font-size: 30px;
+    }
+    #portfolio-logo {
+        width: 5rem;
+    }
+    footer {
+        padding: 1rem 0;
+    }
+    #footer {
+        justify-content: center;
+        row-gap: 5rem;
+    }
+    #footer-info {
+        flex-direction: row;
+        font-size: 0.75rem;
+        column-gap: 10rem;
+    }
+    .footer-section-item-icon {
+        width: 1rem;
+    }
+    #footer-portfolio-name {
+        font-size: 1.25rem;
+        width: 25%;
+    }
+    #portfolio-copy-footer{
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 2560px) and (max-width: 3439px) {
+    :root {
+        --default-font-size: 32px;
+    }
+    #portfolio-logo {
+        width: 4rem;
+    }
+    footer {
+        padding: 1rem 0;
+    }
+    #footer {
+        justify-content: center;
+        row-gap: 5rem;
+    }
+    #footer-info {
+        flex-direction: row;
+        font-size: 0.75rem;
+        column-gap: 10rem;
+    }
+    .footer-section-item-icon {
+        width: 1rem;
+    }
+    #footer-portfolio-name {
+        font-size: 1.25rem;
+        width: 35%;
+    }
+    #portfolio-copy-footer{
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 3440px) {
+    :root {
+        --default-font-size: 32px;
+    }
+    #portfolio-logo {
+        width: 5rem;
+    }
+    footer {
+        padding: 1rem 0;
+    }
+    #footer {
+        justify-content: center;
+        row-gap: 5rem;
+    }
+    #footer-info {
+        flex-direction: row;
+        font-size: 0.75rem;
+        column-gap: 12rem;
+    }
+    .footer-section-item-icon {
+        width: 1rem;
+    }
+    #footer-portfolio-name {
+        font-size: 1.25rem;
+        width: 35%;
+    }
+    #portfolio-copy-footer{
+        font-size: 0.75rem;
+    }
+}

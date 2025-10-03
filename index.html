@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link rel="icon" type="image/png" href="">
+        <link rel="stylesheet" href="./static/styles/global.css">
+        <link rel="stylesheet" href="./static/styles/index.css">
+        <meta name="description" content="Portfolio">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    </head>
+    <body>
+
+        <div id="loading-container">
+            <img id="loading-img" src="" alt="">
+        </div>
+
+        <div id="page-container" class="transparent">
+            <div id="portfolio-header">
+                <a id="logo-link" href="index.html">
+                    <img id="portfolio-logo" src="" alt="">
+                </a>
+            </div>
+
+            <template id="portfolio-social-template">
+                <a class="portfolio-social-link" href="">
+                    <img class="portfolio-social-icon" src="" alt="">
+                </a>
+            </template>
+
+            <div id="portfolio-about-container" class="transparent">
+                <div id="portfolio-about">
+                    <div id="portfolio-name" class="full-name"></div>
+                    <div id="portfolio-description"></div>
+                    <div id="portfolio-socials"></div>
+                </div>
+            </div>
+
+            <template id="portfolio-project-template">
+                <div class="portfolio-project">
+                    <div class="project-text-overlay">
+                        <div class="project-text project-title transparent"></div>
+                        <div class="project-text project-tag transparent"></div>
+                    </div>
+                    <a class="portfolio-project-link" href="#">
+                        <video class="portfolio-project-thumbnail" autoplay loop muted>
+                            <source src="" type="" />
+                        </video>
+                    </a>
+                </div>
+            </template>
+
+            <div id="projects-container">
+                <div id="projects"></div>
+            </div>
+
+            <hr>
+
+            <footer>
+                <div id="footer"> 
+                    <div id="footer-info">
+                        <div id="footer-portfolio-name" class="full-name"></div>
+                        <div id="footer-section-contact" class="footer-section">
+                            <div class="footer-section-title">Contact</div>
+                            <div class="footer-section-list"></div>
+                        </div>
+                        <div id="footer-section-socials" class="footer-section">
+                            <div class="footer-section-title">Socials</div>
+                            <div class="footer-section-list"></div>
+                        </div>
+                    </div>
+                    <div id="portfolio-copy-footer">&copy;<span id="portfolio-copy-footer-name"></span> <span id="portfolio-copy-year-footer">2025</span></div>
+                </div>
+            </footer>
+
+        </div>
+
+        <template id="footer-section-item-template">
+            <div class="footer-section-item">
+                <img class="footer-section-item-icon" src="" alt="">
+                <div class="footer-section-item-text"></div>
+            </div>
+        </template>
+
+        <template id="footer-section-item-link-template">
+            <a class="footer-section-item-link" href="">
+                <div class="footer-section-item">
+                    <img class="footer-section-item-icon" src="" alt="">
+                    <div class="footer-section-item-text"></div>
+                </div>
+            </a>
+        </template>
+
+        <script src="./config.js" defer></script>
+        <script src="./static/js/global.js" defer></script>
+        <script src="./static/js/index.js" defer></script>
+    </body>
+</html>
