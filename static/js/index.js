@@ -6,7 +6,6 @@ let observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             visibles.add(entry.target);
-            console.log("add")
         } else {
             visibles.delete(entry.target);
         }
@@ -60,58 +59,8 @@ window.addEventListener("scroll", () => {
     }
 });
 
-
-
-
-
-/*let sections = [];
-let index = 0;
-let isScrolling = false;
-
-function disableWheel(e) {
-    e.preventDefault();
-}
-
-function lockScroll() {
-    window.addEventListener("wheel", disableWheel, { passive: false });
-}
-
-function unlockScroll() {
-    window.removeEventListener("wheel", disableWheel, { passive: false });
-}
-
-window.addEventListener("wheel", (e) => {
-    if (index === sections.length - 1 && e.deltaY > 0) {
-        return;
-    }
-    if (index === 0 && e.deltaY < 0) {
-        return;
-    }
-
-    if (isScrolling) return;
-    isScrolling = true;
-    lockScroll()
-
-    const currentTop = window.scrollY;
-    const targetTop = sections[index].offsetTop;
-    const distance = Math.abs(currentTop - targetTop);
-
-    if (distance > 5) {
-        sections[index].scrollIntoView({ behavior: "smooth" });
-    } else {
-        if (e.deltaY > 0 && index < sections.length - 1) {
-            index++;
-        } else if (e.deltaY < 0 && index > 0) {
-            index--;
-        }
-        sections[index].scrollIntoView({ behavior: "smooth" });
-    }
-
-    setTimeout(() => {
-        isScrolling = false;
-        unlockScroll()
-    }, 300);
-});*/
+// =====================================================================
+// =====================================================================
 
 function fillAbout()
 {
@@ -157,7 +106,6 @@ function fillProjects ()
             projectTitle.innerText = project.name
             projectTag.innerText = project.tags?.[0]
             observer.observe(projectElement);
-            //sections.push(projectElement);
             projectsNode.appendChild(projectClone)
         })
     }
@@ -174,7 +122,7 @@ function fillPortfolioInfo() {
 // =====================================================================
 // =====================================================================
 
-function main() {
+async function main() {
 
     fillHeader()
 
@@ -184,7 +132,7 @@ function main() {
 
     applyConfigStyles()
 
-    displayPage(() => {
+    await displayPage(() => {
         document.getElementById("portfolio-about-container").classList.replace("transparent", "opaque");
         document.getElementById("projects-container").querySelectorAll(".portfolio-project")
                                                               .forEach((project) => {

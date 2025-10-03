@@ -148,15 +148,35 @@ function fillFooter() {
 // =====================================================================
 // =====================================================================
 
-function displayPage(callback) {
+async function waitForAllMedia() {
+    const media = Array.from(document.querySelectorAll('img, video'));
+
+    await Promise.all(media.map(m => new Promise(resolve => {
+        if (m.tagName === 'IMG') {
+            if (m.complete && m.naturalWidth !== 0) return resolve();
+            m.onload = m.onerror = () => resolve();
+        } else if (m.tagName === 'VIDEO') {
+            if (m.readyState >= 3) return resolve();
+            m.onloadeddata = m.onerror = () => resolve();
+        }
+    })));
+
+    console.log("Toutes les images et vidéos sont chargées !");
+}
+
+// =====================================================================
+// =====================================================================
+
+async function displayPage(callback) {
     
     if(portfolioTemplate.info.logoCircle) {
         document.getElementById("loading-img").classList.add("circle")
     }
 
+    await waitForAllMedia()
+
     setTimeout(() => {
         document.getElementById("loading-container").style.display = "none";
-
         document.getElementById("page-container").classList.remove("transparent", "hidden");
 
         if(callback) {
@@ -164,7 +184,7 @@ function displayPage(callback) {
         }
 
         document.getElementById("portfolio-logo").classList.add("scaled");
-    }, 300);
+    }, 200);
 }
 
 setLoadingIcon()

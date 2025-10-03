@@ -147,7 +147,7 @@ function setBackButton() {
 // =====================================================================
 // =====================================================================
 
-function main()
+async function main()
 {
     setBackButton()
 
@@ -159,7 +159,7 @@ function main()
 
     applyConfigStyles()
 
-    displayPage()
+    await displayPage()
 }
 
 main()

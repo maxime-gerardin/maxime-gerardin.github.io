@@ -144,7 +144,7 @@
 
 @media (min-width: 2560px) and (max-width: 3439px) {
     :root {
-        --container-size: 50%;
+        --container-size: 60%;
     }
     #project-title {
         font-size: 1.5rem;
@@ -159,7 +159,7 @@
 
 @media (min-width: 3440px) {
     :root {
-        --container-size: 40%;
+        --container-size: 60%;
     }
     #project-title {
         font-size: 1.5rem;
