@@ -163,18 +163,33 @@ function fillFooter() {
 // =====================================================================
 // =====================================================================
 
-async function waitForAllMedia() {
+async function waitForAllMedia(timeout = 10000) {
     const media = Array.from(document.querySelectorAll('img, video'));
 
-    await Promise.all(media.map(m => new Promise(resolve => {
+    const mediaPromises = media.map(m => new Promise(resolve => {
         if (m.tagName === 'IMG') {
-            if (m.complete && m.naturalWidth !== 0) return resolve();
-            m.onload = m.onerror = () => resolve();
+            if (m.complete && m.naturalWidth !== 0) return resolve('loaded');
+            m.onload = () => resolve('loaded');
+            m.onerror = () => resolve('error');
         } else if (m.tagName === 'VIDEO') {
-            if (m.readyState >= 3) return resolve();
-            m.onloadeddata = m.onerror = () => resolve();
+            if (m.readyState >= 3) return resolve('loaded');
+            m.onloadeddata = () => resolve('loaded');
+            m.onerror = () => resolve('error');
         }
-    })));
+    }));
+
+    const timeoutPromise = new Promise(resolve => {
+        setTimeout(() => resolve('timeout'), timeout);
+    });
+
+    const result = await Promise.race([
+        Promise.all(mediaPromises),
+        timeoutPromise
+    ]);
+
+    if (result === 'timeout' || (Array.isArray(result) && result.some(r => r !== 'loaded'))) {
+        alert("Warning: Some media could not be fully loaded yet.");
+    }
 }
 
 // =====================================================================
@@ -193,7 +208,7 @@ async function displayPage(callback) {
         }
 
         document.getElementById("portfolio-logo").classList.add("scaled");
-    }, 200);
+    }, 150);
 }
 
 setLoadingIcon()

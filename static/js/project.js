@@ -80,15 +80,15 @@ function createMediasGridLayout(project, projectMedias)
 
     // Create medias elements and apply grid layout
     projectMedias.style.gridTemplateColumns = `repeat(${maxElements}, 1fr)`;
+    console.log(mediasByGridLine);
     Object.entries(mediasByGridLine).forEach(([gridLine, medias]) => {
+        let projectMediaRow = document.createElement("div");
+        projectMediaRow.classList.add('project-medias-row');
+        projectMediaRow.style.gridTemplateColumns = `repeat(${medias.length}, 1fr)`;
+
         medias.forEach(media => {
             let projectMediaTemplateID = media.type === "video" ? "project-video-media-template" : "project-img-media-template";
             let projectMediaClone = document.getElementById(projectMediaTemplateID).content.cloneNode(true);
-            let projectMediaContainer = projectMediaClone.querySelector(".project-media-container")
-            if (medias.length === 1) {
-                projectMediaContainer.style.gridColumn = "1 / -1";
-            }
-
             let projectMedia = projectMediaClone.querySelector(".project-media")
             projectMedia.src = media.src
             showOrHide(media, "text", projectMediaClone.querySelector(".project-media-text"))
@@ -96,10 +96,13 @@ function createMediasGridLayout(project, projectMedias)
             if (media.type === "video") {
                 projectMedia.controls = media.controls ?? false
                 projectMedia.load()
-                projectMedia.play().catch();
+                projectMedia.onloadeddata = () => {
+                    projectMedia.play().catch();
+                };
             }
-            projectMedias.appendChild(projectMediaClone)
+            projectMediaRow.appendChild(projectMediaClone)
         })
+        projectMedias.appendChild(projectMediaRow)
     })
 }
 

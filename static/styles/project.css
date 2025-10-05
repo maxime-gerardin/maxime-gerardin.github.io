@@ -1,6 +1,7 @@
 :root {
     --container-size: 90%;
     --grey-text-opacity: 0.5;
+    --medias-grid-gap: 1rem;
 }
 
 #back-button {
@@ -89,10 +90,15 @@
 
 #project-medias {
     margin-top: calc(var(--section-margin) / 1.5);
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--medias-grid-gap);
     width: var(--container-size);
+}
+
+.project-medias-row {
+    display: grid;
+    gap: var(--medias-grid-gap);
 }
 
 .project-media {
@@ -101,9 +107,35 @@
 }
 
 .project-media-text {
+    font-size: 0.9rem;
     padding: 0.25rem 0;
     text-align: center;
     opacity: var(--grey-text-opacity);
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+    .project-media-text {
+        font-size: 0.85rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .project-media-text {
+        font-size: 0.75rem;
+    }
+}
+
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .project-media-text {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1599px) {
+    .project-media-text {
+        font-size: 0.75rem;
+    }
 }
 
 @media (min-width: 1600px) and (max-width: 1919px) {
