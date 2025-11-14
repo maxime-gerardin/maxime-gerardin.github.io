@@ -7,6 +7,8 @@
     --side-margin: 1rem;
     --border-color: rgba(128, 128, 128, 0.4);
     --footer-size: 90%;
+    --header-padding: 1rem;
+    --logo-size: 4rem
 }
 
 * {
@@ -61,6 +63,11 @@ hr {
     opacity: 0.2;
 }
 
+#logo-link {
+    display: block;
+    width: fit-content;
+}
+
 #loading-container {
     position: fixed;
     top: 50%;
@@ -93,13 +100,15 @@ hr {
 }
 
 #portfolio-header {
-    padding: 1rem 0 0 1rem;
+    position: absolute;
+    z-index: 1000;
+    padding: var(--header-padding) 0 0 var(--header-padding);
 }
 
 #portfolio-logo {
     scale: 0;
     display: block;
-    width: 4rem;
+    width: var(--logo-size);
     transition: scale 0.35s ease-in-out;
 }
 #portfolio-logo.scaled {
@@ -175,9 +184,7 @@ footer {
 @media (min-width: 600px) and (max-width: 767px) {
     :root {
         --default-font-size: 18px;
-    }
-    #portfolio-logo {
-        width: 5rem;
+        --logo-size: 5rem;
     }
     #portfolio-name {
         font-size: 2.5rem;
@@ -187,9 +194,7 @@ footer {
 @media (min-width: 768px) and (max-width: 1023px) {
     :root {
         --default-font-size: 22px;
-    }
-    #portfolio-logo {
-        width: 5rem;
+        --logo-size: 5rem;
     }
 }
 
@@ -197,18 +202,14 @@ footer {
 @media (min-width: 1024px) and (max-width: 1279px) {
     :root {
         --default-font-size: 24px;
-    }
-    #portfolio-logo {
-        width: 5rem;
+        --logo-size: 5rem;
     }
 }
 
 @media (min-width: 1280px) and (max-width: 1599px) {
     :root {
         --default-font-size: 26px;
-    }
-    #portfolio-logo {
-        width: 4rem;
+        --logo-size: 4rem;
     }
     footer {
         padding: 1rem 0;
@@ -237,9 +238,7 @@ footer {
 @media (min-width: 1600px) and (max-width: 1919px) {
     :root {
         --default-font-size: 28px;
-    }
-    #portfolio-logo {
-        width: 5rem;
+        --logo-size: 5rem;
     }
     footer {
         padding: 1rem 0;
@@ -268,9 +267,7 @@ footer {
 @media (min-width: 1920px) and (max-width: 2559px) {
     :root {
         --default-font-size: 30px;
-    }
-    #portfolio-logo {
-        width: 5rem;
+        --logo-size: 5rem;
     }
     footer {
         padding: 1rem 0;
@@ -299,9 +296,7 @@ footer {
 @media (min-width: 2560px) and (max-width: 3439px) {
     :root {
         --default-font-size: 32px;
-    }
-    #portfolio-logo {
-        width: 4rem;
+        --logo-size: 4rem;
     }
     footer {
         padding: 1rem 0;
@@ -330,9 +325,7 @@ footer {
 @media (min-width: 3440px) {
     :root {
         --default-font-size: 32px;
-    }
-    #portfolio-logo {
-        width: 5rem;
+        --logo-size: 5rem;
     }
     footer {
         padding: 1rem 0;

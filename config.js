@@ -4,7 +4,8 @@ portfolioTemplate = {
         personalDescription: "3D and Environment freelance artist based in south of France, creating immersive visuals for personal projects and brands.",
         logo: "./static/assets/logo.jpg",
         logoCircle: true,
-        logoAlt: "Logo icon"
+        logoAlt: "Logo icon",
+        backgroundVideo: "./static/assets/thumbnails/secret-lab.mp4",
     },
     socials: [
         {

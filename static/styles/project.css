@@ -33,7 +33,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: var(--section-margin) 0;
+    margin: calc(var(--header-padding) + var(--logo-size) + var(--section-margin)) 0 var(--section-margin) 0 ;
 }
 
 #project-thumbnail {

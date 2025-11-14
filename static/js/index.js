@@ -67,9 +67,11 @@ function fillAbout()
     if("info" in portfolioTemplate) {
         let portfolioName = document.getElementById("portfolio-name");
         let portfolioDescription = document.getElementById("portfolio-description");
+        let portfolioBgVideoElm = document.getElementById("portfolio-video-background");
 
         portfolioName.innerText = portfolioTemplate.info.fullName
         portfolioDescription.innerText = portfolioTemplate.info.personalDescription
+        setVideoUrl(portfolioBgVideoElm, portfolioTemplate.info.backgroundVideo);
     }
     if("socials" in portfolioTemplate) {
         let portfolioSocials = document.getElementById("portfolio-socials");
