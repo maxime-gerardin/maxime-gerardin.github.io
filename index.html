@@ -47,7 +47,10 @@
             <template id="portfolio-project-template">
                 <div class="portfolio-project">
                     <div class="project-text-overlay">
-                        <div class="project-text project-title transparent"></div>
+                        <div class="project-title-container project-text transparent">
+                            <div class="project-title"></div>
+                            <div class="project-year"></div>
+                        </div>
                         <div class="project-text project-tag transparent"></div>
                     </div>
                     <a class="portfolio-project-link" href="#">
@@ -60,6 +63,10 @@
 
             <div id="projects-container">
                 <div id="projects"></div>
+            </div>
+
+            <div id="more-projects-container">
+                <a id="more-projects-text" class="underline" href="projects.html">Click to see more projects →</a>
             </div>
 
             <hr>
@@ -77,7 +84,7 @@
                             <div class="footer-section-list"></div>
                         </div>
                     </div>
-                    <div id="portfolio-copy-footer">&copy;<span id="portfolio-copy-footer-name"></span> <span id="portfolio-copy-year-footer">2025</span></div>
+                    <div id="portfolio-copy-footer">&copy;<span id="portfolio-copy-footer-name"></span> <span id="portfolio-copy-year-footer"></span></div>
                 </div>
             </footer>
 
@@ -91,7 +98,7 @@
         </template>
 
         <template id="footer-section-item-link-template">
-            <a class="footer-section-item-link" href="">
+            <a class="footer-section-item-link underline" href="">
                 <div class="footer-section-item">
                     <img class="footer-section-item-icon" src="" alt="">
                     <div class="footer-section-item-text"></div>

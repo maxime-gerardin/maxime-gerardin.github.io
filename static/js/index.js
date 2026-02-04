@@ -95,17 +95,22 @@ function fillProjects ()
     if("projects" in portfolioTemplate) {
         let projectsNode = document.getElementById("projects");
         portfolioTemplate.projects.forEach(project => {
+            if (!project.main) {
+                return
+            }
             const projectTemplate = document.getElementById("portfolio-project-template");
             let projectClone = projectTemplate.content.cloneNode(true);
             let projectElement = projectClone.querySelector(".portfolio-project")
             let projectLink = projectClone.querySelector(".portfolio-project-link")
             let projectThumbnail = projectClone.querySelector(".portfolio-project-thumbnail")
             let projectTitle = projectClone.querySelector(".project-title")
+            let projectYear = projectClone.querySelector(".project-year")
             let projectTag = projectClone.querySelector(".project-tag")
 
             projectLink.href = `./project.html#${slugify(project.name)}`
             setVideoUrl(projectThumbnail, project.videoThumbnail)
             projectTitle.innerText = project.name
+            projectYear.innerText = project.year
             projectTag.innerText = project.tags?.[0]
             observer.observe(projectElement);
             projectsNode.appendChild(projectClone)
@@ -125,6 +130,8 @@ function fillPortfolioInfo() {
 // =====================================================================
 
 async function main() {
+
+    localStorage.setItem("lastPage", window.location.href);
 
     fillHeader()
 

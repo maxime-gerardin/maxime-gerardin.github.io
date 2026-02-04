@@ -114,9 +114,17 @@ function fillProjectInfo() {
 
     if("projects" in portfolioTemplate) {
         let projectTitleNode = document.getElementById("project-title");
-        let projectThumbnailNode = document.getElementById("project-thumbnail");
         projectTitleNode.innerHTML = project.name;
-        setVideoUrl(projectThumbnailNode, project.videoThumbnail)
+        let projectThumbnailNodeImg = document.getElementById("project-thumbnail-img");
+        let projectThumbnailNode = document.getElementById("project-thumbnail");
+        if (project.imgThumbnail) {
+            projectThumbnailNode.remove()
+            projectThumbnailNodeImg.src = project.imgThumbnail;
+        }
+        else {
+            projectThumbnailNodeImg.remove()
+            setVideoUrl(projectThumbnailNode, project.videoThumbnail)
+        }
         if (project.client) {
             createProjectBoardRow("Client", project.client)
         }
@@ -147,6 +155,12 @@ function fillProjectInfo() {
 
 function setBackButton() {
     document.getElementById("back-button").onclick = () => {
+        let lastPage = localStorage.getItem("lastPage")
+        if (lastPage)
+        {
+            window.location.href = lastPage
+            return
+        }
         goToHome()
     };
 }
@@ -155,7 +169,7 @@ function setBackButton() {
 // =====================================================================
 
 async function main()
-{
+{   
     setBackButton()
 
     fillHeader()

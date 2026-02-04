@@ -6,7 +6,7 @@
     <title></title>
     <link rel="icon" type="image/png" href="">
     <link rel="stylesheet" href="./static/styles/global.css">
-    <link rel="stylesheet" href="./static/styles/project.css">
+    <link rel="stylesheet" href="./static/styles/projects.css">
     <meta name="description" content="Portfolio">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,48 +19,38 @@
 
         <div id="page-container" class="transparent">
 
-            <div id="back-button">
-                <img id="back-button-img" src="./static/assets/icons/left-arrow.svg" alt="back arrow">
-            </div>
-
             <div id="portfolio-header">
                 <a id="logo-link" href="index.html">
                     <img id="portfolio-logo" src="" alt="">
                 </a>
             </div>
 
-            <template id="project-board-row-template">
-                <div class="project-board-row">
-                    <div class="project-board-row-title"></div>
-                    <div class="project-board-row-value"></div>
-                </div>
+            <template id="project-template">
+              <div class="project">
+                <a class="project-link" href="#">
+                  <img class="project-img" src="" alt="">
+                  <div class="project-title"></div>
+                </a>
+              </div>
             </template>
 
-            <template id="project-video-media-template">
-                <div class="project-media-container">
-                    <video class="project-media" autoplay loop muted playsinline src=""></video>
-                    <div class="project-media-text"></div>
-                </div>
-            </template>
+            <div id="projects-page">
 
-            <template id="project-img-media-template">
-                <div class="project-media-container">
-                    <img class="project-media" src="" alt="">
-                    <div class="project-media-text"></div>
-                </div>
-            </template>
+              <div id="projects-page-container">
+              
+                <div id="projects-text">Projects</div>
 
-            <div id="project-container">
-                <div id="project-title"></div>
-                <video id="project-thumbnail" autoplay loop muted playsinline>
-                    <source src="" type="" />
-                </video>
-                <img id="project-thumbnail-img" src="" alt="">
-                <div id="project-board-container">
-                    <div id="project-board"></div>
+                <div id="projects-category-container">
+                  <div class="projects-category active" data-category="all">All</div>
+                  <div class="projects-category" data-category="personal">Personal Projects</div>
+                  <div class="projects-category" data-category="work">Freelance / Job</div>
+                  <div class="active-bar"></div>
                 </div>
 
-                <div id="project-medias"></div>
+                <div id="projects-container"></div>
+
+              </div>
+
             </div>
 
             <hr>
@@ -92,16 +82,16 @@
         </template>
 
         <template id="footer-section-item-link-template">
-            <a class="footer-section-item-link underline" href="">
-                <div class="footer-section-item">
-                    <img class="footer-section-item-icon" src="" alt="">
-                    <div class="footer-section-item-text"></div>
-                </div>
-            </a>
+          <a class="footer-section-item-link underline" href="">
+              <div class="footer-section-item">
+                  <img class="footer-section-item-icon" src="" alt="">
+                  <div class="footer-section-item-text"></div>
+              </div>
+          </a>
         </template>
 
         <script src="./config.js" defer></script>
         <script src="./static/js/global.js" defer></script>
-        <script src="./static/js/project.js" defer></script>
+        <script src="./static/js/projects.js" defer></script>
     </body>
 </html>

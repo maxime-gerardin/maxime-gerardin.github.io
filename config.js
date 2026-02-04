@@ -37,7 +37,9 @@ portfolioTemplate = {
     projects: [
         {
             name: "Valorant - SUPERPOWER",
+            main: true,
             videoThumbnail: "./static/assets/thumbnails/valorant.mp4",
+            imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/covers/images/089/449/851/smaller_square/maxime-gerardin-maxime-gerardin-thumbnail-1-1-1.jpg?1750975661",
             tags: ["3D", "Environments"],
             year: "2024",
             description: "Valorant worlds championship video clip SUPERPOWER",
@@ -62,6 +64,7 @@ portfolioTemplate = {
         {
             name: "Island",
             videoThumbnail: "./static/assets/thumbnails/island.mp4",
+            imgMiniThumbnail: "https://cdna.artstation.com/p/assets/video_clips/images/090/714/606/20250808092912/smaller_square/maxime-gerardin-thumb.jpg?1754663353",
             tags: ["3D", "Environments"],
             year: "2024",
             description: "Island environment",
@@ -72,6 +75,9 @@ portfolioTemplate = {
         {
             name: "Secret Lab Basement",
             videoThumbnail: "./static/assets/thumbnails/secret-lab.mp4",
+            imgThumbnail: "./static/assets/thumbnails/secret-lab-img-thumbnail.jpg",
+            imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/video_clips/images/086/989/989/smaller_square/maxime-gerardin-thumb.jpg?1744627312",
+            main: true,
             tags: ["3D", "Animation"],
             year: "2025",
             description: "Hello, here's an 3D render made a year ago. " +
@@ -112,6 +118,7 @@ portfolioTemplate = {
         {
             name: "Frozen Bridge",
             videoThumbnail: "./static/assets/thumbnails/horse.mp4",
+            imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/video_clips/images/084/424/851/20250131064131/smaller_square/maxime-gerardin-thumb.jpg?1738327292",
             tags: ["3D", "Animation"],
             year: "2025",
             description: "Here's a different shot I made to get a full grasp at my previous artwork 'Winter Bridge' inspired by Bram Lepelaar concept art",

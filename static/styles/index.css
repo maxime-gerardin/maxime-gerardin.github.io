@@ -8,7 +8,7 @@
     width: 100%;
     height: 100dvh;
     z-index: -99;
-    filter: brightness(0.2);
+    filter: brightness(0.4);
 }
 
 #portfolio-video-background {
@@ -64,7 +64,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: var(--section-margin);
+    margin-bottom: calc(var(--section-margin) / 2);
 }
 
 #projects {
@@ -113,8 +113,14 @@
     z-index: 1;
 }
 
-.project-title {
+.project-title-container {
     left: 0.5rem;
+}
+
+.project-year {
+    opacity: 0.6;
+    font-style: italic;
+    font-size: 0.75em;
 }
 
 .project-tag {
@@ -124,6 +130,19 @@
 .portfolio-project-thumbnail {
     width: 100%;
     filter: brightness(1);
+}
+
+#more-projects-container {
+    display: flex;
+    width: 100%;
+    column-gap: 0.3rem;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: calc(var(--section-margin) / 2);
+}
+
+#more-projects-container:hover {
+    cursor: pointer;
 }
 
 

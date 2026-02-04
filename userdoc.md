@@ -38,7 +38,9 @@ Liste des projets.
 Chaque projet est un **Object** avec ces clés :
 
 - **name** : Nom du projet **(String)**
-- **videoThumbnail** : Chemin vers l’aperçu vidéo ou image **(String)**
+- **videoThumbnail** : Chemin vers l’aperçu vidéo **(String)**
+- **ImgThumbnail** : Chemin vers l’aperçu image **(String)** (Si défini, affiché dans la vue projet à la place de la vidéo)
+- **ImgMiniThumbnail** : Chemin vers l’aperçu image pour la vue multi projets **(String)** 
 - **tags** : Liste de mots-clés (ex : `"3D"`, `"Animation"`) **(Array of String)**
 - **year** : Année du projet **Number**
 - **description** : Description rapide **(String)**
