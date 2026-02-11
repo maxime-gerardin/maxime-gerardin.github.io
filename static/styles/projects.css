@@ -52,7 +52,7 @@
   bottom: 0;
   height: 2px;
   width: 0;
-  background-color: #4cccff;
+  background-color: var(--blue-color);
   transition: all 0.2s ease-out;
 }
 

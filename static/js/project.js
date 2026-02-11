@@ -23,7 +23,7 @@ function getProjectByHash() {
 // =====================================================================
 // =====================================================================
 
-function createProjectBoardRow(rowTitle, rowValue)
+function createProjectBoardRow(rowTitle, rowValue, optionClasses = [])
 {
     if(rowValue)
     {
@@ -31,9 +31,10 @@ function createProjectBoardRow(rowTitle, rowValue)
         const projectRowTemplate = document.getElementById("project-board-row-template");
         let projectRowClone = projectRowTemplate.content.cloneNode(true);
         let projectTitleNode = projectRowClone.querySelector(".project-board-row-title")
-        let projectTitleValue = projectRowClone.querySelector(".project-board-row-value")
+        let projectRowValue = projectRowClone.querySelector(".project-board-row-value")
+        projectRowValue.classList.add(...optionClasses)
         projectTitleNode.innerText = rowTitle
-        projectTitleValue.innerHTML = rowValue
+        projectRowValue.innerHTML = rowValue
         projectBoard.appendChild(projectRowClone)
     }
 }
@@ -47,9 +48,13 @@ function createProjectLinksContainerHTML(project) {
     projectLinksContainer.classList.add("project-links-container");
     project.links.forEach(link => {
         let projectLink = document.createElement("a")
+        let linkArrowIcon = document.createElement("img")
+        linkArrowIcon.classList.add("link-arrow")
+        linkArrowIcon.src = "./static/assets/icons/link-arrow.svg"
         projectLink.href = link.url;
         projectLink.innerText = `${link.text}`;
         projectLink.classList.add("project-link");
+        projectLink.append(linkArrowIcon)
         projectLinksContainer.append(projectLink);
     })
 
@@ -133,7 +138,8 @@ function fillProjectInfo() {
         }
         createProjectBoardRow("Tags", project.tags.join(", "))
         createProjectBoardRow("Year", project.year)
-        createProjectBoardRow("About", project.description)
+        createProjectBoardRow("About", project.description, ["project-description"])
+        //createProjectBoardRow("Software", "Blender, Houdini")
         createProjectBoardRow("Links", createProjectLinksContainerHTML(project))
 
         let projectMedias = document.getElementById("project-medias");
