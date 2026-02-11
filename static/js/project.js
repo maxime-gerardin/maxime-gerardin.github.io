@@ -44,21 +44,53 @@ function createProjectBoardRow(rowTitle, rowValue, optionClasses = [])
 
 function createProjectLinksContainerHTML(project) {
 
-    let projectLinksContainer = document.createElement("div");
-    projectLinksContainer.classList.add("project-links-container");
-    project.links.forEach(link => {
-        let projectLink = document.createElement("a")
-        let linkArrowIcon = document.createElement("img")
-        linkArrowIcon.classList.add("link-arrow")
-        linkArrowIcon.src = "./static/assets/icons/link-arrow.svg"
-        projectLink.href = link.url;
-        projectLink.innerText = `${link.text}`;
-        projectLink.classList.add("project-link");
-        projectLink.append(linkArrowIcon)
-        projectLinksContainer.append(projectLink);
-    })
+    if (project.links)
+    {
+        let projectLinksContainer = document.createElement("div");
+        projectLinksContainer.classList.add("project-links-container");
+        project.links.forEach(link => {
+            let projectLink = document.createElement("a")
+            let linkArrowIcon = document.createElement("img")
+            linkArrowIcon.classList.add("project-link-icon")
+            linkArrowIcon.src = "./static/assets/icons/link-arrow.svg"
+            projectLink.href = link.url;
+            projectLink.innerText = `${link.text}`;
+            projectLink.classList.add("project-link");
+            projectLink.append(linkArrowIcon)
+            projectLinksContainer.append(projectLink);
+        })
 
-    return project.links.length === 0 ? "" : projectLinksContainer.outerHTML
+        return project.links.length === 0 ? "" : projectLinksContainer.outerHTML
+    }
+
+    return ""
+}
+
+// =====================================================================
+// =====================================================================
+
+function createProjectSoftwareContainerHTML(project) {
+
+    if (project.software)
+    {
+        let projectSoftwareContainer = document.createElement("div");
+        projectSoftwareContainer.classList.add("project-links-container");
+        project.software.forEach(software => {
+            let projectSoftware = document.createElement("div")
+            let softwareIcon = document.createElement("img")
+            softwareIcon.classList.add("project-software-icon")
+            softwareIcon.src = `./static/assets/icons/${software}.png`
+            projectSoftware.append(softwareIcon)
+
+            projectSoftware.insertAdjacentText("beforeend", `${software.replace("-", " ")}`);
+            projectSoftware.classList.add("project-software");
+            projectSoftwareContainer.append(projectSoftware);
+        })
+
+        return project.software.length === 0 ? "" : projectSoftwareContainer.outerHTML
+    }
+
+    return ""
 }
 
 // =====================================================================
@@ -139,7 +171,7 @@ function fillProjectInfo() {
         createProjectBoardRow("Tags", project.tags.join(", "))
         createProjectBoardRow("Year", project.year)
         createProjectBoardRow("About", project.description, ["project-description"])
-        //createProjectBoardRow("Software", "Blender, Houdini")
+        createProjectBoardRow("Software", createProjectSoftwareContainerHTML(project))
         createProjectBoardRow("Links", createProjectLinksContainerHTML(project))
 
         let projectMedias = document.getElementById("project-medias");
