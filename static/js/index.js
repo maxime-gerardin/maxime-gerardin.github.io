@@ -53,7 +53,6 @@ function highlightProject() {
 
 window.addEventListener("scroll", () => {
     if (!ticking) {
-        console.log('scroll')
         requestAnimationFrame(highlightProject);
         ticking = true;
     }
@@ -129,17 +128,27 @@ function fillPortfolioInfo() {
 // =====================================================================
 // =====================================================================
 
+(() => {
+    const fade = document.getElementById("black-fade");
+
+    window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const fadeHeight = window.innerHeight * 0.6;
+    let progress = scrollY / fadeHeight;
+    progress = Math.pow(Math.min(Math.max(progress, 0), 1), 2);
+    fade.style.backgroundColor = `rgba(0, 0, 0, ${progress})`;
+    });
+})();
+
+
+// =====================================================================
+// =====================================================================
+
 async function main() {
 
     localStorage.setItem("lastPage", window.location.href);
 
-    fillHeader()
-
     fillPortfolioInfo()
-
-    fillFooter()
-
-    applyConfigStyles()
 
     await displayPage(() => {
         document.getElementById("portfolio-about-container").classList.replace("transparent", "opaque");

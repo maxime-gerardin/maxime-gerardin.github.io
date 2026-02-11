@@ -110,15 +110,9 @@ async function main()
 {
     localStorage.setItem("lastPage", window.location.href);
 
-    fillHeader()
-
     fillProjectsInfo()
 
     setUpCategories()
-
-    fillFooter()
-
-    applyConfigStyles()
 
     await displayPage(() => {
       document.getElementById("projects-container").querySelectorAll(".project")

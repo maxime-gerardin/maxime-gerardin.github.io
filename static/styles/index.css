@@ -3,6 +3,16 @@
     --projects-padding: 0.25em;
 }
 
+#black-fade {
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+  
+    background-color: rgba(0, 0, 0, 0); /* transparent au début */
+    pointer-events: none;
+    z-index: 10;
+  }
+
 #portfolio-video-background-container {
     position: absolute;
     width: 100%;

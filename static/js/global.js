@@ -94,75 +94,6 @@ function setVideoUrl(videoElm, url)
 // =====================================================================
 // =====================================================================
 
-function fillHeader()
-{
-    let portfolioLogo = document.getElementById("portfolio-logo");
-    if("info" in portfolioTemplate) {
-        if (portfolioTemplate.info.logoCircle) {
-            portfolioLogo.classList.add("circle")
-        }
-        portfolioLogo.src = portfolioTemplate.info.logo;
-        portfolioLogo.alt = portfolioTemplate.info.logoAlt;
-        document.querySelector("link[rel~='icon']").href = portfolioTemplate.info.logo
-        document.querySelector("title").innerText = portfolioTemplate.info.fullName;
-    }
-}
-
-// =====================================================================
-// =====================================================================
-
-function fillFooterSection(sectionID, templateObj){
-    let footerSectionContact = document.getElementById(sectionID)
-    if (hasNonEmptyString(templateObj))
-    {
-        templateObj.forEach(obj => {
-            if (hasNonEmptyString(obj)) {
-                let footerItemTemplate
-                let footerItemClone
-                if(obj.url !== "") {
-                    footerItemTemplate = document.getElementById("footer-section-item-link-template");
-                    footerItemClone = footerItemTemplate.content.cloneNode(true);
-                    let footerItemLink = footerItemClone.querySelector(".footer-section-item-link")
-                    footerItemLink.href = obj.url
-                }
-                else {
-                    footerItemTemplate = document.getElementById("footer-section-item-template");
-                    footerItemClone = footerItemTemplate.content.cloneNode(true);
-                }
-                let footerItemIcon = footerItemClone.querySelector(".footer-section-item-icon")
-                let footerItemText = footerItemClone.querySelector(".footer-section-item-text")
-                footerItemIcon.src = obj.icon
-                footerItemText.innerText = obj.text
-                footerSectionContact.querySelector(".footer-section-list").appendChild(footerItemClone)
-            }
-        })
-    }
-    else {
-        footerSectionContact.style.display = "none";
-    }
-}
-
-// =====================================================================
-// =====================================================================
-
-function fillFooter() {
-
-    if("footer" in portfolioTemplate) {
-        let footerName = document.getElementById("footer-portfolio-name");
-        let footerCopyName = document.getElementById("portfolio-copy-footer-name");
-        let footerCopyYear = document.getElementById("portfolio-copy-year-footer");
-        footerName.innerText = portfolioTemplate.info.fullName
-        footerCopyName.innerText = ` ${portfolioTemplate.info.fullName}`
-        footerCopyYear.textContent = new Date().getFullYear().toString()
-
-        fillFooterSection("footer-section-contact", portfolioTemplate.footer.contact)
-        fillFooterSection("footer-section-socials", portfolioTemplate.socials)
-    }
-}
-
-// =====================================================================
-// =====================================================================
-
 async function waitForAllMedia(timeout = 10000) {
     const media = Array.from(document.querySelectorAll('img, video'));
 
@@ -197,17 +128,19 @@ async function waitForAllMedia(timeout = 10000) {
 
 async function displayPage(callback) {
 
+    applyConfigStyles()
+
     await waitForAllMedia()
 
     setTimeout(() => {
+
         document.getElementById("loading-container").style.display = "none";
         document.getElementById("page-container").classList.remove("transparent", "hidden");
 
+        document.getElementById("portfolio-logo").classList.add("scaled");
         if(callback) {
             callback()
         }
-
-        document.getElementById("portfolio-logo").classList.add("scaled");
     }, 150);
 }
 

@@ -48,7 +48,7 @@ function createProjectLinksContainerHTML(project) {
     project.links.forEach(link => {
         let projectLink = document.createElement("a")
         projectLink.href = link.url;
-        projectLink.innerText = `${link.text} ↗`;
+        projectLink.innerText = `${link.text}`;
         projectLink.classList.add("project-link");
         projectLinksContainer.append(projectLink);
     })
@@ -172,13 +172,7 @@ async function main()
 {   
     setBackButton()
 
-    fillHeader()
-
     fillProjectInfo()
-
-    fillFooter()
-
-    applyConfigStyles()
 
     await displayPage()
 }

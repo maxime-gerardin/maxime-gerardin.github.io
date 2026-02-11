@@ -19,11 +19,7 @@
 
         <div id="page-container" class="transparent">
 
-            <div id="portfolio-header">
-                <a id="logo-link" href="index.html">
-                    <img id="portfolio-logo" src="" alt="">
-                </a>
-            </div>
+            <portfolio-header></portfolio-header>
 
             <template id="project-template">
               <div class="project">
@@ -53,45 +49,14 @@
 
             </div>
 
-            <hr>
-
-            <footer>
-                <div id="footer"> 
-                    <div id="footer-info">
-                        <div id="footer-portfolio-name" class="full-name"></div>
-                        <div id="footer-section-contact" class="footer-section">
-                            <div class="footer-section-title">Contact</div>
-                            <div class="footer-section-list"></div>
-                        </div>
-                        <div id="footer-section-socials" class="footer-section">
-                            <div class="footer-section-title">Socials</div>
-                            <div class="footer-section-list"></div>
-                        </div>
-                    </div>
-                    <div id="portfolio-copy-footer">&copy;<span id="portfolio-copy-footer-name"></span> <span id="portfolio-copy-year-footer"></span></div>
-                </div>
-            </footer>
+            <portfolio-footer></portfolio-footer>
 
         </div>
-
-        <template id="footer-section-item-template">
-            <div class="footer-section-item">
-                <img class="footer-section-item-icon" src="" alt="">
-                <div class="footer-section-item-text"></div>
-            </div>
-        </template>
-
-        <template id="footer-section-item-link-template">
-          <a class="footer-section-item-link underline" href="">
-              <div class="footer-section-item">
-                  <img class="footer-section-item-icon" src="" alt="">
-                  <div class="footer-section-item-text"></div>
-              </div>
-          </a>
-        </template>
 
         <script src="./config.js" defer></script>
         <script src="./static/js/global.js" defer></script>
         <script src="./static/js/projects.js" defer></script>
+        <script src="./static/js/header.js" defer></script>
+        <script src="./static/js/footer.js" defer></script>
     </body>
 </html>
