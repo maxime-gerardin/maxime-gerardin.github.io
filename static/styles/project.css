@@ -127,7 +127,7 @@
     border-radius: 1em;
     padding: 0.25em 0.75em;
     font-size: var(--tag-font-size);
-    line-height: 0;
+    line-height: 1;
 }
 
 .project-link:hover {
@@ -152,7 +152,7 @@
     border-radius: 0.4em;
     padding: 0.45em 0.75em;
     font-size: var(--tag-font-size);
-    line-height: 0;
+    line-height: 1;
 }
 
 #project-medias {
