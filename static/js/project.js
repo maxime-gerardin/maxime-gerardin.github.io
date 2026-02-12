@@ -34,7 +34,15 @@ function createProjectBoardRow(rowTitle, rowValue, optionClasses = [])
         let projectRowValue = projectRowClone.querySelector(".project-board-row-value")
         projectRowValue.classList.add(...optionClasses)
         projectTitleNode.innerText = rowTitle
-        projectRowValue.innerHTML = rowValue
+
+        if(typeof rowValue === "string")
+        {
+            projectRowValue.innerHTML = rowValue
+        }
+        else {
+            projectRowValue.appendChild(rowValue)
+        }
+
         projectBoard.appendChild(projectRowClone)
     }
 }
@@ -60,10 +68,10 @@ function createProjectLinksContainerHTML(project) {
             projectLinksContainer.append(projectLink);
         })
 
-        return project.links.length === 0 ? "" : projectLinksContainer.outerHTML
+        return project.links.length === 0 ? null : projectLinksContainer
     }
 
-    return ""
+    return null
 }
 
 // =====================================================================
@@ -78,8 +86,9 @@ function createProjectSoftwareContainerHTML(project) {
         project.software.forEach(software => {
             let projectSoftware = document.createElement("div")
             let softwareIcon = document.createElement("img")
-            softwareIcon.classList.add("project-software-icon")
-            softwareIcon.src = `./static/assets/icons/${software}.png`
+            softwareIcon.classList.add("project-software-icon", "no-wait")
+            softwareIcon.onerror = () => {softwareIcon.remove()}
+            softwareIcon.src = `./static/assets/icons/software/${software}.png`
             projectSoftware.append(softwareIcon)
 
             projectSoftware.insertAdjacentText("beforeend", `${software.replace("-", " ")}`);
@@ -87,10 +96,34 @@ function createProjectSoftwareContainerHTML(project) {
             projectSoftwareContainer.append(projectSoftware);
         })
 
-        return project.software.length === 0 ? "" : projectSoftwareContainer.outerHTML
+        return project.software.length === 0 ? null : projectSoftwareContainer
     }
 
-    return ""
+    return null
+}
+
+// =====================================================================
+// =====================================================================
+
+function createProjectDescriptionHTML(project)
+{
+    if (project.description) 
+    {
+        let descriptionContainer = document.createElement("div")
+        descriptionContainer.id = "project-description"
+        let descriptionText = document.createElement("span");
+        descriptionText.innerHTML = project.description
+        descriptionText.id = "project-description-text"
+        let showMoreButton = document.createElement("div");
+        showMoreButton.id = "show-more-btn";
+        showMoreButton.innerHTML = "Show more"
+        
+        descriptionContainer.append(descriptionText)
+        descriptionContainer.append(showMoreButton)
+
+        return project.description.length === 0 ? null : descriptionContainer
+    }
+    return null
 }
 
 // =====================================================================
@@ -117,7 +150,6 @@ function createMediasGridLayout(project, projectMedias)
 
     // Create medias elements and apply grid layout
     projectMedias.style.gridTemplateColumns = `repeat(${maxElements}, 1fr)`;
-    console.log(mediasByGridLine);
     Object.entries(mediasByGridLine).forEach(([gridLine, medias]) => {
         let projectMediaRow = document.createElement("div");
         projectMediaRow.classList.add('project-medias-row');
@@ -141,6 +173,22 @@ function createMediasGridLayout(project, projectMedias)
         })
         projectMedias.appendChild(projectMediaRow)
     })
+}
+
+// =====================================================================
+// =====================================================================
+
+function handleDescriptionSize()
+{
+    const text = document.getElementById("project-description-text");
+    const btn = document.getElementById("show-more-btn");
+
+    btn.style.display = (text.scrollHeight <= text.clientHeight + 1) ? "none" : "block"
+
+    btn.addEventListener("click", () => {
+        text.classList.toggle("expanded");
+        btn.textContent = text.classList.contains("expanded") ? "Show less" : "Show more";
+    });
 }
 
 // =====================================================================
@@ -170,7 +218,7 @@ function fillProjectInfo() {
         }
         createProjectBoardRow("Tags", project.tags.join(", "))
         createProjectBoardRow("Year", project.year)
-        createProjectBoardRow("About", project.description, ["project-description"])
+        createProjectBoardRow("About", createProjectDescriptionHTML(project))
         createProjectBoardRow("Software", createProjectSoftwareContainerHTML(project))
         createProjectBoardRow("Links", createProjectLinksContainerHTML(project))
 
@@ -184,7 +232,7 @@ function fillProjectInfo() {
             projectMedias.style.display = "none"
         }
 
-        
+        handleDescriptionSize()
     }
 }
 

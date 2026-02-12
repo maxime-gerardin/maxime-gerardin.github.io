@@ -54,6 +54,9 @@ Chaque projet est un **Object** avec ces clés :
   - **text** : Texte descriptif (laisser vide si inutile) **(String)**
   - **controls** : `true` si vidéo avec contrôles manuels **(Boolean)**
   - **gridLine** : Numéro de la ligne dans la grille du media (Potentiellement plusieurs medias souhaités sur la même ligne en fonction du ratio) (Si la clé n'est pas présente, le media prendra toute la largeur de la grille et sera affiché à la suite) **(Number)**
+- **software** *(peut être vide)* : Liste d'outils utilisés  **(Array of String)**
+  (Doit correspondre au nom de l'image (png) dans le dossier assets/icons/software). Les espaces doivent être remplacé par `-` \
+  Exemple pour avoir DaVinci Resolve, il faut une image nommée `DaVinci-Resolve.png`. Cela ecrira `DaVinci Resolve`
 
 
 ### `footer.contact`
@@ -80,3 +83,8 @@ Police utilisée pour le nom principal :
 - **name** : Nom de la police (Google Fonts) **(String)**
 - **weights** : Plage des graisses disponibles (Checker les graisses disponibles sur le site de Google fonts en fonction de la police souhaitée) **(String)**
 - **useWeight** : Graisse utilisée (ex : `"900"`) **(String)**
+
+### `projectDescriptionMaxLine` Number
+
+Nombre max de lignes affichée pour la description d'un projet. \
+Crée ensuite un bouton pour affiche toute la description (Par défaut 4)

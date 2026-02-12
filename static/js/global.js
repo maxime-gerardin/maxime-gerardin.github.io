@@ -74,9 +74,21 @@ function applyConfigFonts()
 // =====================================================================
 // =====================================================================
 
-function applyConfigStyles(document)
+function applyProjectStyle()
 {
-    applyConfigFonts(document)
+    if(styleConfig.projectDescriptionMaxLine)
+    {
+        document.documentElement.style.setProperty('--project-description-max-line', styleConfig.projectDescriptionMaxLine);
+    }
+}
+
+// =====================================================================
+// =====================================================================
+
+function applyConfigStyles()
+{
+    applyConfigFonts()
+    applyProjectStyle()
 }
 
 // =====================================================================
@@ -95,7 +107,8 @@ function setVideoUrl(videoElm, url)
 // =====================================================================
 
 async function waitForAllMedia(timeout = 10000) {
-    const media = Array.from(document.querySelectorAll('img, video'));
+    const allMedia = Array.from(document.querySelectorAll('img, video'));
+    const media = allMedia.filter(el => !el.classList.contains("no-wait"));
 
     const mediaPromises = media.map(m => new Promise(resolve => {
         if (m.tagName === 'IMG') {
