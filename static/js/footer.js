@@ -2,6 +2,16 @@ class PortfolioFooter extends HTMLElement {
 
   static footerItemTemplate = document.createElement("template");
   static footerItemLinkTemplate = document.createElement("template");
+  static footerMenu = [
+    {
+        text: "Home",
+        url: "index.html"
+    },
+    {
+      text: "Projects",
+      url: "projects.html"
+    }
+  ]
 
   fillFooterSection(sectionID, templateObj){
     let footerSectionContact = this.querySelector(`#${sectionID}`)
@@ -23,7 +33,11 @@ class PortfolioFooter extends HTMLElement {
             }
             let footerItemIcon = footerItemClone.querySelector(".footer-section-item-icon")
             let footerItemText = footerItemClone.querySelector(".footer-section-item-text")
-            footerItemIcon.src = obj.icon
+            if (obj.icon) {
+              footerItemIcon.src = obj.icon
+            } else {
+              footerItemIcon.remove()
+            }
             footerItemText.innerText = obj.text
             footerSectionContact.querySelector(".footer-section-list").appendChild(footerItemClone)
           }
@@ -56,6 +70,10 @@ class PortfolioFooter extends HTMLElement {
         <div id="footer"> 
             <div id="footer-info">
                 <div id="footer-portfolio-name" class="full-name"></div>
+                <div id="footer-section-menu" class="footer-section">
+                    <div class="footer-section-title">Menu</div>
+                    <div class="footer-section-list"></div>
+                </div>
                 <div id="footer-section-contact" class="footer-section">
                     <div class="footer-section-title">Contact</div>
                     <div class="footer-section-list"></div>
@@ -77,6 +95,7 @@ class PortfolioFooter extends HTMLElement {
       footerCopyName.innerText = ` ${portfolioTemplate.info.fullName}`
       footerCopyYear.textContent = new Date().getFullYear().toString()
 
+      this.fillFooterSection("footer-section-menu", PortfolioFooter.footerMenu)
       this.fillFooterSection("footer-section-contact", portfolioTemplate.footer.contact)
       this.fillFooterSection("footer-section-socials", portfolioTemplate.socials)
     }
