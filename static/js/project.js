@@ -87,11 +87,16 @@ function createProjectSoftwareContainerHTML(project) {
             let projectSoftware = document.createElement("div")
             let softwareIcon = document.createElement("img")
             softwareIcon.classList.add("project-software-icon", "no-wait")
-            softwareIcon.onerror = () => {softwareIcon.remove()}
-            softwareIcon.src = `./static/assets/icons/software/${software}.png`
-            projectSoftware.append(softwareIcon)
-
-            projectSoftware.insertAdjacentText("beforeend", `${software.replace("-", " ")}`);
+            if ("softwares" in portfolioTemplate && software in portfolioTemplate.softwares) 
+            {
+                softwareIcon.src = `./static/assets/icons/software/${portfolioTemplate.softwares[software]}`
+                projectSoftware.append(softwareIcon)
+            }
+            else 
+            {
+                softwareIcon.remove()
+            }
+            projectSoftware.insertAdjacentText("beforeend", `${software}`);
             projectSoftware.classList.add("project-software");
             projectSoftwareContainer.append(projectSoftware);
         })

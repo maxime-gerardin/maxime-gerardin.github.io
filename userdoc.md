@@ -24,6 +24,11 @@ Informations générales du portfolio :
 - **logoAlt** : Texte alternatif (affiché si pas d'image) pour le logo **(String)**
 
 
+### `softwares`
+Dictionnaire des outils utilisés dans les projets (avec logo)  
+Il s'agit d'un dictionnaire avec comme clé **(String)** le texte à afficher pour l'outil et en valeur **(String)** le nom de l'image (à placer dans assets/icons/software)
+
+
 ### `socials`
 Liste des réseaux sociaux.  
 Chaque entrée est un **Object** avec ces clés:
@@ -55,8 +60,7 @@ Chaque projet est un **Object** avec ces clés :
   - **controls** : `true` si vidéo avec contrôles manuels **(Boolean)**
   - **gridLine** : Numéro de la ligne dans la grille du media (Potentiellement plusieurs medias souhaités sur la même ligne en fonction du ratio) (Si la clé n'est pas présente, le media prendra toute la largeur de la grille et sera affiché à la suite) **(Number)**
 - **software** *(peut être vide)* : Liste d'outils utilisés  **(Array of String)**
-  (Doit correspondre au nom de l'image (png) dans le dossier assets/icons/software). Les espaces doivent être remplacé par `-` \
-  Exemple pour avoir DaVinci Resolve, il faut une image nommée `DaVinci-Resolve.png`. Cela ecrira `DaVinci Resolve`
+  Si le texte est trouvé dans le dictionnaires des outils, alors il prend l'image correspondante. Sinon il affiche juste le texte.
 
 
 ### `footer.contact`
