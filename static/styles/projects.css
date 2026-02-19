@@ -7,6 +7,7 @@
   --project-radius: 0.15rem;
   --project-title-font-size: 0.75rem;
   --project-text-font-size: 1.5rem;
+  --software-font-size: 0.8em;
 }
 
 #projects-page {
@@ -22,6 +23,12 @@
   row-gap: 1.5rem;
   width: var(--container-size);
   
+}
+
+#no-projects-text
+{
+  display: none;
+  font-style: italic;
 }
 
 #projects-text {
@@ -54,6 +61,10 @@
   width: 0;
   background-color: var(--blue-color);
   transition: all 0.2s ease-out;
+}
+
+.project-software-icon {
+  width: 1em;
 }
 
 #projects-container {
@@ -135,7 +146,8 @@
     --project-text-font-size: 2rem;
     --project-category-font-size: 1em;
     --project-radius: 0.5rem;
-    --project-title-font-size: 1.5em;
+    --project-title-font-size: 1.2em;
+    --software-font-size: 1em;
   }
 }
 
@@ -146,6 +158,7 @@
     --project-category-font-size: 1.25em;
     --project-radius: 0.25rem;
     --project-title-font-size: 1.25em;
+    --software-font-size: 1em;
   }
 }
 
@@ -156,6 +169,7 @@
     --project-category-font-size: 1.25em;
     --project-radius: 0.25rem;
     --project-title-font-size: 1.25em;
+    --software-font-size: 1em;
   }
 }
 
@@ -168,6 +182,7 @@
     --project-category-font-size: 1.25em;
     --project-radius: 0.25rem;
     --project-title-font-size: 1.25em;
+    --software-font-size: 0.9em;
   }
 }
 

@@ -11,12 +11,36 @@ function fillProjectsInfo()
         let projectTitle = projectClone.querySelector(".project-title")
 
         projectElm.dataset.category = project.client ? "work" : "personal"
+        projectElm.dataset.softwares = project.software.map(s => s.toLowerCase()).join(",")
         projectLink.href = `./project.html#${slugify(project.name)}`
         projectTitle.innerText = project.name
         projectImg.src = project.imgMiniThumbnail
         projectsNode.appendChild(projectClone)
     })
+    filterProjects("all", true)
   }
+}
+
+// =====================================================================
+// =====================================================================
+
+function addTag(tag)
+{
+  let container = document.getElementById("projects-tags-container")
+  let taglElm = createSoftwareTag(tag)
+  taglElm.addEventListener("click", () => {
+    taglElm.remove()
+    const activeCategory = document.querySelector(".projects-category.active").dataset.category;
+    const url = new URL(window.location.href);
+    const params = url.searchParams;
+    const tags = params.getAll("tag").filter(t => t.toLowerCase() !== tag);
+    params.delete("tag");
+    tags.forEach(t => params.append("tag", t));
+    window.history.replaceState({}, "", url.toString());
+    filterProjects(activeCategory)
+  })
+  container.appendChild(taglElm)
+  container.style.display = "flex"
 }
 
 // =====================================================================
@@ -45,17 +69,34 @@ function hideProjects(projects) {
 // =====================================================================
 // =====================================================================
 
-async function filterProjects(selectedCategory) {
+async function filterProjects(selectedCategory, first = false) {
     const projects = Array.from(document.querySelectorAll(".project"));
-    const currentProjects = projects.filter(proj =>
+    let currentProjects = projects.filter(proj =>
         proj.classList.contains("visible")
     );
-    const projectsToShow = projects.filter(proj =>
-        selectedCategory === "all" || proj.dataset.category === selectedCategory
-    );
 
-    await hideProjects(currentProjects);
-    await Promise.all(currentProjects.map(waitForTransition));
+    if(first) {
+      currentProjects = projects
+    }
+
+    // handle URL tags
+    const params = new URLSearchParams(window.location.search);
+    const tags = params.getAll("tag");
+    let projectsTagsContainer = document.getElementById("projects-tags-container")
+    projectsTagsContainer.replaceChildren()
+    projectsTagsContainer.style.display = tags.length == 0 ? "none" : "flex"
+    tags.forEach(t => addTag(t))
+
+    const projectsToShow = projects.filter(proj => 
+      ((selectedCategory === "all" || proj.dataset.category === selectedCategory) && 
+      (tags.length === 0 || tags.some(tag => proj.dataset.softwares.split(",").includes(tag))))
+    );
+    
+    if (!first)
+    {
+      await hideProjects(currentProjects);
+      await Promise.all(currentProjects.map(waitForTransition));
+    }
     currentProjects.forEach(proj => {proj.style.display = "none";});
 
     projectsToShow.forEach(proj => {
@@ -63,6 +104,8 @@ async function filterProjects(selectedCategory) {
         proj.offsetHeight;
         proj.classList.add("visible");
     });
+
+    document.getElementById("no-projects-text").style.display = projectsToShow.length > 0 ? "none" : "block"
 }
 
 // =====================================================================
@@ -110,16 +153,13 @@ async function main()
 {
     localStorage.setItem("lastPage", window.location.href);
 
+    applyConfigStyles()
+
     fillProjectsInfo()
 
     setUpCategories()
 
-    await displayPage(() => {
-      document.getElementById("projects-container").querySelectorAll(".project")
-                                                   .forEach((project) => {
-          project.classList.add("visible");
-      })
-  })
+    await displayPage()
 }
 
 main()

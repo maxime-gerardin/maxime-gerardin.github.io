@@ -9,7 +9,8 @@
     --border-color: rgba(128, 128, 128, 0.4);
     --footer-size: 90%;
     --header-padding: 1rem;
-    --logo-size: 4rem
+    --logo-size: 4rem;
+    --software-font-size: 1em;
 }
 
 * {
@@ -207,6 +208,33 @@ footer {
 
 .underline:not(:hover)::after {
     transform-origin: right;
+}
+
+#projects-tags-container
+{
+    display: none;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-software
+{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    column-gap: 0.4rem;
+    background-color: #252525;
+    color: var(--text-color);
+    border-radius: 0.4em;
+    padding: 0.45em 0.75em;
+    line-height: 1;
+    transition: background-color 0.2s;
+    font-size: var(--software-font-size);
+}
+
+.project-software:hover
+{
+    background-color: #3f3f3f;
 }
 
 

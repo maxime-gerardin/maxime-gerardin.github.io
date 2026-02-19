@@ -155,7 +155,7 @@ portfolioTemplate = {
             year: "2025",
             description: "Here's a different shot I made to get a full grasp at my previous artwork 'Winter Bridge' inspired by Bram Lepelaar concept art",
             client: "",
-            software: ["Blender","Speedtree"],
+            software: ["Blender","SpeedTree"],
             links: [
                 {
                     url: "https://www.artstation.com/artwork/VdzaQZ",

@@ -84,20 +84,7 @@ function createProjectSoftwareContainerHTML(project) {
         let projectSoftwareContainer = document.createElement("div");
         projectSoftwareContainer.classList.add("project-links-container");
         project.software.forEach(software => {
-            let projectSoftware = document.createElement("div")
-            let softwareIcon = document.createElement("img")
-            softwareIcon.classList.add("project-software-icon", "no-wait")
-            if ("softwares" in portfolioTemplate && software in portfolioTemplate.softwares) 
-            {
-                softwareIcon.src = `./static/assets/icons/software/${portfolioTemplate.softwares[software]}`
-                projectSoftware.append(softwareIcon)
-            }
-            else 
-            {
-                softwareIcon.remove()
-            }
-            projectSoftware.insertAdjacentText("beforeend", `${software}`);
-            projectSoftware.classList.add("project-software");
+            let projectSoftware = createSoftwareTag(software, `./projects.html?tag=${software.toLowerCase()}`)
             projectSoftwareContainer.append(projectSoftware);
         })
 
@@ -183,17 +170,37 @@ function createMediasGridLayout(project, projectMedias)
 // =====================================================================
 // =====================================================================
 
-function handleDescriptionSize()
+function handleDescriptionSize(first = false)
 {
     const text = document.getElementById("project-description-text");
     const btn = document.getElementById("show-more-btn");
+    let showMoreStr = "Show more"
+    let showLessStr = "Show less"
 
-    btn.style.display = (text.scrollHeight <= text.clientHeight + 1) ? "none" : "block"
+    const wasExpanded = text.classList.contains("expanded");
+    text.classList.remove("expanded");
+    const needsButton = text.scrollHeight > text.clientHeight + 1;
+    if (wasExpanded) text.classList.add("expanded");
+    
+    if (!needsButton)
+    {
+        text.classList.remove("expanded");
+        btn.style.display = "none";
+        btn.textContent = showMoreStr;
+    }
+    else
+    {
+        btn.style.display = "block";
+        btn.textContent = text.classList.contains("expanded") ? showLessStr : showMoreStr;
+    }
 
-    btn.addEventListener("click", () => {
-        text.classList.toggle("expanded");
-        btn.textContent = text.classList.contains("expanded") ? "Show less" : "Show more";
-    });
+    if(first === true)
+    {
+        btn.addEventListener("click", () => {
+            text.classList.toggle("expanded");
+            btn.textContent = text.classList.contains("expanded") ? showLessStr : showMoreStr;
+        });
+    }
 }
 
 // =====================================================================
@@ -237,7 +244,8 @@ function fillProjectInfo() {
             projectMedias.style.display = "none"
         }
 
-        handleDescriptionSize()
+        handleDescriptionSize(true)
+        window.addEventListener("resize", handleDescriptionSize);
     }
 }
 
@@ -261,6 +269,8 @@ function setBackButton() {
 
 async function main()
 {   
+    applyConfigStyles()
+
     setBackButton()
 
     fillProjectInfo()

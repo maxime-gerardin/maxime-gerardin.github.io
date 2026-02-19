@@ -148,6 +148,8 @@ async function main() {
 
     localStorage.setItem("lastPage", window.location.href);
 
+    applyConfigStyles()
+
     fillPortfolioInfo()
 
     await displayPage(() => {

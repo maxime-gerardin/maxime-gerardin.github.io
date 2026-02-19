@@ -60,6 +60,35 @@ function showOrHide(obj, key, element) {
 // =====================================================================
 // =====================================================================
 
+function createSoftwareTag(software, link = null)
+{
+    tagElm = document.createElement("div")
+    let sofwtareKey = Object.keys(portfolioTemplate.softwares).find(k => k.toLowerCase() === software.toLowerCase());
+    if (sofwtareKey !== undefined)
+    {
+        let tagIcon = document.createElement("img")
+        tagIcon.classList.add("project-software-icon")
+        tagIcon.src = `./static/assets/icons/software/${portfolioTemplate.softwares[sofwtareKey]}`
+        tagElm.append(tagIcon)
+    } 
+    else {
+        sofwtareKey = software
+    }
+    tagElm.insertAdjacentText("beforeend", sofwtareKey);
+    tagElm.classList.add("project-software")
+    if (link)
+    {
+        linkElm = document.createElement("a")
+        linkElm.href = link
+        linkElm.appendChild(tagElm)
+        return linkElm
+    }
+    return tagElm
+}
+
+// =====================================================================
+// =====================================================================
+
 function applyConfigFonts()
 {
     loadFonts(styleConfig.portfolioFont, styleConfig.fullNameFont);
@@ -140,8 +169,6 @@ async function waitForAllMedia(timeout = 10000) {
 // =====================================================================
 
 async function displayPage(callback) {
-
-    applyConfigStyles()
 
     await waitForAllMedia()
 

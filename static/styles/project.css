@@ -144,15 +144,7 @@
 }
 
 .project-software {
-    display: flex;
-    align-items: center;
-    column-gap: 0.25rem;
-    background-color: #252525;
-    color: var(--text-color);
-    border-radius: 0.4em;
-    padding: 0.45em 0.75em;
     font-size: var(--tag-font-size);
-    line-height: 1;
 }
 
 #project-medias {
