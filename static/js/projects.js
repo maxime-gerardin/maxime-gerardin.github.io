@@ -92,6 +92,12 @@ async function filterProjects(selectedCategory, first = false) {
       (tags.length === 0 || tags.some(tag => proj.dataset.softwares.split(",").includes(tag))))
     );
     
+    if(!first && projectsToShow.length === currentProjects.length && 
+                 projectsToShow.every((v, i) => v === currentProjects[i]))
+    {
+      return
+    }
+    
     if (!first)
     {
       await hideProjects(currentProjects);

@@ -226,8 +226,7 @@ footer {
     background-color: #252525;
     color: var(--text-color);
     border-radius: 0.4em;
-    padding: 0.45em 0.75em;
-    line-height: 1;
+    padding: 0.4em 0.75em;
     transition: background-color 0.2s;
     font-size: var(--software-font-size);
 }
