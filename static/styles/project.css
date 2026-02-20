@@ -183,6 +183,7 @@
 
 @media (max-width: 450px) {
     :root {
+        --tag-font-size: 0.9em;
         --media-max-height: 400px;
     }
 }
