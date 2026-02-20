@@ -72,6 +72,45 @@ portfolioTemplate = {
             ],
         },
         {
+            name: "Run For Forever - little image (Official Visualizer)",
+            main: true,
+            videoThumbnail: "./static/assets/thumbnails/littleImage.mp4",
+            imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/covers/images/093/886/281/smaller_square/maxime-gerardin-maxime-gerardin-still-2025-11-22-163851-6-5-1.jpg?1763826041",
+            tags: ["All Aspects"],
+            year: "2025",
+            description: "Earlier this year, the music band 'Little Image' contacted me to make a looping visualizer animation for one of their song 'Run For Forever'.They gave me 2 weeks and a lot of creative freedom, only some references as an input.I was in charge of the everything, including the final edit, and I decided to break the loop with some extra shots, which they loved!I'm genuinely happy to have worked on this, I could think of a million ways to make it better, but the published result goes deep in my heart.",
+            client: "little image",
+            software: ["Blender","DaVinci Resolve"],
+            links: [
+                {
+                    url: "https://youtu.be/8FwCfLRSq0k",
+                    text: "Watch on Youtube"
+                }
+            ],
+            medias: [
+                {
+                    src: "https://cdna.artstation.com/p/assets/images/images/093/886/392/large/maxime-gerardin-still-2025-11-22-164547-6-5-3.webp?1763826368",
+                    type: "img"
+                },
+                {
+                    src: "https://cdnb.artstation.com/p/assets/images/images/093/886/259/large/maxime-gerardin-still-2025-11-22-163851-6-5-1.webp?1763825997",
+                    type: "img"
+                },
+                {
+                    src: "https://cdna.artstation.com/p/assets/images/images/093/886/260/large/maxime-gerardin-still-2025-11-22-163854-6-5-2.webp?1763826000",
+                    type: "img"
+                },
+                {
+                    src: "https://cdnb.artstation.com/p/assets/images/images/093/886/263/large/maxime-gerardin-still-2025-11-22-163902-6-9-1.webp?1763826006",
+                    type: "img"
+                },
+                {
+                    src: "https://cdnb.artstation.com/p/assets/images/images/093/886/267/large/maxime-gerardin-still-2025-11-22-163911-6-6-1.webp?1763826011",
+                    type: "img"
+                }
+            ],
+        },
+        {
             name: "Machine Hall",
             videoThumbnail: "./static/assets/thumbnails/big-machine.mp4",
             imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/covers/images/092/135/675/smaller_square/maxime-gerardin-maxime-gerardin-still-2025-09-25-111115-3-1-1.jpg?1758793697",
@@ -148,6 +187,70 @@ portfolioTemplate = {
             ],
         },
         {
+            name: "Dark Academia Castle - Environment",
+            videoThumbnail: "https://cdn.artstation.com/p/video_sources/002/274/989/disneydarkacademia-highres-ar.mp4",
+            imgMiniThumbnail: "https://cdna.artstation.com/p/assets/covers/images/081/853/584/smaller_square/maxime-gerardin-maxime-gerardin-still-2024-11-12-125457-2-1-4.jpg?1731416614",
+            tags: ["3D"],
+            year: "2024",
+            description: "As I'm currently working on a big environment project, I like to experiment and put my skills to the test on quick side projects. Here's one that I think turned out great! I fleshed out the whole shot in just 4-5 hours and then came back and gave it some more love for 2 days.I originally wanted to make the Disney Introduction but in my own style, it differed largely from the Disney intro but I'm still really happy about it!I took the time to give it a proper breakdown, inspired by Lucas Piazzini's Jungle post, so I hope you enjoy!",
+            client: "",
+            software: ["Blender","Nuke","DaVinci Resolve"],
+            links: [
+                {
+                    url: "https://www.artstation.com/artwork/kN2bBz",
+                    text: "See on Artstation",
+                },
+            ],
+            medias: [
+                {
+                    src: "https://cdnb.artstation.com/p/assets/images/images/081/852/157/large/maxime-gerardin-still-2024-11-12-125438-2-1-1-1.jpg?1731413780",
+                    type: "img",
+                    controls: true,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/002/275/084/breakdown-01.mp4",
+                    type: "video",
+                    controls: true,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/002/275/138/breakdown-02.mp4",
+                    type: "video",
+                    controls: true,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/002/275/182/breakdown-03.mp4",
+                    type: "video",
+                    controls: true,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/002/275/270/breakdown-04.mp4",
+                    type: "video",
+                    controls: true,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/002/275/408/breakdown-05.mp4",
+                    type: "video",
+                    controls: true,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/002/275/409/breakdown-06.mp4",
+                    type: "video",
+                    controls: true,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/002/275/456/breakdown-07.mp4",
+                    type: "video",
+                    controls: true,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/002/275/457/breakdown-08.mp4",
+                    type: "video",
+                    controls: true,
+                },
+            ],
+            main: true,
+        },
+        {
             name: "Frozen Bridge",
             videoThumbnail: "./static/assets/thumbnails/horse.mp4",
             imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/video_clips/images/084/424/851/20250131064131/smaller_square/maxime-gerardin-thumb.jpg?1738327292",
@@ -155,20 +258,177 @@ portfolioTemplate = {
             year: "2025",
             description: "Here's a different shot I made to get a full grasp at my previous artwork 'Winter Bridge' inspired by Bram Lepelaar concept art",
             client: "",
-            software: ["Blender","SpeedTree"],
+            software: ["Blender","SpeedTree","DaVinci Resolve"],
             links: [
                 {
                     url: "https://www.artstation.com/artwork/VdzaQZ",
                     text: "Bram Lepelaar concept art",
                 },
                 {
-                    url: "https://www.artstation.com/artwork/VdzaQZ",
-                    text: "Winter bridge",
+                    url: "https://www.artstation.com/artwork/ob80B4",
+                    text: "See on Artstation",
                 },
             ],
             medias: [],
             main: true,
-        }
+        },
+        {
+            name: "Birth of a Tyrant",
+            videoThumbnail: "https://cdn.artstation.com/p/video_sources/001/587/795/the-hidden-library-v03.mp4",
+            imgMiniThumbnail: "https://cdna.artstation.com/p/assets/video_clips/images/068/121/262/20231011093205/smaller_square/maxime-gerardin-thumb.jpg?1697034725",
+            tags: ["3D"],
+            year: "2023",
+            description: "A shot from my upcoming shortfilm 'Birth of a Tyrant' based on the music named the same way from Joshua Kyan Aalampour.",
+            client: "",
+            software: ["Blender","DaVinci Resolve"],
+            links: [
+                {
+                    url: "https://www.artstation.com/artwork/el1Jkw",
+                    text: "See on Artstation",
+                },
+            ],
+            medias: [
+                {
+                    src: "https://cdnb.artstation.com/p/assets/images/images/068/121/335/large/maxime-gerardin-0042.jpg?1697034688",
+                    type: "img",
+                    controls: true,
+                    gridLine: 1,
+                },
+            ],
+            },
+            {
+            name: "Winter Bridge",
+            videoThumbnail: "https://cdn.artstation.com/p/video_sources/001/472/817/winter-concept-animated-shot.mp4",
+            imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/covers/images/071/088/127/smaller_square/maxime-gerardin-maxime-gerardin-low-res-v010056.jpg?1704404970",
+            tags: ["3D"],
+            year: "2023",
+            description: "I felt inspired by Bram Lepelaar's wonderful concept art after seeing someone who made a 3D version of it already That's why I wanted to challenge myself and make a 3D environment, as fast as possible, and have an animated shot in the end. It's been an interested 3 days side project and I'm excited to do more Original concept",
+            client: "",
+            software: ["Blender"],
+            links: [
+                {
+                    url: "https://www.artstation.com/artwork/VdzaQZ",
+                    text: "Original Concept",
+                },
+                {
+                    url: "https://www.artstation.com/artwork/ob80B4",
+                    text: "See on Artstation",
+                },
+            ],
+            medias: [
+                {
+                    src: "https://cdna.artstation.com/p/assets/images/images/065/577/578/large/maxime-gerardin-winter-concept-render-v05.jpg?1690737808",
+                    type: "img",
+                    controls: true,
+                    gridLine: 1,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/001/472/829/wip-video.mp4",
+                    type: "video",
+                    controls: true,
+                    gridLine: 2,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/001/472/822/playblast-v020001-0080.mp4",
+                    type: "video",
+                    controls: true,
+                    gridLine: 3,
+                },
+                {
+                    src: "https://cdnb.artstation.com/p/assets/images/images/065/578/803/large/maxime-gerardin-viewport-view-02.jpg?1690735152",
+                    type: "img",
+                    controls: true,
+                    gridLine: 4,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/001/472/865/2023-07-30-18-34-28.mp4",
+                    type: "video",
+                    controls: true,
+                    gridLine: 5,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/001/472/868/2023-07-30-18-35-01.mp4",
+                    type: "video",
+                    controls: true,
+                    gridLine: 5,
+                }
+            ],
+            },
+            {
+            name: "Gentle Is the Rain",
+            videoThumbnail: "https://cdn.artstation.com/p/video_sources/001/387/529/shot-01-gentle-is-the-rain.mp4",
+            imgMiniThumbnail: "https://cdna.artstation.com/p/assets/covers/images/094/491/798/smaller_square/maxime-gerardin-maxime-gerardin-still-2025-07-23-005543-1-8-2.jpg?1765543546",
+            tags: ["3D"],
+            year: "2023",
+            description: "A realism and lighting study based on a Chess Set. The goal was to set an instance rainy mood, playing chess while the weather is heavy",
+            client: "",
+            software: ["Blender"],
+            links: [
+                {
+                    url: "https://www.artstation.com/artwork/04oGvy",
+                    text: "See on Artstation",
+                },
+            ],
+            medias: [
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/001/387/533/shot-02.mp4",
+                    type: "video",
+                    controls: true,
+                    gridLine: 1,
+                },
+                {
+                    src: "https://cdna.artstation.com/p/assets/images/images/094/491/778/large/maxime-gerardin-still-2025-07-23-005543-1-8-2.webp?1765543497",
+                    type: "img",
+                    controls: true,
+                    gridLine: 3,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/001/387/739/turn.mp4",
+                    type: "video",
+                    controls: true,
+                    gridLine: 2,
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/002/733/174/2300.mp4",
+                    type: "video",
+                    controls: true,
+                    gridLine: 2,
+                }
+            ],
+            },
+            {
+            name: "Special Order",
+            videoThumbnail: "./static/assets/thumbnails/specialOrder.mp4",
+            imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/images/images/096/453/503/smaller_square/maxime-gerardin-still-2025-02-02-024947-2-1-1.jpg?1771376576",
+            tags: ["3D"],
+            year: "2021",
+            description: "CG environment of a kitchen I made for a shortfilm",
+            client: "",
+            software: ["Blender"],
+            links: [
+                {
+                    url: "https://www.artstation.com/artwork/5BXNNA",
+                    text: "See on Artstation",
+                },
+            ],
+            medias: [
+                {
+                    src: "https://cdnb.artstation.com/p/assets/images/images/096/453/503/large/maxime-gerardin-still-2025-02-02-024947-2-1-1.jpg?1771376576",
+                    type: "img",
+                    controls: true,
+                },
+                {
+                    src: "https://cdna.artstation.com/p/assets/images/images/060/319/218/large/maxime-gerardin-angle1.jpg?1678299199",
+                    type: "img",
+                    controls: true,
+                },
+                {
+                    src: "https://cdnb.artstation.com/p/assets/images/images/060/319/233/large/maxime-gerardin-angle3.jpg?1678299233",
+                    type: "img",
+                    controls: true,
+                }
+            ],
+            }
     ],
     footer: {
         contact: [
