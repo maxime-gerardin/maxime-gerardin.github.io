@@ -2,7 +2,7 @@ portfolioTemplate = {
     info: {
         fullName: "Maxime Gerardin",
         personalDescription: "3D Environment Generalist artist based in the south of France, creating immersive visuals for Music Clips, Ads, Films and Series",
-        logo: "./static/assets/logo.jpg",
+        logo: "https://yt3.googleusercontent.com/XZsvMWCVnMLFll6oGUoG93DaPpa3AhnaZ71bc97kfCuVf-1evgLtbE48heJ3R6cIm3Wyl-ngiA=s160-c-k-c0x00ffffff-no-rj",
         logoCircle: true,
         logoAlt: "Logo icon",
         backgroundVideo: "./static/assets/thumbnails/mainTitle.mp4",
