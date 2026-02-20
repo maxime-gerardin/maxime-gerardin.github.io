@@ -15,6 +15,7 @@ portfolioTemplate = {
         "Photoshop": "Photoshop.png",
         "RealityScan": "RealityScan.png",
         "SpeedTree": "SpeedTree.png",
+        "Nuke": "Nuke.png"
     },
     socials: [
         {
@@ -51,7 +52,8 @@ portfolioTemplate = {
             imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/covers/images/089/449/851/smaller_square/maxime-gerardin-maxime-gerardin-thumbnail-1-1-1.jpg?1750975661",
             tags: ["Environments"],
             year: "2024",
-            description: "Valorant worlds championship video clip SUPERPOWER",
+            description: "Last year, I had the opportunity to work as an environment artist at Wizz Studio for the Valorant Champions Anthem music clip - SUPERPOWER. <br>" +
+                         "It was a great opportunity for me, you can see in the post all the shot I was responsible for the environments!",
             client: "Riot Games",
             software: ["Blender"],
             links: [
@@ -66,13 +68,26 @@ portfolioTemplate = {
                     type: "video"
                 },
                 {
-                    src: "./static/assets/medias/valorant_3.mp4",
+                    src: "https://cdn.artstation.com/p/video_sources/002/700/731/shot02.mp4",
                     type: "video"
-                }
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/002/700/732/shot03.mp4",
+                    type: "video"
+                },
+                {
+                    src: "./static/assets/medias/valorant_3.mp4",
+                    type: "video",
+                },
+                {
+                    src: "https://cdn.artstation.com/p/video_sources/002/700/734/shot06.mp4",
+                    type: "video"
+                },
+
             ],
         },
         {
-            name: "Run For Forever - little image (Official Visualizer)",
+            name: "Run For Forever - little image <br> (Official Visualizer)",
             main: true,
             videoThumbnail: "./static/assets/thumbnails/littleImage.mp4",
             imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/covers/images/093/886/281/smaller_square/maxime-gerardin-maxime-gerardin-still-2025-11-22-163851-6-5-1.jpg?1763826041",
@@ -80,7 +95,7 @@ portfolioTemplate = {
             year: "2025",
             description: "Earlier this year, the music band 'Little Image' contacted me to make a looping visualizer animation for one of their song 'Run For Forever'.They gave me 2 weeks and a lot of creative freedom, only some references as an input.I was in charge of the everything, including the final edit, and I decided to break the loop with some extra shots, which they loved!I'm genuinely happy to have worked on this, I could think of a million ways to make it better, but the published result goes deep in my heart.",
             client: "little image",
-            software: ["Blender","DaVinci Resolve"],
+            software: ["Blender", "Nuke", "DaVinci Resolve"],
             links: [
                 {
                     url: "https://youtu.be/8FwCfLRSq0k",
@@ -125,9 +140,18 @@ portfolioTemplate = {
                             "a sentence that says \"You do 80% of the work in 20% of the time, and 20% of the rest of the work in 80% of the time\". For me, this means this "+
                             "project received the first 80% of love, but I'm too lazy to finetune the remaining 20% on this side experiment project.",
             client: "",
-            software: ["Blender"],
+            software: ["Blender", "Nuke", "DaVinci Resolve"],
             links: [],
-            medias: [],
+            medias: [
+                {
+                    src: "https://cdnb.artstation.com/p/assets/images/images/092/163/157/large/maxime-gerardin-still-2025-09-25-111115-3-1-1.webp?1758849680",
+                    type: "img"
+                },
+                {
+                    src: "https://cdna.artstation.com/p/assets/images/images/092/135/178/large/maxime-gerardin-viewport.webp?1758792852",
+                    type: "img"
+                }
+            ],
             main: true,
         },
         {
@@ -136,7 +160,9 @@ portfolioTemplate = {
             imgMiniThumbnail: "https://cdna.artstation.com/p/assets/video_clips/images/090/714/606/20250808092912/smaller_square/maxime-gerardin-thumb.jpg?1754663353",
             tags: ["All Aspects"],
             year: "2025",
-            description: "Island environment",
+            description: "This is a very quick test I did a few months ago, to test out my first iterations of my scattering toolkit Sylva. " +
+                         "It took me around 3-4 hours to make this render. It does have a lot of issues and stuff that would need refining haha, " +
+                         "but I honestly prefer to keep going on different projects than polishing this one. I still think it looks cool so I decide to post it anyways!",
             client: "",
             software: ["Blender"],
             links: [],
@@ -295,8 +321,8 @@ portfolioTemplate = {
                     gridLine: 1,
                 },
             ],
-            },
-            {
+        },
+        {
             name: "Winter Bridge",
             videoThumbnail: "https://cdn.artstation.com/p/video_sources/001/472/817/winter-concept-animated-shot.mp4",
             imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/covers/images/071/088/127/smaller_square/maxime-gerardin-maxime-gerardin-low-res-v010056.jpg?1704404970",
@@ -353,8 +379,8 @@ portfolioTemplate = {
                     gridLine: 5,
                 }
             ],
-            },
-            {
+        },
+        {
             name: "Gentle Is the Rain",
             videoThumbnail: "https://cdn.artstation.com/p/video_sources/001/387/529/shot-01-gentle-is-the-rain.mp4",
             imgMiniThumbnail: "https://cdna.artstation.com/p/assets/covers/images/094/491/798/smaller_square/maxime-gerardin-maxime-gerardin-still-2025-07-23-005543-1-8-2.jpg?1765543546",
@@ -381,6 +407,7 @@ portfolioTemplate = {
                     type: "img",
                     controls: true,
                     gridLine: 3,
+                    useAutoWidth: true,
                 },
                 {
                     src: "https://cdn.artstation.com/p/video_sources/001/387/739/turn.mp4",
@@ -395,8 +422,8 @@ portfolioTemplate = {
                     gridLine: 2,
                 }
             ],
-            },
-            {
+        },
+        {
             name: "Special Order",
             videoThumbnail: "./static/assets/thumbnails/specialOrder.mp4",
             imgMiniThumbnail: "https://cdnb.artstation.com/p/assets/images/images/096/453/503/smaller_square/maxime-gerardin-still-2025-02-02-024947-2-1-1.jpg?1771376576",
@@ -428,7 +455,7 @@ portfolioTemplate = {
                     controls: true,
                 }
             ],
-            }
+        }
     ],
     footer: {
         contact: [

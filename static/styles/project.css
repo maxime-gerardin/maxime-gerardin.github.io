@@ -1,9 +1,10 @@
 :root {
     --container-size: 90%;
     --grey-text-opacity: 0.5;
-    --medias-grid-gap: 1rem;
+    --medias-grid-gap: 0.75rem;
     --project-description-max-line: 4;
     --tag-font-size: 0.75em;
+    --media-max-height: 1200px;
 }
 
 #back-button {
@@ -147,6 +148,12 @@
     font-size: var(--tag-font-size);
 }
 
+.project-media-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #project-medias {
     margin-top: calc(var(--section-margin) / 1.5);
     display: flex;
@@ -161,8 +168,10 @@
 }
 
 .project-media {
+    max-height: var(--media-max-height);
     display: block;
     width: 100%;
+    max-width: 100%;
 }
 
 .project-media-text {
@@ -172,10 +181,16 @@
     opacity: var(--grey-text-opacity);
 }
 
-
-@media (max-width: 766px) {
+@media (max-width: 450px) {
     :root {
-        --tag-font-size: 0.9em
+        --media-max-height: 400px;
+    }
+}
+
+@media (min-width: 451px) and (max-width: 599px) {
+    :root {
+        --tag-font-size: 0.9em;
+        --media-max-height: 500px;
     }
     #project-description {
         font-size: 0.9em;
@@ -184,7 +199,8 @@
 
 @media (min-width: 600px) and (max-width: 767px) {
     :root {
-        --tag-font-size: 0.9em
+        --tag-font-size: 0.9em;
+        --media-max-height: 550px;
     }
     .project-media-text {
         font-size: 0.85rem;
@@ -195,6 +211,9 @@
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+        --media-max-height: 700px;
+    }
     .project-media-text {
         font-size: 0.75rem;
     }
@@ -202,12 +221,18 @@
 
 
 @media (min-width: 1024px) and (max-width: 1279px) {
+    :root {
+        --media-max-height: 900px;
+    }
     .project-media-text {
         font-size: 0.75rem;
     }
 }
 
 @media (min-width: 1280px) and (max-width: 1599px) {
+    :root {
+        --media-max-height: 1000px;
+    }
     .project-media-text {
         font-size: 0.75rem;
     }
@@ -216,6 +241,7 @@
 @media (min-width: 1600px) and (max-width: 1919px) {
     :root {
         --container-size: 80%;
+        --media-max-height: 1100px;
     }
     #project-title {
         font-size: 1.5rem;
@@ -230,7 +256,7 @@
 
 @media (min-width: 1920px) and (max-width: 2559px) {
     :root {
-        --container-size: 65%;
+        --container-size: 75%;
     }
     #project-title {
         font-size: 1.5rem;
@@ -251,7 +277,7 @@
 
 @media (min-width: 2560px) and (max-width: 3439px) {
     :root {
-        --container-size: 60%;
+        --container-size: 65%;
     }
     #project-title {
         font-size: 1.5rem;

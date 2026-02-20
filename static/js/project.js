@@ -13,7 +13,7 @@ function getProjectByHash() {
     else {
         const projectCode = window.location.hash.substring(1);
         const foundProject = portfolioTemplate.projects.find(
-            project => slugify(project.name) === projectCode
+            project => slugify(project.name.replaceAll("<br>", "")) === projectCode
         );
 
         return foundProject || goToHome();
@@ -141,7 +141,6 @@ function createMediasGridLayout(project, projectMedias)
     const maxElements = Math.max(...Object.values(mediasByGridLine).map(arr => arr.length));
 
     // Create medias elements and apply grid layout
-    projectMedias.style.gridTemplateColumns = `repeat(${maxElements}, 1fr)`;
     Object.entries(mediasByGridLine).forEach(([gridLine, medias]) => {
         let projectMediaRow = document.createElement("div");
         projectMediaRow.classList.add('project-medias-row');
@@ -151,6 +150,9 @@ function createMediasGridLayout(project, projectMedias)
             let projectMediaTemplateID = media.type === "video" ? "project-video-media-template" : "project-img-media-template";
             let projectMediaClone = document.getElementById(projectMediaTemplateID).content.cloneNode(true);
             let projectMedia = projectMediaClone.querySelector(".project-media")
+            if (media.useAutoWidth === true) {
+                projectMedia.style.width = "auto"
+            }
             projectMedia.src = media.src
             showOrHide(media, "text", projectMediaClone.querySelector(".project-media-text"))
 

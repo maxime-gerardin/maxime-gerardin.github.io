@@ -12,8 +12,8 @@ function fillProjectsInfo()
 
         projectElm.dataset.category = project.client ? "work" : "personal"
         projectElm.dataset.softwares = project.software.map(s => s.toLowerCase()).join(",")
-        projectLink.href = `./project.html#${slugify(project.name)}`
-        projectTitle.innerText = project.name
+        projectLink.href = `./project.html#${slugify(project.name.replaceAll("<br>", ""))}`
+        projectTitle.innerHTML = project.name
         projectImg.src = project.imgMiniThumbnail
         projectsNode.appendChild(projectClone)
     })
@@ -157,7 +157,7 @@ function setUpCategories()
 
 async function main()
 {
-    localStorage.setItem("lastPage", window.location.href);
+    localStorage.setItem("lastPage", window.location.origin + window.location.pathname);
 
     applyConfigStyles()
 
