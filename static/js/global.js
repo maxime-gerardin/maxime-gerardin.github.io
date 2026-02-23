@@ -105,6 +105,24 @@ function createSoftwareTag(software, link = null)
 // =====================================================================
 // =====================================================================
 
+function createExternalLink(url, text, linkClass=[], iconClass=[])
+{
+    let linkElm = document.createElement("a")
+    linkElm.classList.add(...linkClass)
+    let linkArrowIcon = document.createElement("img")
+    linkArrowIcon.classList.add(...iconClass)
+    linkArrowIcon.src = "./static/assets/icons/link-arrow.svg"
+    linkElm.href = url;
+    linkElm.innerText = text;
+    linkElm.classList.add("underline");
+    linkElm.append(linkArrowIcon)
+    
+    return linkElm
+}
+
+// =====================================================================
+// =====================================================================
+
 function applyConfigFonts()
 {
     loadFonts(styleConfig.portfolioFont, styleConfig.fullNameFont);

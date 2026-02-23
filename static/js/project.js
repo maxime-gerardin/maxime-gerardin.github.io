@@ -57,14 +57,7 @@ function createProjectLinksContainerHTML(project) {
         let projectLinksContainer = document.createElement("div");
         projectLinksContainer.classList.add("project-links-container");
         project.links.forEach(link => {
-            let projectLink = document.createElement("a")
-            let linkArrowIcon = document.createElement("img")
-            linkArrowIcon.classList.add("project-link-icon")
-            linkArrowIcon.src = "./static/assets/icons/link-arrow.svg"
-            projectLink.href = link.url;
-            projectLink.innerText = `${link.text}`;
-            projectLink.classList.add("project-link");
-            projectLink.append(linkArrowIcon)
+            let projectLink = createExternalLink(link.url, link.text, ["project-link"], ["project-link-icon"])
             projectLinksContainer.append(projectLink);
         })
 
