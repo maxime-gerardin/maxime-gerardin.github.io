@@ -102,16 +102,15 @@ hr {
 }
 
 #portfolio-header {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     position: absolute;
     z-index: 1000;
-    padding: var(--header-padding) 0 0 var(--header-padding);
+    padding: var(--header-padding) var(--header-padding) 0 var(--header-padding);
 }
 
 #header-menu {
-    position: absolute;
-    top: 1em;
-    right: var(--header-padding);
     display: flex;
     column-gap: 1em;
 }

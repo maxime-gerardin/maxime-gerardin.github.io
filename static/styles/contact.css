@@ -20,7 +20,6 @@
 
 #contact-description {
     font-size: 1.75em;
-    text-transform: uppercase;
     font-weight: bold;
     text-align: center;
 }
@@ -36,11 +35,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 0.25em;
+    row-gap: 0.35em;
+}
+
+.contact-info-link {
+    display: flex;
+    align-items: end;
+    column-gap: 0.15em;
 }
 
 .contact-info a {
     line-height: 1;
+}
+
+.link-icon {
+    width: 0.8em;
+    filter: invert(1);
 }
 
 .contact-info-title {

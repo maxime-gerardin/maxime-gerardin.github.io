@@ -21,17 +21,19 @@ portfolioTemplate = {
         {
             text: "ArtStation",
             icon: "./static/assets/icons/artstation.svg",
-            url: "https://www.artstation.com/maximegerardin"
+            url: "https://www.artstation.com/maximegerardin",
         },
         {
             text: "Instagram",
             icon: "./static/assets/icons/instagram.svg",
-            url: "https://www.instagram.com/maxime.gerardin"
+            url: "https://www.instagram.com/maxime.gerardin",
+            showContact: true
         },
         {
             text: "LinkedIn",
             icon: "./static/assets/icons/linkedin.svg",
-            url: "https://www.linkedin.com/in/maximusgerardin/"
+            url: "https://www.linkedin.com/in/maximusgerardin/",
+            showContact: true
         },
         {
             text: "Patreon",
@@ -464,13 +466,6 @@ portfolioTemplate = {
                 icon: "./static/assets/icons/mail.svg",
                 url: "mailto:maximegerardincontact@gmail.com",
                 text: "maximegerardincontact@gmail.com",
-            },
-            {
-                title: "Social",
-                icon: "",
-                url: "https://www.linkedin.com/in/maximusgerardin/",
-                text: "My LinkedIn",
-                showFooter : false
             },
             {
                 title: "Location",
