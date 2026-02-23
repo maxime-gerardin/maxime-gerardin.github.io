@@ -10,6 +10,10 @@ class PortfolioFooter extends HTMLElement {
     {
       text: "Projects",
       url: "projects.html"
+    },
+    {
+      text: "Contact",
+      url: "contact.html"
     }
   ]
 
@@ -18,7 +22,8 @@ class PortfolioFooter extends HTMLElement {
     if (hasNonEmptyString(templateObj))
     {
         templateObj.forEach(obj => {
-          if (hasNonEmptyString(obj)) {
+          console.log(obj);
+          if (hasNonEmptyString(obj) && obj?.showFooter !== false) {
             let footerItemTemplate
             let footerItemClone
             if(obj.url !== "") {
@@ -95,7 +100,7 @@ class PortfolioFooter extends HTMLElement {
       footerCopyName.innerText = ` ${portfolioTemplate.info.fullName}`
       footerCopyYear.textContent = new Date().getFullYear().toString()
 
-      this.fillFooterSection("footer-section-menu", PortfolioFooter.footerMenu)
+      this.fillFooterSection("footer-section-menu", PortfolioMenu())
       this.fillFooterSection("footer-section-contact", portfolioTemplate.footer.contact)
       this.fillFooterSection("footer-section-socials", portfolioTemplate.socials)
     }

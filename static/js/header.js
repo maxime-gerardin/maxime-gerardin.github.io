@@ -1,12 +1,27 @@
 class PortfolioHeader extends HTMLElement {
 
+  createMenu(container) {
+    PortfolioMenu().forEach((menuItem) => {
+      if (menuItem?.home !== true) {
+        let menuLink = document.createElement("a");
+        menuLink.classList.add("project-menu", "underline");
+        menuLink.href = menuItem.url;
+        menuLink.innerHTML = menuItem.text;
+        container.appendChild(menuLink);
+      }
+    })
+  }
+
   connectedCallback() {
     this.innerHTML = `
       <div id="portfolio-header">
         <a id="logo-link" href="index.html">
             <img id="portfolio-logo" src="" alt="">
         </a>
+        <div id="header-menu"></div>
       </div>`;
+
+      this.createMenu(document.getElementById("header-menu"))
 
       let portfolioLogo = document.getElementById("portfolio-logo");
       if("info" in portfolioTemplate) {
