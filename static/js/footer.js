@@ -22,7 +22,6 @@ class PortfolioFooter extends HTMLElement {
     if (hasNonEmptyString(templateObj))
     {
         templateObj.forEach(obj => {
-          console.log(obj);
           if (hasNonEmptyString(obj) && obj?.showFooter !== false) {
             let footerItemTemplate
             let footerItemClone
