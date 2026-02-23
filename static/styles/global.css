@@ -15,8 +15,8 @@
     --menu-display: flex;
     --burger-menu-display: none;
     --header-burger-menu-height: 1em;
-    --header-burger-menu-width: 1.5em;
-    --header-burger-menu-line-height: 0.1em;
+    --header-burger-menu-width: 1.75em;
+    --header-burger-menu-line-height: 1px;
 }
 
 * {
@@ -157,17 +157,12 @@ hr {
 #header-fullscreen-menu.active {
     right: 0;
 }
-
-.menu-link {
-    /* height: fit-content; */
-}
   
 #burger-menu-links {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
     text-align: center;
-    text-transform: uppercase;
     font-weight: 500;
 }
   
@@ -333,9 +328,6 @@ footer {
     :root {
         --burger-menu-display: flex;
         --menu-display: none;
-        --header-burger-menu-height:1.25em;
-        --header-burger-menu-width:2.25em;
-        --header-burger-menu-line-height:0.15em
     }
 }
 
@@ -346,8 +338,8 @@ footer {
         --logo-size: 5rem;
         --burger-menu-display: flex;
         --menu-display: none;
-        --header-burger-menu-height:1.25em;
-        --header-burger-menu-width:2.25em;
+        --header-burger-menu-height:1.15em;
+        --header-burger-menu-width:2em;
     }
     #portfolio-name {
         font-size: 2.5rem;
