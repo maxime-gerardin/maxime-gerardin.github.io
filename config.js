@@ -460,16 +460,26 @@ portfolioTemplate = {
     footer: {
         contact: [
             {
-                icon: "./static/assets/icons/location.svg",
-                url: "",
-                text: "South of France"
-            },
-            {
+                title: "Mail",
                 icon: "./static/assets/icons/mail.svg",
                 url: "mailto:maximegerardincontact@gmail.com",
-                text: "maximegerardincontact@gmail.com"
+                text: "maximegerardincontact@gmail.com",
+            },
+            {
+                title: "Social",
+                icon: "",
+                url: "https://www.linkedin.com/in/maximusgerardin/",
+                text: "My LinkedIn",
+                showFooter : false
+            },
+            {
+                title: "Location",
+                icon: "./static/assets/icons/location.svg",
+                url: "",
+                text: "South of France",
             }
-        ]
+        ],
+        contactDescription: ""
     }
 }
 

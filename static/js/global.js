@@ -1,3 +1,19 @@
+const PortfolioMenu = () => ([
+    {
+        text: "Home",
+        url: "index.html",
+        home: true,
+    },
+    {
+        text: "Projects",
+        url: "projects.html"
+    },
+    {
+        text: "Contact",
+        url: "contact.html"
+    }
+]);
+
 function setLoadingIcon() {
     if(portfolioTemplate.info.logoCircle) {
         document.getElementById("loading-img").classList.add("circle")
@@ -62,23 +78,23 @@ function showOrHide(obj, key, element) {
 
 function createSoftwareTag(software, link = null)
 {
-    tagElm = document.createElement("div")
-    let sofwtareKey = Object.keys(portfolioTemplate.softwares).find(k => k.toLowerCase() === software.toLowerCase());
-    if (sofwtareKey !== undefined)
+    let tagElm = document.createElement("div")
+    let softwareKey = Object.keys(portfolioTemplate.softwares).find(k => k.toLowerCase() === software.toLowerCase());
+    if (softwareKey !== undefined)
     {
         let tagIcon = document.createElement("img")
         tagIcon.classList.add("project-software-icon")
-        tagIcon.src = `./static/assets/icons/software/${portfolioTemplate.softwares[sofwtareKey]}`
+        tagIcon.src = `./static/assets/icons/software/${portfolioTemplate.softwares[softwareKey]}`
         tagElm.append(tagIcon)
     } 
     else {
-        sofwtareKey = software
+        softwareKey = software
     }
-    tagElm.insertAdjacentText("beforeend", sofwtareKey);
+    tagElm.insertAdjacentText("beforeend", softwareKey);
     tagElm.classList.add("project-software")
     if (link)
     {
-        linkElm = document.createElement("a")
+        let linkElm = document.createElement("a")
         linkElm.href = link
         linkElm.appendChild(tagElm)
         return linkElm
