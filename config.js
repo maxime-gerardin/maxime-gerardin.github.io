@@ -6,7 +6,17 @@ portfolioTemplate = {
         logoCircle: true,
         logoAlt: "Logo icon",
         backgroundVideo: "./static/assets/thumbnails/mainTitle.mp4",
+        birthday: "2003-09-29",
+        startWorkingDate: "2022-01-01"
     },
+    about: [
+        {
+            "title": "About me",
+            "text": "Hi, I'm Maxime Gérardin, a {AGE} years old 3D Environment Generalist, living in the South of France and currently working as a Freelance."+
+                    "I've been working for {WORK_YEARS} years, and my key targets always have been delivering quality and creative problem solving",
+            "img": "static/assets/medias/about_1.png"
+        }
+    ],
     softwares: {
         "Blender": "Blender.png",
         "DaVinci Resolve": "DaVinci-Resolve.png",
@@ -464,8 +474,8 @@ portfolioTemplate = {
             {
                 title: "Mail",
                 icon: "./static/assets/icons/mail.svg",
-                url: "mailto:maximegerardincontact@gmail.com",
-                text: "maximegerardincontact@gmail.com",
+                url: "mailto:contact@maxime3d.com",
+                text: "contact@maxime3d.com",
             },
             {
                 title: "Location",

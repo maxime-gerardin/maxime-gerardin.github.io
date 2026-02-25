@@ -5,6 +5,10 @@ const PortfolioMenu = () => ([
         home: true,
     },
     {
+        text: "About",
+        url: "about.html"
+    },
+    {
         text: "Projects",
         url: "projects.html"
     },
@@ -66,12 +70,49 @@ function hasNonEmptyString(configObj) {
 
 function showOrHide(obj, key, element) {
     const value = obj?.[key];
-    if (value === null || value === undefined || value === "") {
-      element.style.display = "none";
-    } else {
-      element.innerText = value;
+    let isImage = element.tagName === "IMG"
+    if (value === null || value === undefined || value === "") 
+    {
+      isImage ? element.remove() : element.style.display = "none";
+      return false
+    } 
+    else if (isImage) 
+    {
+      element.src = value;
+    } 
+    else {
+      element.innerHTML = value;
     }
+    return true
   }
+
+// =====================================================================
+// =====================================================================
+
+
+function getWorkingYears() {
+    if ("startWorkingDate" in portfolioTemplate.info) {
+        const startDateStr = portfolioTemplate.info.startWorkingDate;
+        const startDate = new Date(startDateStr);
+        const today = new Date();
+        return today.getFullYear() - startDate.getFullYear();
+    }
+}
+
+function getAge() {
+    if ("birthday" in portfolioTemplate.info) {
+        const birthDateStr = portfolioTemplate.info.birthday;
+        const birthDate = new Date(birthDateStr);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        const dayDiff = today.getDate() - birthDate.getDate();
+        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+            age--; 
+        } 
+        return age
+    }
+}
 
 // =====================================================================
 // =====================================================================

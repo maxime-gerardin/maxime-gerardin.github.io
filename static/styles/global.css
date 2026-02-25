@@ -120,9 +120,9 @@ hr {
 
 #header-menu {
     display: var(--menu-display);
-    column-gap: 1em;
+    column-gap: 1.5em;
     height: fit-content;
-    font-size: 1.25em;
+    font-size: 1.15em;
 }
 
 #header-burger-menu {
@@ -133,6 +133,7 @@ hr {
     justify-content: space-between;
     cursor: pointer;
     margin: calc(var(--header-padding) / 2) calc(var(--header-padding) / 2) 0 0;
+    -webkit-tap-highlight-color: transparent;
 }
   
 #header-burger-menu span {
@@ -140,6 +141,10 @@ hr {
     height: var(--header-burger-menu-line-height);
     width: 100%;
     background-color: var(--text-color);
+}
+
+#header-burger-menu span:nth-child(2) {
+    width: 70%;
 }
 
 #header-fullscreen-menu {
