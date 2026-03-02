@@ -122,7 +122,7 @@ hr {
     display: var(--menu-display);
     column-gap: 1.5em;
     height: fit-content;
-    font-size: 1.15em;
+    font-size: 0.9em;
 }
 
 #header-burger-menu {
