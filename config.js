@@ -13,8 +13,13 @@ portfolioTemplate = {
         {
             "title": "About me",
             "text": "Hi, I'm Maxime Gérardin, a {AGE} years old 3D Environment Generalist, living in the South of France and currently working as a Freelance."+
+                    "I've been working for {WORK_YEARS} years, and my key targets always have been delivering quality and solving problems with creativity",
+            "img": "static/assets/medias/photoMaxime.jpg"
+        },
+        {
+            "text": "Hi, I'm Maxime Gérardin, a {AGE} years old 3D Environment Generalist, living in the South of France and currently working as a Freelance."+
                     "I've been working for {WORK_YEARS} years, and my key targets always have been delivering quality and creative problem solving",
-            "img": "static/assets/medias/about_1.png"
+            "img": "static/assets/medias/about02.jpg"
         }
     ],
     softwares: {
