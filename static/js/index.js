@@ -113,6 +113,11 @@ function fillProjects ()
             projectTag.innerText = project.tags?.[0]
             observer.observe(projectElement);
             projectsNode.appendChild(projectClone)
+
+            let poster = "./static/assets/thumbnails/posters/"
+            poster += (project.videoThumbnail.startsWith("http") ? "defaultPoster.png" :
+                                                                   filename(project.videoThumbnail) + ".jpg")
+            projectThumbnail.poster = poster
         })
     }
 }
@@ -158,7 +163,7 @@ async function main() {
                                                               .forEach((project) => {
             project.classList.add("scaled");
         })
-    })
+    }, false)
 }
 
 main()

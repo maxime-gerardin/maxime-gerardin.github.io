@@ -37,14 +37,14 @@
 
             <template id="project-video-media-template">
                 <div class="project-media-container">
-                    <video class="project-media" autoplay loop muted playsinline src=""></video>
+                    <video class="project-media no-wait-media" autoplay loop muted playsinline src=""></video>
                     <div class="project-media-text"></div>
                 </div>
             </template>
 
             <template id="project-img-media-template">
                 <div class="project-media-container">
-                    <img class="project-media" src="" alt="">
+                    <img class="project-media no-wait-media" src="" alt="">
                     <div class="project-media-text"></div>
                 </div>
             </template>
@@ -67,9 +67,10 @@
         </div>
 
         <script src="./config.js" defer></script>
-        <script src="./static/js/global.js" defer></script>
-        <script src="./static/js/project.js" defer></script>
+        <script src="./static/js/utils.js" defer></script>
         <script src="./static/js/header.js" defer></script>
         <script src="./static/js/footer.js" defer></script>
+        <script src="./static/js/global.js" defer></script>
+        <script src="./static/js/project.js" defer></script>
     </body>
 </html>

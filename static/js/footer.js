@@ -2,20 +2,6 @@ class PortfolioFooter extends HTMLElement {
 
   static footerItemTemplate = document.createElement("template");
   static footerItemLinkTemplate = document.createElement("template");
-  static footerMenu = [
-    {
-        text: "Home",
-        url: "index.html"
-    },
-    {
-      text: "Projects",
-      url: "projects.html"
-    },
-    {
-      text: "Contact",
-      url: "contact.html"
-    }
-  ]
 
   fillFooterSection(sectionID, templateObj){
     let footerSectionContact = this.querySelector(`#${sectionID}`)
@@ -56,14 +42,14 @@ class PortfolioFooter extends HTMLElement {
 
     PortfolioFooter.footerItemTemplate.innerHTML = `
       <div class="footer-section-item">
-        <img class="footer-section-item-icon" src="" alt="">
+        <img class="footer-section-item-icon no-wait-media" src="" alt="">
         <div class="footer-section-item-text"></div>
       </div>`;
 
     PortfolioFooter.footerItemLinkTemplate.innerHTML = `
       <a class="footer-section-item-link underline" href="">
         <div class="footer-section-item">
-          <img class="footer-section-item-icon" src="" alt="">
+          <img class="footer-section-item-icon no-wait-media" src="" alt="">
           <div class="footer-section-item-text"></div>
         </div>
       </a>`;

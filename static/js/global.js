@@ -1,23 +1,3 @@
-const PortfolioMenu = () => ([
-    {
-        text: "Home",
-        url: "index.html",
-        home: true,
-    },
-    {
-        text: "About",
-        url: "about.html"
-    },
-    {
-        text: "Projects",
-        url: "projects.html"
-    },
-    {
-        text: "Contact",
-        url: "contact.html"
-    }
-]);
-
 function setLoadingIcon() {
     if(portfolioTemplate.info.logoCircle) {
         document.getElementById("loading-img").classList.add("circle")
@@ -45,24 +25,6 @@ function loadFonts(...fonts) {
     const link = document.createElement('link');
     link.rel = 'stylesheet'; link.href = url;
     document.head.appendChild(link);
-}
-
-// =====================================================================
-// =====================================================================
-
-function slugify(text) {
-    return text.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-}
-
-// =====================================================================
-// =====================================================================
-
-function hasNonEmptyString(configObj) {
-    return Object.values(configObj).some(value => {
-        if (typeof value === "string") return value.trim() !== "";
-        if (typeof value === "object" && value !== null) return hasNonEmptyString(value);
-        return false;
-    });
 }
 
 // =====================================================================
@@ -98,6 +60,9 @@ function getWorkingYears() {
         return today.getFullYear() - startDate.getFullYear();
     }
 }
+
+// =====================================================================
+// =====================================================================
 
 function getAge() {
     if ("birthday" in portfolioTemplate.info) {
@@ -212,9 +177,11 @@ function setVideoUrl(videoElm, url)
 
 async function waitForAllMedia(timeout = 10000) {
     const allMedia = Array.from(document.querySelectorAll('img, video'));
-    const media = allMedia.filter(el => !el.classList.contains("no-wait"));
+    const media = allMedia.filter(el => !el.classList.contains("no-wait-media"));
+    console.log(media.length)
 
     const mediaPromises = media.map(m => new Promise(resolve => {
+        console.log(m)
         if (m.tagName === 'IMG') {
             if (m.complete && m.naturalWidth !== 0) return resolve('loaded');
             m.onload = () => resolve('loaded');
@@ -243,20 +210,25 @@ async function waitForAllMedia(timeout = 10000) {
 // =====================================================================
 // =====================================================================
 
-async function displayPage(callback) {
+async function displayPage(callback, fakeLoading = true) {
+
+    document.body.style.overflow = "hidden"
 
     await waitForAllMedia()
+
+    loadingTimeout = fakeLoading ? 150 : 0
 
     setTimeout(() => {
 
         document.getElementById("loading-container").style.display = "none";
         document.getElementById("page-container").classList.remove("transparent", "hidden");
-
         document.getElementById("portfolio-logo").classList.add("scaled");
+        document.body.style.overflow = "inherit"
+
         if(callback) {
             callback()
         }
-    }, 150);
+    }, loadingTimeout)
 }
 
 setLoadingIcon()
