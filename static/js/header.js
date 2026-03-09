@@ -33,7 +33,9 @@ class PortfolioHeader extends HTMLElement {
           <span></span>
         </div>
         <div id="header-fullscreen-menu">
-          <div id="burger-menu-close-btn"><img src="static/assets/icons/cross.svg" class="no-wait-media"></div>
+          <div id="burger-menu-close-btn">
+            <img src="static/assets/icons/cross.svg" class="no-wait-media" alt="Close">
+          </div>
           <div id="burger-menu-links"></div>
         </div>
       </div>`;
