@@ -132,7 +132,8 @@ function createMediasGridLayout(project, projectMedias)
     }, {}); // Group medias by gridLine
 
     const maxElements = Math.max(...Object.values(mediasByGridLine).map(arr => arr.length));
-
+    
+    let mediaCount = 1
     // Create medias elements and apply grid layout
     Object.entries(mediasByGridLine).forEach(([gridLine, medias]) => {
         let projectMediaRow = document.createElement("div");
@@ -156,8 +157,12 @@ function createMediasGridLayout(project, projectMedias)
                     projectMedia.play().catch();
                 };
             }
+            else {
+                projectMedia.alt = `${cleanProjectName(project)} media ${mediaCount}`
+            }
             projectMediaRow.appendChild(projectMediaClone)
         })
+        mediaCount++
         projectMedias.appendChild(projectMediaRow)
     })
 }

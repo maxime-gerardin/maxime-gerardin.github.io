@@ -9,12 +9,26 @@ function fillAboutInfo() {
       let aboutInfoElm = aboutInfoClone.querySelector(".about-info");
 
       showOrHide(aboutInfo, "title", aboutInfoElm.querySelector(".about-info-title"))
-      let showImg = showOrHide(aboutInfo, "img", aboutInfoElm.querySelector(".about-info-img"))
-      if (!showImg) {
+      let aboutImg = aboutInfoElm.querySelector(".about-info-img")
+      let showImg = showOrHide(aboutInfo, "img", aboutImg)
+      if (showImg) {
+        aboutImg.alt = "About illustration"
+      }
+
+      let showText = showOrHide(aboutInfo, "text", aboutInfoElm.querySelector(".about-info-text"), true)
+      if (showText) {
+        let aboutInfoText = aboutInfoElm.querySelector(".about-info-text")
+        aboutInfoText.innerHTML = (aboutInfo.text.replace("{AGE}", getDiffYear(portfolioTemplate.info.birthday))
+                                                 .replace("{WORK_YEARS}", getDiffYear(portfolioTemplate.info.startWorkingDate)));
+      } 
+      else {
+        aboutInfoElm.querySelector(".about-info-text-container").remove()
+      }
+
+      if (!showImg || !showText) {
         aboutInfoElm.style.justifyContent = "center"
       }
-      let aboutInfoText = aboutInfoElm.querySelector(".about-info-text");
-      aboutInfoText.innerHTML = aboutInfo.text.replace("{AGE}", getAge()).replace("{WORK_YEARS}", getWorkingYears());
+      
       if(index % 2 == 1)
       {
         aboutInfoElm.classList.add("reverse")

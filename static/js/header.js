@@ -24,7 +24,7 @@ class PortfolioHeader extends HTMLElement {
     this.innerHTML = `
       <div id="portfolio-header">
         <a id="logo-link" href="index.html">
-            <img id="portfolio-logo" src="" alt="">
+            <img id="portfolio-logo" src="" alt="Portfolio logo">
         </a>
         <div id="header-menu"></div>
         <div id="header-burger-menu">
@@ -33,7 +33,7 @@ class PortfolioHeader extends HTMLElement {
           <span></span>
         </div>
         <div id="header-fullscreen-menu">
-          <div id="burger-menu-close-btn"><img src="static/assets/icons/cross.svg"></div>
+          <div id="burger-menu-close-btn"><img src="static/assets/icons/cross.svg" class="no-wait-media"></div>
           <div id="burger-menu-links"></div>
         </div>
       </div>`;

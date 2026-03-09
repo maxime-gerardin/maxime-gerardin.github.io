@@ -12,9 +12,10 @@ function fillProjectsInfo()
 
         projectElm.dataset.category = project.client ? "work" : "personal"
         projectElm.dataset.softwares = project.software.map(s => s.toLowerCase()).join(",")
-        projectLink.href = `./project.html#${slugify(project.name.replaceAll("<br>", ""))}`
+        projectLink.href = `./project.html#${slugify(cleanProjectName(project))}`
         projectTitle.innerHTML = project.name
         projectImg.src = project.imgMiniThumbnail
+        projectImg.alt = `${cleanProjectName(project)} thumbnail`
         projectsNode.appendChild(projectClone)
     })
     filterProjects("all", true)

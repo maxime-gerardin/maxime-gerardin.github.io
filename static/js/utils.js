@@ -44,3 +44,8 @@ function filename(path)
   const fileNameWithExt = path.split('/').pop();
   return fileNameWithExt.split('.').slice(0, -1).join('.');
 }
+
+function cleanProjectName(project)
+{
+  return project.name.replaceAll("<br>", "")
+}

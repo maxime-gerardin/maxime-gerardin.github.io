@@ -30,12 +30,12 @@ function loadFonts(...fonts) {
 // =====================================================================
 // =====================================================================
 
-function showOrHide(obj, key, element) {
+function showOrHide(obj, key, element, remove = false) {
     const value = obj?.[key];
     let isImage = element.tagName === "IMG"
     if (value === null || value === undefined || value === "") 
     {
-      isImage ? element.remove() : element.style.display = "none";
+      (isImage || remove) ? element.remove() : element.style.display = "none";
       return false
     } 
     else if (isImage) 
@@ -52,32 +52,11 @@ function showOrHide(obj, key, element) {
 // =====================================================================
 
 
-function getWorkingYears() {
-    if ("startWorkingDate" in portfolioTemplate.info) {
-        const startDateStr = portfolioTemplate.info.startWorkingDate;
-        const startDate = new Date(startDateStr);
-        const today = new Date();
-        return today.getFullYear() - startDate.getFullYear();
-    }
+function getDiffYear(date)
+{
+    return Math.abs(new Date(Date.now() - new Date(date)).getUTCFullYear() - 1970);
 }
 
-// =====================================================================
-// =====================================================================
-
-function getAge() {
-    if ("birthday" in portfolioTemplate.info) {
-        const birthDateStr = portfolioTemplate.info.birthday;
-        const birthDate = new Date(birthDateStr);
-        const today = new Date();
-        let age = today.getFullYear() - birthDate.getFullYear();
-        const monthDiff = today.getMonth() - birthDate.getMonth();
-        const dayDiff = today.getDate() - birthDate.getDate();
-        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
-            age--; 
-        } 
-        return age
-    }
-}
 
 // =====================================================================
 // =====================================================================
@@ -178,7 +157,6 @@ function setVideoUrl(videoElm, url)
 async function waitForAllMedia(timeout = 10000) {
     const allMedia = Array.from(document.querySelectorAll('img, video'));
     const media = allMedia.filter(el => !el.classList.contains("no-wait-media"));
-    console.log(media.length)
 
     const mediaPromises = media.map(m => new Promise(resolve => {
         console.log(m)
