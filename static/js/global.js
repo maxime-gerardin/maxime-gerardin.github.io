@@ -1,3 +1,5 @@
+let artstationProjects = []
+
 function setLoadingIcon() {
     if(portfolioTemplate.info.logoCircle) {
         document.getElementById("loading-img").classList.add("circle")
@@ -61,7 +63,7 @@ function getDiffYear(date)
 // =====================================================================
 // =====================================================================
 
-function createSoftwareTag(software, link = null)
+function createSoftwareTag(software, link = null, projectSoftwares = null)
 {
     let tagElm = document.createElement("div")
     let softwareKey = Object.keys(portfolioTemplate.softwares).find(k => k.toLowerCase() === software.toLowerCase());
@@ -73,7 +75,21 @@ function createSoftwareTag(software, link = null)
         tagElm.append(tagIcon)
     } 
     else {
-        softwareKey = software
+    	softwareKey = software
+        if (projectSoftwares) {
+	    	for (const softwareObj of projectSoftwares) {
+		    if(softwareObj.name.toLowerCase() === software.toLowerCase())
+		    {
+		    	let tagIcon = document.createElement("img")
+			tagIcon.classList.add("project-software-icon")
+			tagIcon.src = softwareObj.iconUrl
+			tagElm.append(tagIcon)
+			softwareKey = softwareObj.name
+			break
+		    }
+		}
+	}
+        
     }
     tagElm.insertAdjacentText("beforeend", softwareKey);
     tagElm.classList.add("project-software")
@@ -159,7 +175,6 @@ async function waitForAllMedia(timeout = 10000) {
     const media = allMedia.filter(el => !el.classList.contains("no-wait-media"));
 
     const mediaPromises = media.map(m => new Promise(resolve => {
-        console.log(m)
         if (m.tagName === 'IMG') {
             if (m.complete && m.naturalWidth !== 0) return resolve('loaded');
             m.onload = () => resolve('loaded');
@@ -210,3 +225,19 @@ async function displayPage(callback, fakeLoading = true) {
 }
 
 setLoadingIcon()
+
+// =====================================================================
+// ===================  RÉCUPÉRATION PROJETS ARTSTATION  ===============
+// =====================================================================
+async function loadArtstationProjects() {
+   try {
+
+        const res = await fetch("/data/artstation-projects.json");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        artstationProjects = await res.json();
+            
+    } catch (err) {
+        console.error("Impossible de charger les projets ArtStation:", err);
+    }
+}

@@ -9,15 +9,54 @@ function getProjectByHash() {
     const hash = window.location.hash;
     if (hash === "") {
         goToHome()
+        return null
     }
-    else {
-        const projectCode = window.location.hash.substring(1);
-        const foundProject = portfolioTemplate.projects.find(
-            project => slugify(project.name.replaceAll("<br>", "")) === projectCode
-        );
 
-        return foundProject || goToHome();
-    }
+    const projectCode = window.location.hash.substring(1);
+
+    const foundInConfig = portfolioTemplate.projects?.find(
+        project => slugify(project.name.replaceAll("<br>", "")) === projectCode
+    );
+    if (foundInConfig) return foundInConfig;
+	
+    const foundInArtstation = artstationProjects?.find(
+        project => slugify(project.name.replaceAll("<br>", "")) === projectCode
+    );
+    if (foundInArtstation) return normalizeArtstationProject(foundInArtstation);
+
+    return goToHome() || null;
+}
+
+// =====================================================================
+// =====================================================================
+
+function normalizeArtstationProject(project) {
+    const medias = (project.assets ?? [])
+        .filter(asset => asset.type === "image" || asset.type === "video")
+        .map(asset => {
+        assetType = asset.type === "image" ? "img" : "video"
+
+        return {
+            type: asset.type,
+            src: asset.url,
+            text: asset.description || undefined,
+            controls : true
+        }
+        });
+
+    return {
+        name: project.name,
+        client: null,
+        tags: (project.tags ?? []).filter(tag => tag !== "side"),
+        year: project.publishedAt ? String(new Date(project.publishedAt).getFullYear()) : null,
+        description: project.description,
+        software: (project.software ?? []).map(s => s.name),
+        softwares_url: project.software,
+        links: project.url ? [{ url: project.url, text: "View on ArtStation" }] : [],
+        imgThumbnail: project.assets?.find(asset => asset.type === "cover")?.url ?? project.assets?.find(asset => asset.type === "image")?.url,
+        videoThumbnail: null,
+        medias,
+    };
 }
 
 // =====================================================================
@@ -77,7 +116,8 @@ function createProjectSoftwareContainerHTML(project) {
         let projectSoftwareContainer = document.createElement("div");
         projectSoftwareContainer.classList.add("project-links-container");
         project.software.forEach(software => {
-            let projectSoftware = createSoftwareTag(software, `./projects.html?tag=${software.toLowerCase()}`)
+            softwareUrls = project.softwares_url ? project.softwares_url : null
+            let projectSoftware = createSoftwareTag(software, `./projects.html?tag=${software.toLowerCase()}`, softwareUrls)
             projectSoftwareContainer.append(projectSoftware);
         })
 
@@ -225,9 +265,6 @@ function fillProjectInfo() {
         if (project.client) {
             createProjectBoardRow("Client", project.client)
         }
-        else {
-            createProjectBoardRow("Client", "Personnal project")
-        }
         createProjectBoardRow("Tags", project.tags.join(", "))
         createProjectBoardRow("Year", project.year)
         createProjectBoardRow("About", createProjectDescriptionHTML(project))
@@ -269,6 +306,8 @@ function setBackButton() {
 
 async function main()
 {   
+    await loadArtstationProjects();
+    
     applyConfigStyles()
 
     setBackButton()

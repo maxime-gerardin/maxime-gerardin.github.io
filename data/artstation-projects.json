@@ -1,0 +1,256 @@
+[
+  {
+    "id": 22793057,
+    "hashId": "b05vOa",
+    "name": "Island Practice",
+    "description": "<p>After applying for a VisDev job at Framestore, who worked on 'How to Train Your Dragon', I thought my portfolio was lacking some cool Island shots. I did make one a year and half ago, but it's starting to get old and I didn't like the details on it. This quick project is a new attempt at making an island shot!</p>\n\n<p>Made in a couple hours excluding rendering.</p>",
+    "tags": [
+      "NoAI",
+      "side"
+    ],
+    "coverUrl": "https://cdna.artstation.com/p/assets/covers/images/101/905/506/20260826045107/small_square/maxime-gerardin-maxime-gerardin-still-2026-08-26-115048-1-8-2.jpg?1787738614",
+    "publishedAt": "2026-08-26T05:03:42.201-05:00",
+    "url": "https://www.artstation.com/artwork/b05vOa",
+    "assets": [
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/445/073/timeline-1.mp4",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/101/905/335/large/maxime-gerardin-still-2026-08-26-115005-1-8-1.jpg?1787738082",
+        "description": null
+      },
+      {
+        "type": "cover",
+        "url": "https://cdna.artstation.com/p/assets/covers/images/101/905/506/large/maxime-gerardin-maxime-gerardin-still-2026-08-26-115048-1-8-2.jpg?1787738614",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/101/905/393/large/maxime-gerardin-clayrender.jpg?1787738249",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/101/905/309/large/maxime-gerardin-capture-d-ecran-2026-08-26-115246.jpg?1787737980",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/444/588/2026-08-26-02-08-08.mp4",
+        "description": "showcase of the waves crashing on the beach"
+      }
+    ],
+    "software": [
+      {
+        "name": "Blender",
+        "iconUrl": "https://cdna.artstation.com/p/softwares/icons/000/000/008/default/blender_icon_1024x1024.png?1570478232"
+      },
+      {
+        "name": "DaVinci Resolve",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/001/661/default/Resolve.png?1441346332"
+      }
+    ]
+  },
+  {
+    "id": 22676798,
+    "hashId": "1L8EEq",
+    "name": "Manor in the Fields",
+    "description": "<p>Lately I've been wanting to tend more towards realism / photorealism, so I'm mostly practicing proper exposure values, proper asset lookdev and more. After talking with Lucas Piazzini, he shared some fun lookdev tips I wanted to try right away, and ended up making a little scene with those assets. It's a pretty modest environment, nothing fancy; done in 2-3 hours, but I'm happy with how it looks!</p>",
+    "tags": [
+      "NoAI",
+      "side"
+    ],
+    "coverUrl": "https://cdna.artstation.com/p/assets/images/images/101/219/782/20260730215840/small_square/maxime-gerardin-finalexport-v002-1-5-1.jpg?1785466720",
+    "publishedAt": "2026-07-29T19:51:42.762-05:00",
+    "url": "https://www.artstation.com/artwork/1L8EEq",
+    "assets": [
+      {
+        "type": "image",
+        "url": "https://cdna.artstation.com/p/assets/images/images/101/219/782/large/maxime-gerardin-finalexport-v002-1-5-1.jpg?1785466720",
+        "description": "Updated Version after a few retakes (after posting)"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/402/327/breakdown.mp4",
+        "description": "breakdown"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/402/745/sequenceexport.mp4",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/101/190/249/large/maxime-gerardin-clayrender.jpg?1785371504",
+        "description": "clay"
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/101/190/265/large/maxime-gerardin-viewport.jpg?1785371552",
+        "description": "viewport"
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/101/190/525/large/maxime-gerardin-capture-d-ecran-2026-07-30-024647.jpg?1785372593",
+        "description": "I also built my own \"Astigmatism\" node in blender's compositor. Inspired by the anamorphic edge blur gizmos in Nuke"
+      }
+    ],
+    "software": [
+      {
+        "name": "Blender",
+        "iconUrl": "https://cdna.artstation.com/p/softwares/icons/000/000/008/default/blender_icon_1024x1024.png?1570478232"
+      },
+      {
+        "name": "Gaea",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/039/999/default/Gaea_Icon_256.png?1549036528"
+      },
+      {
+        "name": "DaVinci Resolve",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/001/661/default/Resolve.png?1441346332"
+      }
+    ]
+  },
+  {
+    "id": 22363038,
+    "hashId": "V25V8P",
+    "name": "Fountain Square",
+    "description": "<p>This is a frame from my upcoming long take project, it depicts a part from the \"town\" part of the long take which is the main square.\n<br />People are living and enjoying life, but there is military oppression.</p>",
+    "tags": [
+      "NoAI",
+      "side"
+    ],
+    "coverUrl": "https://cdna.artstation.com/p/assets/images/images/100/769/160/20260713223554/small_square/maxime-gerardin-still-2026-07-14-045851-1-42-1.jpg?1784000154",
+    "publishedAt": "2026-05-19T13:07:38.096-05:00",
+    "url": "https://www.artstation.com/artwork/V25V8P",
+    "assets": [
+      {
+        "type": "image",
+        "url": "https://cdna.artstation.com/p/assets/images/images/100/769/160/large/maxime-gerardin-still-2026-07-14-045851-1-42-1.jpg?1784000154",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/099/189/675/large/maxime-gerardin-still-2026-05-19-200322-1-21-1.webp?1779213859",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/284/449/wips.mp4",
+        "description": null
+      }
+    ],
+    "software": [
+      {
+        "name": "Blender",
+        "iconUrl": "https://cdna.artstation.com/p/softwares/icons/000/000/008/default/blender_icon_1024x1024.png?1570478232"
+      },
+      {
+        "name": "Nuke",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/000/029/default/Nuke.png?1424684350"
+      },
+      {
+        "name": "DaVinci Resolve",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/001/661/default/Resolve.png?1441346332"
+      }
+    ]
+  },
+  {
+    "id": 22315681,
+    "hashId": "BkAgRl",
+    "name": "Arthropod Encounter",
+    "description": "<p>I wanted to start doing 3D without overthinking the process too much and spend more time doing concept art.\n<br />I just built a couple node assets yesterday to mix sets of PBR materials with ease, and I had fun tonight building this fun scene using my new tools.\n</p>",
+    "tags": [
+      "NoAI",
+      "side"
+    ],
+    "coverUrl": "https://cdnb.artstation.com/p/assets/images/images/098/893/903/20260509161704/small_square/maxime-gerardin-finalexport-grading-2-1-1.jpg?1778361424",
+    "publishedAt": "2026-05-09T16:17:50.700-05:00",
+    "url": "https://www.artstation.com/artwork/BkAgRl",
+    "assets": [
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/098/893/903/large/maxime-gerardin-finalexport-grading-2-1-1.webp?1778361424",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/266/076/2026-05-09-23-02-25.mp4",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/098/894/145/large/maxime-gerardin-image.webp?1778360696",
+        "description": "3 Custom nodes I made using the \"Bundles\" blender feature in Blender's shader editor, to conveniently mix set of PBR textures for a single shader."
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/266/080/pbr-mixing-showcase.mp4",
+        "description": "showcase of the pbr mixing workflow for this project's ground material"
+      }
+    ],
+    "software": [
+      {
+        "name": "Blender",
+        "iconUrl": "https://cdna.artstation.com/p/softwares/icons/000/000/008/default/blender_icon_1024x1024.png?1570478232"
+      },
+      {
+        "name": "DaVinci Resolve",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/001/661/default/Resolve.png?1441346332"
+      }
+    ]
+  },
+  {
+    "id": 21848802,
+    "hashId": "4NZBx4",
+    "name": "Airplane in the Clouds",
+    "description": "<p>I'm working on a big personal project that requires a sequence in the clouds with some military airplanes. Realism is key, and this render is my attempt at making a convincing cloudscape.\n<br />This required a few attempts at properly shading the clouds in Cycles. I was still able to make this render in only a couple of hours - which makes me happy!\n<br />The VDBs are from Samuel Krug's Patreon.</p>",
+    "tags": [
+      "NoAI",
+      "Airplane",
+      "Clouds",
+      "side"
+    ],
+    "coverUrl": "https://cdna.artstation.com/p/assets/images/images/096/044/378/20260204072045/small_square/maxime-gerardin-planessky-compandgrading4k-1-12-1.jpg?1770211246",
+    "publishedAt": "2026-02-04T07:31:04.793-06:00",
+    "url": "https://www.artstation.com/artwork/4NZBx4",
+    "assets": [
+      {
+        "type": "image",
+        "url": "https://cdna.artstation.com/p/assets/images/images/096/044/378/large/maxime-gerardin-planessky-compandgrading4k-1-12-1.webp?1770211246",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/096/044/861/large/maxime-gerardin-viewportview.webp?1770210850",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/085/284/timeline-1.mp4",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdna.artstation.com/p/assets/images/images/096/045/050/large/maxime-gerardin-nouveau-projet-1.webp?1770211175",
+        "description": "Subtle retexturing work, I wanted to add more wear to the airplane asset"
+      }
+    ],
+    "software": [
+      {
+        "name": "Blender",
+        "iconUrl": "https://cdna.artstation.com/p/softwares/icons/000/000/008/default/blender_icon_1024x1024.png?1570478232"
+      },
+      {
+        "name": "Nuke",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/000/029/default/Nuke.png?1424684350"
+      },
+      {
+        "name": "DaVinci Resolve",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/001/661/default/Resolve.png?1441346332"
+      }
+    ]
+  }
+]

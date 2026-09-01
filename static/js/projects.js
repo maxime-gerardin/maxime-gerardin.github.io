@@ -1,25 +1,75 @@
-function fillProjectsInfo()
+let allTags = []
+
+function mergeAndSortByDate(configArray, artstationArray) {
+  const merged = [
+    ...configArray.map(item => ({ ...item, source: "config", date: new Date(item.year) })),
+    ...artstationArray.map(item => ({ ...item, source: "artstation", date: new Date(item.publishedAt) })),
+  ];
+
+  merged.sort((a, b) => b.date - a.date);
+  return merged.map(({ date, ...rest }) => rest);
+}
+
+function mergeByName(arrays) {
+    const merged = [];
+
+    arrays.forEach(arr => {
+        arr.forEach(item => {
+            const existing = merged.find(
+                m => m.name.toLowerCase() === item.name.toLowerCase()
+            );
+            if (existing) {
+                Object.assign(existing, item);
+            } else {
+                merged.push({ ...item }); 
+            }
+        });
+    });
+
+    return merged;
+}
+
+async function fillAllProjectsInfo()
 {
-  if("projects" in portfolioTemplate) {
-    let projectsNode = document.getElementById("projects-container");
-    portfolioTemplate.projects.forEach(project => {
+        let configProjects = portfolioTemplate?.projects ?? []
+        let allProjects = mergeAndSortByDate(configProjects, artstationProjects)
+        
+        let softwares = []
+	
+	let projectsNode = document.getElementById("projects-container");
+        allProjects.forEach(project => {
         const projectTemplate = document.getElementById("project-template");
         let projectClone = projectTemplate.content.cloneNode(true);
         let projectElm = projectClone.querySelector(".project")
         let projectLink = projectClone.querySelector(".project-link")
         let projectImg = projectClone.querySelector(".project-img")
         let projectTitle = projectClone.querySelector(".project-title")
-
-        projectElm.dataset.category = project.client ? "work" : "personal"
-        projectElm.dataset.softwares = project.software.map(s => s.toLowerCase()).join(",")
-        projectLink.href = `./project.html#${slugify(cleanProjectName(project))}`
-        projectTitle.innerHTML = project.name
-        projectImg.src = project.imgMiniThumbnail
-        projectImg.alt = `${cleanProjectName(project)} thumbnail`
+	
+	projectTitle.innerHTML = project.name
+	
+	if(project.source === "config")
+	{
+	  projectElm.dataset.category = project.client ? "work" : "personal"
+	  projectElm.dataset.softwares = project.software.map(s => s.toLowerCase()).join(",")
+          projectLink.href = `./project.html#${slugify(cleanProjectName(project))}`
+          projectImg.src = project.imgMiniThumbnail
+          projectImg.alt = `${cleanProjectName(project)} thumbnail`
+	}
+	else if (project.source === "artstation")
+	{
+	  softwares.push(project.software)
+	  projectElm.dataset.category = "personal"
+	  projectElm.dataset.softwares = project.software.map(s => s.name.toLowerCase()).join(",")
+          projectLink.href = `./project.html#${slugify(project.name)}`
+          projectImg.src = project.coverUrl
+          projectImg.alt = `${project.name} thumbnail`
+	}
+        
         projectsNode.appendChild(projectClone)
     })
+    
+    allTags = mergeByName(softwares)
     filterProjects("all", true)
-  }
 }
 
 // =====================================================================
@@ -28,7 +78,7 @@ function fillProjectsInfo()
 function addTag(tag)
 {
   let container = document.getElementById("projects-tags-container")
-  let taglElm = createSoftwareTag(tag)
+  let taglElm = createSoftwareTag(tag, null, allTags)
   taglElm.addEventListener("click", () => {
     taglElm.remove()
     const activeCategory = document.querySelector(".projects-category.active").dataset.category;
@@ -158,11 +208,13 @@ function setUpCategories()
 
 async function main()
 {
+    await loadArtstationProjects();
+    
     localStorage.setItem("lastPage", window.location.origin + window.location.pathname);
 
     applyConfigStyles()
-
-    fillProjectsInfo()
+    
+    await fillAllProjectsInfo()
 
     setUpCategories()
 
