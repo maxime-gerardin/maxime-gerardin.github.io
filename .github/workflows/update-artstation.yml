@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install dependencies
+        run: npm install playwright
+
+      - name: Install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+
       - name: Fetch ArtStation projects
         run: node fetch-artstation.js
 
