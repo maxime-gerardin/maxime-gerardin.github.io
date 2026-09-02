@@ -2,7 +2,7 @@ name: Update ArtStation projects
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "15 6 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -19,12 +19,19 @@ jobs:
           node-version: "20"
 
       - name: Fetch ArtStation projects
-        run: node scripts/fetch-artstation.js
+        run: node fetch-artstation.js
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add data/artstation-projects.json
-          git diff --staged --quiet || git commit -m "chore: update ArtStation projects data"
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update ArtStation projects data"
           git push

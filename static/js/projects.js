@@ -173,13 +173,11 @@ function setUpCategories()
   const categories = document.querySelectorAll(".projects-category");
   const activeBar = document.querySelector(".active-bar");
 
-  window.addEventListener("DOMContentLoaded", () => {
-    const first = categories[0];
-    const rect = first.getBoundingClientRect();
-    const containerRect = first.parentElement.getBoundingClientRect();
-    activeBar.style.left = (rect.left - containerRect.left) + "px";
-    activeBar.style.width = rect.width + "px";
-  });
+  const first = categories[0];
+  const rect = first.getBoundingClientRect();
+  const containerRect = first.parentElement.getBoundingClientRect();
+  activeBar.style.left = (rect.left - containerRect.left) + "px";
+  activeBar.style.width = rect.width + "px";
 
   categories.forEach(cat => {
     cat.addEventListener("click", () => {
@@ -208,17 +206,17 @@ function setUpCategories()
 
 async function main()
 {
-    await loadArtstationProjects();
-    
-    localStorage.setItem("lastPage", window.location.origin + window.location.pathname);
+  setUpCategories()
 
-    applyConfigStyles()
-    
-    await fillAllProjectsInfo()
+  await loadArtstationProjects();
+  
+  localStorage.setItem("lastPage", window.location.origin + window.location.pathname);
 
-    setUpCategories()
+  applyConfigStyles()
+  
+  await fillAllProjectsInfo()
 
-    await displayPage()
+  await displayPage()
 }
 
 main()
