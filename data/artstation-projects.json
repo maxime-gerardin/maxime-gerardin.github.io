@@ -4,6 +4,7 @@
     "hashId": "b05vOa",
     "name": "Island Practice",
     "description": "<p>After applying for a VisDev job at Framestore, who worked on 'How to Train Your Dragon', I thought my portfolio was lacking some cool Island shots. I did make one a year and half ago, but it's starting to get old and I didn't like the details on it. This quick project is a new attempt at making an island shot!</p>\n\n<p>Made in a couple hours excluding rendering.</p>",
+    "client": null,
     "tags": [
       "NoAI",
       "side"
@@ -59,6 +60,7 @@
     "hashId": "1L8EEq",
     "name": "Manor in the Fields",
     "description": "<p>Lately I've been wanting to tend more towards realism / photorealism, so I'm mostly practicing proper exposure values, proper asset lookdev and more. After talking with Lucas Piazzini, he shared some fun lookdev tips I wanted to try right away, and ended up making a little scene with those assets. It's a pretty modest environment, nothing fancy; done in 2-3 hours, but I'm happy with how it looks!</p>",
+    "client": null,
     "tags": [
       "NoAI",
       "side"
@@ -118,6 +120,7 @@
     "hashId": "V25V8P",
     "name": "Work in Progress - Long Take Project",
     "description": "<p>This is a frame from my upcoming long take project, it depicts a part from the \"town\" part of the long take which is the main square.\n<br />People are living and working here, but there is military oppression.</p>\n\n<p>I'm sharing a work in progress because I'll most likely never finish this project, yet I'm happy with how it looks and it'd be a waste not sharing it to anyone</p>",
+    "client": null,
     "tags": [
       "NoAI",
       "side"
@@ -172,6 +175,7 @@
     "hashId": "BkAgRl",
     "name": "Arthropod Encounter",
     "description": "<p>I wanted to start doing 3D without overthinking the process too much and spend more time doing concept art.\n<br />I just built a couple node assets yesterday to mix sets of PBR materials with ease, and I had fun tonight building this fun scene using my new tools.\n</p>",
+    "client": null,
     "tags": [
       "NoAI",
       "side"
@@ -217,6 +221,7 @@
     "hashId": "4NZBx4",
     "name": "Airplane in the Clouds",
     "description": "<p>I'm working on a big personal project that requires a sequence in the clouds with some military airplanes. Realism is key, and this render is my attempt at making a convincing cloudscape.\n<br />This required a few attempts at properly shading the clouds in Cycles. I was still able to make this render in only a couple of hours - which makes me happy!\n<br />The VDBs are from Samuel Krug's Patreon.</p>",
+    "client": null,
     "tags": [
       "NoAI",
       "Airplane",

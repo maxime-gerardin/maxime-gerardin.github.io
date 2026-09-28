@@ -182,6 +182,31 @@ async function fetchAllProjectSummaries(username) {
     return { projects: allProjects, failed: false };
 }
 
+// Convertit le HTML de la description en texte brut (1 ligne par bloc).
+function htmlToText(html) {
+    if (!html) return "";
+    return html
+        .replace(/<br\s*\/?>/gi, "\n")
+        .replace(/<\/(p|div|li|h[1-6])>/gi, "\n")
+        .replace(/<[^>]+>/g, "")
+        .replace(/&nbsp;/gi, " ")
+        .replace(/&amp;/gi, "&")
+        .replace(/&lt;/gi, "<")
+        .replace(/&gt;/gi, ">")
+        .replace(/&quot;/gi, '"')
+        .replace(/&#39;|&apos;/gi, "'");
+}
+
+// Cherche "client :" (insensible à la casse et aux espaces) dans la description
+// et renvoie ce qui suit, jusqu'à la fin de la ligne. null si absent.
+function extractClient(description) {
+    const text = htmlToText(description);
+    const match = text.match(/\bclient\s*:\s*([^\n\r]+)/i);
+    if (!match) return null;
+    const value = match[1].replace(/\s+/g, " ").trim();
+    return value || null;
+}
+
 async function fetchProjectDetails(summary) {
     const hashId = summary.hash_id;
     const result = await fetchWithRetry(`https://www.artstation.com/projects/${hashId}.json`);
@@ -217,6 +242,7 @@ async function fetchProjectDetails(summary) {
         hashId: data.hash_id,
         name: data.title,
         description: data.description,
+        client: extractClient(data.description),
         tags: data.tags ?? [],
         coverUrl: summary.cover.small_square_url,
         publishedAt: data.published_at,
@@ -269,7 +295,7 @@ async function main() {
                 reusedCount++;
                 continue;
             }
-            if (unchanged && cached.hasTag && previous) {
+            if (unchanged && cached.hasTag && previous && "client" in previous) {
                 newCache[hashId] = cached;
                 selected.push(previous);
                 reusedCount++;
