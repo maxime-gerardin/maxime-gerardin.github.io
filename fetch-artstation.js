@@ -7,6 +7,7 @@ const ARTSTATION_USERNAME = "maximegerardin";
 const ARTSTATION_FILTER_TAG = "side";
 
 const OUTPUT_PATH = path.join(__dirname, "data", "artstation-projects.json");
+const CACHE_PATH = path.join(__dirname, "data", "artstation-cache.json");
 // ---------------------
 
 const USER_AGENT =
@@ -26,6 +27,22 @@ function sleep(ms) {
 // Chromium (cookies gérés automatiquement, bon Referer/Origin, bon TLS).
 let browser, context, page;
 
+// Visite la home ArtStation sans attendre "networkidle" (qui n'arrive jamais
+// sur ce site). On attend juste le DOM, puis une marge pour laisser un éventuel
+// challenge Cloudflare se résoudre. Un timeout de navigation n'est pas fatal :
+// les cookies sont souvent déjà posés, on continue.
+async function visitHome(extraWaitMs = 5000) {
+    try {
+        await page.goto("https://www.artstation.com/", {
+            waitUntil: "domcontentloaded",
+            timeout: 60000,
+        });
+    } catch (err) {
+        console.warn("  ⚠ Navigation vers la home lente/échouée :", err.message.split("\n")[0]);
+    }
+    await page.waitForTimeout(extraWaitMs);
+}
+
 async function initBrowser() {
     console.log("Lancement de Chromium headless pour passer la protection Cloudflare...");
     browser = await chromium.launch({ headless: true });
@@ -38,9 +55,7 @@ async function initBrowser() {
     });
     page = await context.newPage();
 
-    await page.goto("https://www.artstation.com/", { waitUntil: "networkidle" });
-    // Marge pour laisser un éventuel challenge JS se résoudre
-    await page.waitForTimeout(3000);
+    await visitHome(5000);
 
     console.log("Session navigateur prête.");
 }
@@ -92,12 +107,7 @@ async function fetchWithRetry(url, retries = 5, baseDelay = 2000) {
         // Si on se prend un 403, on re-visite la home pour rafraîchir la
         // session / relancer un éventuel challenge Cloudflare.
         if (result.status === 403) {
-            try {
-                await page.goto("https://www.artstation.com/", { waitUntil: "networkidle" });
-                await page.waitForTimeout(1500);
-            } catch (e) {
-                // on retente quand même l'appel JSON après
-            }
+            await visitHome(2000);
         }
     }
 }
@@ -129,6 +139,22 @@ function loadExistingData() {
         // Pas de fichier existant, ou fichier invalide : on repart de zéro
         return new Map();
     }
+}
+
+function loadCache() {
+    try {
+        const parsed = JSON.parse(fs.readFileSync(CACHE_PATH, "utf-8"));
+        return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
+    } catch (err) {
+        return {};
+    }
+}
+
+// "Version" d'un projet d'après la liste : sert à savoir s'il a changé.
+// Si aucun champ de date n'est présent, on renvoie null => on refait toujours
+// l'appel de détail (comportement sûr).
+function projectVersion(summary) {
+    return summary.updated_at ?? summary.published_at ?? null;
 }
 
 async function fetchAllProjectSummaries(username) {
@@ -208,6 +234,8 @@ async function main() {
 
     try {
         const existingByHashId = loadExistingData();
+        const oldCache = loadCache();
+        const newCache = {};
 
         console.log(`Récupération des projets de "${ARTSTATION_USERNAME}"...`);
         const { projects: summaries, failed: listFailed } = await fetchAllProjectSummaries(
@@ -215,30 +243,53 @@ async function main() {
         );
         console.log(`${summaries.length} projets trouvés au total.`);
 
-        if (listFailed && summaries.length === 0) {
+        if (listFailed) {
             console.error(
-                "Impossible de récupérer la liste des projets (erreur réseau/Cloudflare). " +
-                "Fichier existant conservé tel quel, rien n'est écrasé."
+                "Liste des projets incomplète ou inaccessible (erreur réseau/Cloudflare). " +
+                "Fichiers existants conservés tels quels, rien n'est écrasé."
             );
             return;
         }
 
         const selected = [];
         let anyDetailError = false;
+        let fetchedCount = 0;
+        let reusedCount = 0;
 
         for (const summary of summaries) {
+            const hashId = summary.hash_id;
+            const version = projectVersion(summary);
+            const cached = oldCache[hashId];
+            const previous = existingByHashId.get(hashId);
+
+            // Projet inchangé depuis le dernier run : pas d'appel de détail.
+            const unchanged = cached && version !== null && cached.version === version;
+            if (unchanged && !cached.hasTag) {
+                newCache[hashId] = cached;
+                reusedCount++;
+                continue;
+            }
+            if (unchanged && cached.hasTag && previous) {
+                newCache[hashId] = cached;
+                selected.push(previous);
+                reusedCount++;
+                continue;
+            }
+
             try {
                 const details = await fetchProjectDetails(summary);
-                if (details.tags.includes(ARTSTATION_FILTER_TAG)) {
+                fetchedCount++;
+                const hasTag = details.tags.includes(ARTSTATION_FILTER_TAG);
+                newCache[hashId] = { version, hasTag };
+                if (hasTag) {
                     console.log(`  ✓ Sélectionné: ${details.name}`);
                     selected.push(details);
                 }
             } catch (err) {
                 anyDetailError = true;
-                console.warn(`  ✗ Erreur sur ${summary.hash_id}:`, err.message);
-                // On retombe sur l'ancienne version de ce projet si on l'a déjà,
-                // plutôt que de le faire disparaître du JSON de sortie.
-                const previous = existingByHashId.get(summary.hash_id);
+                console.warn(`  ✗ Erreur sur ${hashId}:`, err.message);
+                // On garde l'ancien cache et l'ancienne version du projet.
+                if (cached) newCache[hashId] = cached;
                 if (previous) {
                     console.warn(`    → réutilisation des données précédentes pour ${previous.name}`);
                     selected.push(previous);
@@ -247,21 +298,21 @@ async function main() {
             await sleep(800 + Math.random() * 700);
         }
 
-        // Si la liste de projets est incomplète (échec en cours de route) OU si
-        // aucun projet tagué n'a pu être récupéré alors qu'on en avait déjà
-        // en mémoire, on n'écrase pas le fichier : mieux vaut garder l'ancien
-        // résultat qu'un résultat vide/partiel.
+        console.log(`Appels de détail : ${fetchedCount} — projets réutilisés depuis le cache : ${reusedCount}`);
+
+        // Garde-fou : jamais d'écrasement par un résultat vide si on avait des données.
         if (selected.length === 0 && existingByHashId.size > 0) {
             console.error(
-                "Aucun projet valide récupéré cette fois-ci. Fichier existant conservé tel quel."
+                "Aucun projet valide récupéré cette fois-ci. Fichiers existants conservés tels quels."
             );
             return;
         }
 
         fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
         fs.writeFileSync(OUTPUT_PATH, JSON.stringify(selected, null, 2), "utf-8");
+        fs.writeFileSync(CACHE_PATH, JSON.stringify(newCache, null, 2), "utf-8");
 
-        const status = listFailed || anyDetailError ? " (résultat partiel, voir avertissements ci-dessus)" : "";
+        const status = anyDetailError ? " (résultat partiel, voir avertissements ci-dessus)" : "";
         console.log(
             `\n${selected.length} projets tagués "${ARTSTATION_FILTER_TAG}" écrits dans ${OUTPUT_PATH}${status}`
         );
