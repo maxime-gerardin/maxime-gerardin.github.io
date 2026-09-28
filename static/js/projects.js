@@ -46,10 +46,10 @@ async function fillAllProjectsInfo()
         let projectTitle = projectClone.querySelector(".project-title")
 	
 	projectTitle.innerHTML = project.name
+  projectElm.dataset.category = project.client ? "work" : "personal"
 	
 	if(project.source === "config")
 	{
-	  projectElm.dataset.category = project.client ? "work" : "personal"
 	  projectElm.dataset.softwares = project.software.map(s => s.toLowerCase()).join(",")
           projectLink.href = `./project.html#${slugify(cleanProjectName(project))}`
           projectImg.src = project.imgMiniThumbnail
@@ -58,7 +58,6 @@ async function fillAllProjectsInfo()
 	else if (project.source === "artstation")
 	{
 	  softwares.push(project.software)
-	  projectElm.dataset.category = "personal"
 	  projectElm.dataset.softwares = project.software.map(s => s.name.toLowerCase()).join(",")
           projectLink.href = `./project.html#${slugify(project.name)}`
           projectImg.src = project.coverUrl

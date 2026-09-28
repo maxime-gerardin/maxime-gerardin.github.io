@@ -46,7 +46,7 @@ function normalizeArtstationProject(project) {
 
     return {
         name: project.name,
-        client: null,
+        client: project.client,
         tags: (project.tags ?? []).filter(tag => tag !== "side"),
         year: project.publishedAt ? String(new Date(project.publishedAt).getFullYear()) : null,
         description: project.description,
