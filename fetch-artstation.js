@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { chromium } = require("playwright");
 
 // --- À CONFIGURER ---
 const ARTSTATION_USERNAME = "maximegerardin";
@@ -15,29 +16,42 @@ const HEADERS = {
     "Referer": "https://www.artstation.com/",
 };
 
-// Petite pause entre les requêtes pour éviter de se faire bloquer par
-// le anti-bot d'ArtStation (Cloudflare) quand on enchaîne beaucoup d'appels.
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Node ne gère pas les cookies automatiquement comme un navigateur.
-// On récupère les cookies de session sur la page d'accueil une première fois,
-// puis on les renvoie sur toutes les requêtes suivantes — ça évite d'être
-// traité comme un bot "anonyme" par Cloudflare sur chaque appel.
+// --- NOUVEAU : warm-up via un vrai navigateur (Playwright) ---
+// On ouvre artstation.com dans Chromium headless. S'il y a un challenge
+// Cloudflare, Chromium le résout comme le ferait un humain, et le cookie
+// "cf_clearance" (entre autres) est posé dans le contexte du navigateur.
+// On récupère ensuite tous les cookies du domaine pour les réinjecter
+// dans nos appels fetch() classiques.
 async function warmUpSession() {
-    const res = await fetch("https://www.artstation.com/", { headers: HEADERS });
-    const setCookie = res.headers.get("set-cookie");
-    if (setCookie) {
-        // On ne garde que les paires nom=valeur, sans les attributs (Path, Expires...)
-        HEADERS["Cookie"] = setCookie
-            .split(/,(?=[^;]+=[^;]+;? )/) // sépare les multiples cookies renvoyés
-            .map(c => c.split(";")[0])
-            .join("; ");
-    }
-}
+    console.log("Lancement de Chromium headless pour passer la protection Cloudflare...");
+    const browser = await chromium.launch({ headless: true });
+    const context = await browser.newContext({
+        userAgent: HEADERS["User-Agent"],
+        locale: "fr-FR",
+    });
+    const page = await context.newPage();
 
-// Requête avec retry + backoff exponentiel en cas de blocage anti-bot (403/429).
+    await page.goto("https://www.artstation.com/", { waitUntil: "networkidle" });
+
+    // Petite marge pour laisser le temps à un éventuel challenge JS de se résoudre
+    await page.waitForTimeout(3000);
+
+    const cookies = await context.cookies();
+    await browser.close();
+
+    if (cookies.length === 0) {
+        throw new Error("Aucun cookie récupéré — le challenge Cloudflare n'a probablement pas été résolu.");
+    }
+
+    HEADERS["Cookie"] = cookies.map(c => `${c.name}=${c.value}`).join("; ");
+    console.log(`Session initialisée avec ${cookies.length} cookies.`);
+}
+// --- FIN NOUVEAU ---
+
 async function fetchWithRetry(url, retries = 5, baseDelay = 2000) {
     for (let attempt = 0; attempt <= retries; attempt++) {
         const res = await fetch(url, { headers: HEADERS });
@@ -47,19 +61,13 @@ async function fetchWithRetry(url, retries = 5, baseDelay = 2000) {
         }
 
         if (attempt === retries) {
-            return res; // tentatives épuisées, on laisse l'appelant gérer l'échec
+            return res;
         }
 
         const delay = baseDelay * Math.pow(2, attempt);
         console.warn(`  ⏳ ${res.status} sur ${url} — retry dans ${delay}ms (essai ${attempt + 1}/${retries})`);
         await sleep(delay);
     }
-}
-
-function extractIframeSrc(embedHtml) {
-    if (!embedHtml) return null;
-    const match = embedHtml.match(/src=["']([^"']+)["']/);
-    return match ? match[1] : null;
 }
 
 async function fetchArtstationVideoClip(embedHtml) {
@@ -105,7 +113,7 @@ async function fetchAllProjectSummaries(username) {
 }
 
 async function fetchProjectDetails(summary) {
-    const hashId = summary.hash_id
+    const hashId = summary.hash_id;
     const res = await fetchWithRetry(`https://www.artstation.com/projects/${hashId}.json`);
     if (!res.ok) throw new Error(`Projet ${hashId} introuvable (${res.status})`);
     const data = await res.json();
@@ -133,7 +141,7 @@ async function fetchProjectDetails(summary) {
             });
         }
     }
-	
+
     return {
         id: data.id,
         hashId: data.hash_id,
@@ -147,7 +155,7 @@ async function fetchProjectDetails(summary) {
         software: (data.software_items ?? []).map(s => ({
             name: s.name,
             iconUrl: s.icon_url,
-        }))
+        })),
     };
 }
 
@@ -171,7 +179,7 @@ async function main() {
         } catch (err) {
             console.warn(`  ✗ Erreur sur ${summary.hash_id}:`, err.message);
         }
-        await sleep(250); // évite d'enchaîner les requêtes trop vite
+        await sleep(500);
     }
 
     fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
