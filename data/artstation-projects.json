@@ -171,52 +171,6 @@
     ]
   },
   {
-    "id": 22315681,
-    "hashId": "BkAgRl",
-    "name": "Arthropod Encounter",
-    "description": "<p>I wanted to start doing 3D without overthinking the process too much and spend more time doing concept art.\n<br />I just built a couple node assets yesterday to mix sets of PBR materials with ease, and I had fun tonight building this fun scene using my new tools.\n</p>",
-    "client": null,
-    "tags": [
-      "NoAI",
-      "side"
-    ],
-    "coverUrl": "https://cdnb.artstation.com/p/assets/images/images/098/893/903/20260509161704/small_square/maxime-gerardin-finalexport-grading-2-1-1.jpg?1778361424",
-    "publishedAt": "2026-05-09T16:17:50.700-05:00",
-    "url": "https://www.artstation.com/artwork/BkAgRl",
-    "assets": [
-      {
-        "type": "image",
-        "url": "https://cdnb.artstation.com/p/assets/images/images/098/893/903/large/maxime-gerardin-finalexport-grading-2-1-1.webp?1778361424",
-        "description": null
-      },
-      {
-        "type": "video",
-        "url": "https://cdn.artstation.com/p/video_sources/003/266/076/2026-05-09-23-02-25.mp4",
-        "description": null
-      },
-      {
-        "type": "image",
-        "url": "https://cdnb.artstation.com/p/assets/images/images/098/894/145/large/maxime-gerardin-image.webp?1778360696",
-        "description": "3 Custom nodes I made using the \"Bundles\" blender feature in Blender's shader editor, to conveniently mix set of PBR textures for a single shader."
-      },
-      {
-        "type": "video",
-        "url": "https://cdn.artstation.com/p/video_sources/003/266/080/pbr-mixing-showcase.mp4",
-        "description": "showcase of the pbr mixing workflow for this project's ground material"
-      }
-    ],
-    "software": [
-      {
-        "name": "Blender",
-        "iconUrl": "https://cdna.artstation.com/p/softwares/icons/000/000/008/default/blender_icon_1024x1024.png?1570478232"
-      },
-      {
-        "name": "DaVinci Resolve",
-        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/001/661/default/Resolve.png?1441346332"
-      }
-    ]
-  },
-  {
     "id": 21848802,
     "hashId": "4NZBx4",
     "name": "Airplane in the Clouds",
