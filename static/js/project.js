@@ -44,6 +44,12 @@ function normalizeArtstationProject(project) {
         }
         });
 
+    const firstAsset = project.assets?.[0] ?? null;
+    const isFirstAssetVideo = firstAsset?.type === "video";
+
+    const imgThumbnail = firstAsset && !isFirstAssetVideo ? firstAsset.url : null;
+    const videoThumbnail = firstAsset && isFirstAssetVideo ? firstAsset.url : null;
+
     return {
         name: project.name,
         client: project.client,
@@ -53,8 +59,8 @@ function normalizeArtstationProject(project) {
         software: (project.software ?? []).map(s => s.name),
         softwares_url: project.software,
         links: project.url ? [{ url: project.url, text: "View on ArtStation" }] : [],
-        imgThumbnail: project.assets?.find(asset => asset.type === "cover")?.url ?? project.assets?.find(asset => asset.type === "image")?.url,
-        videoThumbnail: project.assets?.find(asset => asset.type === "video")?.url ?? null,
+        imgThumbnail,
+        videoThumbnail,
         medias,
     };
 }

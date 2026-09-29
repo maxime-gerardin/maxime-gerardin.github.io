@@ -238,8 +238,10 @@ async function fetchProjectDetails(summary) {
 
     const simplifiedAssets = [];
 
+    const coverUrl = summary.cover?.small_square_url;
+
     for (const asset of data.assets ?? []) {
-        if (asset.asset_type === "image" || asset.asset_type === "cover") {
+        if (asset.asset_type === "image") {
             simplifiedAssets.push({
                 type: asset.asset_type,
                 url: asset.image_url,
