@@ -207,6 +207,25 @@ function extractClient(description) {
     return value || null;
 }
 
+// Retire du HTML de la description le(s) segment(s) qui ne contiennent QUE
+// la mention "client : ...", en travaillant bloc par bloc (<br>, </p>,
+// </div>, </li>, </h1-6>). Un segment qui contient d'autres infos en plus de
+// "client :" est laissé tel quel (on ne veut pas perdre du contenu utile).
+function removeClientFromDescription(html) {
+    if (!html) return html;
+    const parts = html.split(/(<br\s*\/?>|<\/(?:p|div|li|h[1-6])>)/gi);
+    const kept = [];
+    for (let i = 0; i < parts.length; i += 2) {
+        const content = parts[i] ?? "";
+        const delim = parts[i + 1] ?? "";
+        const plain = htmlToText(content).trim();
+        const isClientOnly = /^client\s*:\s*.+$/i.test(plain);
+        if (isClientOnly) continue; // on saute le segment ET son délimiteur
+        kept.push(content, delim);
+    }
+    return kept.join("");
+}
+
 async function fetchProjectDetails(summary) {
     const hashId = summary.hash_id;
     const result = await fetchWithRetry(`https://www.artstation.com/projects/${hashId}.json`);
@@ -241,7 +260,7 @@ async function fetchProjectDetails(summary) {
         id: data.id,
         hashId: data.hash_id,
         name: data.title,
-        description: data.description,
+        description: removeClientFromDescription(data.description),
         client: extractClient(data.description),
         tags: data.tags ?? [],
         coverUrl: summary.cover.small_square_url,
@@ -295,7 +314,13 @@ async function main() {
                 reusedCount++;
                 continue;
             }
-            if (unchanged && cached.hasTag && previous && "client" in previous) {
+            if (
+                unchanged &&
+                cached.hasTag &&
+                previous &&
+                "client" in previous &&
+                !extractClient(previous.description)
+            ) {
                 newCache[hashId] = cached;
                 selected.push(previous);
                 reusedCount++;
