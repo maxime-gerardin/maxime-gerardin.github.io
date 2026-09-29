@@ -24,11 +24,6 @@
         "description": null
       },
       {
-        "type": "cover",
-        "url": "https://cdna.artstation.com/p/assets/covers/images/101/905/506/large/maxime-gerardin-maxime-gerardin-still-2026-08-26-115048-1-8-2.webp?1787738614",
-        "description": null
-      },
-      {
         "type": "image",
         "url": "https://cdnb.artstation.com/p/assets/images/images/101/905/393/large/maxime-gerardin-clayrender.webp?1787738249",
         "description": null
@@ -132,11 +127,6 @@
       {
         "type": "image",
         "url": "https://cdna.artstation.com/p/assets/images/images/100/769/160/large/maxime-gerardin-still-2026-07-14-045851-1-42-1.webp?1784000154",
-        "description": null
-      },
-      {
-        "type": "cover",
-        "url": "https://cdna.artstation.com/p/assets/covers/images/102/706/000/large/maxime-gerardin-maxime-gerardin-still-2026-09-25-120458-1-64-2.jpg?1790330826",
         "description": null
       },
       {
@@ -269,6 +259,101 @@
     ]
   },
   {
+    "id": 17427376,
+    "hashId": "Ev0dnn",
+    "name": "SIP Trigger - City",
+    "description": "<p>Here are some breakdowns of the City Sequence from the music clip I had the chance to work on for Smash Into Pieces.\n<br />I was the environment artist on this project.</p>",
+    "client": "Smash Into Pieces",
+    "tags": [
+      "NoAI",
+      "pro"
+    ],
+    "coverUrl": "https://cdna.artstation.com/p/assets/covers/images/071/465/088/small_square/maxime-gerardin-maxime-gerardin-desert-thumbnail-v04.jpg?1705260120",
+    "publishedAt": "2024-01-14T13:22:20.727-06:00",
+    "url": "https://www.artstation.com/artwork/Ev0dnn",
+    "assets": [
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/931/sh190-v004.mp4",
+        "description": "Shot 01"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/967/spotify-canvas-01-v2.mp4",
+        "description": "Vertical version for Spotify"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/958/video050001-0128.mp4",
+        "description": "WIP - Shot 01"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/960/sh270-v002.mp4",
+        "description": "Shot 02"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/962/sh300-v001.mp4",
+        "description": "Shot 03"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/965/sh310-v001.mp4",
+        "description": "Shot 04"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/979/sh740-v004.mp4",
+        "description": "Shot 05 - Top of the Tower Sequence"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/011/video060001-0100.mp4",
+        "description": "Shot 05 - Before / After"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/015/sh810-v003.mp4",
+        "description": "Shot 06"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/017/sh850-v001.mp4",
+        "description": "Shot 07 (My favorite)"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/031/video070001-0081.mp4",
+        "description": "WIP - Shot 07"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/022/sh820-v003.mp4",
+        "description": "Shot 08"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/025/sh855-v005.mp4",
+        "description": "Shot 09"
+      }
+    ],
+    "software": [
+      {
+        "name": "Blender",
+        "iconUrl": "https://cdna.artstation.com/p/softwares/icons/000/000/008/default/blender_icon_1024x1024.png?1570478232"
+      },
+      {
+        "name": "EmberGen",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/094/953/default/embergen-icon.png?1610395169"
+      },
+      {
+        "name": "After Effects",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/000/003/default/aftereffects.png?1608144443"
+      }
+    ]
+  },
+  {
     "id": 17426980,
     "hashId": "04Kgkw",
     "name": "SIP - Trigger | Desert",
@@ -291,11 +376,6 @@
         "type": "video",
         "url": "https://cdn.artstation.com/p/video_sources/001/744/808/video010001-0090.mp4",
         "description": "WIP - Shot 01"
-      },
-      {
-        "type": "cover",
-        "url": "https://cdna.artstation.com/p/assets/covers/images/071/465/048/large/maxime-gerardin-maxime-gerardin-desert-thumbnail.jpg?1705260040",
-        "description": null
       },
       {
         "type": "video",
@@ -354,6 +434,62 @@
       {
         "name": "Geo-Scatter",
         "iconUrl": "https://cdn.artstation.com/static_media/placeholders/software/default.png"
+      }
+    ]
+  },
+  {
+    "id": 16243380,
+    "hashId": "04Zvzw",
+    "name": "Winter Solace - Realism Study",
+    "description": "<p>This is a project I made in 1 night, I was trying to reproduce a photo as a realism study. The photo being the album cover of \"Winter Solace\" composed by Joshua Kyan Aalampour, which is a classical music album I'm making a shortfilm for, I decided to animate it and make it the introductory shot for the shortfilm.</p>",
+    "client": null,
+    "tags": [
+      "NoAI",
+      "side"
+    ],
+    "coverUrl": "https://cdna.artstation.com/p/assets/video_clips/images/065/384/310/small_square/maxime-gerardin-thumb.jpg?1690239258",
+    "publishedAt": "2023-07-24T18:07:18.961-05:00",
+    "url": "https://www.artstation.com/artwork/04Zvzw",
+    "assets": [
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/464/424/shot-01-audio-context.mp4",
+        "description": "Same shot but original framing"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/464/421/wintersolace-wide-shot.mp4",
+        "description": "Animated shot that goes in a shortfilm, wide view and a slightly different color grade (I prefer this one)"
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/065/384/069/large/maxime-gerardin-winter-solace-composite-color.jpg?1690238667",
+        "description": "Render with some grading"
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/065/384/105/large/maxime-gerardin-raw-render.jpg?1690238763",
+        "description": "Raw Render"
+      },
+      {
+        "type": "image",
+        "url": "https://cdna.artstation.com/p/assets/images/images/065/384/440/large/maxime-gerardin-capture.jpg?1690239638",
+        "description": "Including in some snow test shaders"
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/065/384/447/large/maxime-gerardin-capture01.jpg?1690239648",
+        "description": null
+      }
+    ],
+    "software": [
+      {
+        "name": "Blender",
+        "iconUrl": "https://cdna.artstation.com/p/softwares/icons/000/000/008/default/blender_icon_1024x1024.png?1570478232"
+      },
+      {
+        "name": "DaVinci Resolve",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/001/661/default/Resolve.png?1441346332"
       }
     ]
   }

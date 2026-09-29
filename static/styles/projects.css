@@ -1,6 +1,6 @@
 :root {
   --container-size: 90%;
-  --medias-grid-gap: 0.25rem;
+  --medias-grid-gap: 0.15rem;
   --grid-column-count: 6;
   --project-category-font-size: 0.75em;
   --project-category-gap: 1.5rem;
@@ -147,6 +147,7 @@
     --project-radius: 0.5rem;
     --project-title-font-size: 1.2em;
     --software-font-size: 1em;
+    --medias-grid-gap: 0.25rem;
   }
 }
 
@@ -158,6 +159,7 @@
     --project-radius: 0.25rem;
     --project-title-font-size: 1.25em;
     --software-font-size: 1em;
+    --medias-grid-gap: 0.25rem;
   }
 }
 
@@ -169,6 +171,7 @@
     --project-radius: 0.25rem;
     --project-title-font-size: 1.25em;
     --software-font-size: 1em;
+    --medias-grid-gap: 0.25rem;
   }
 }
 

@@ -170,6 +170,25 @@ function setVideoUrl(videoElm, url)
 // =====================================================================
 // =====================================================================
 
+// Marque comme "no-wait-media" tout média situé nettement sous le premier
+// écran (au-delà de 1.3x la hauteur visible), pour ne pas bloquer l'affichage
+// de la page sur des thumbnails/vidéos qui ne sont pas visibles au chargement.
+// Les images concernées passent aussi en loading="lazy".
+function markOffscreenMediaAsNoWait() {
+    const vh = window.innerHeight;
+    document.querySelectorAll('img, video').forEach(el => {
+        if (el.classList.contains('no-wait-media')) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top > vh * 1.3) {
+            el.classList.add('no-wait-media');
+            if (el.tagName === 'IMG') el.loading = 'lazy';
+        }
+    });
+}
+
+// =====================================================================
+// =====================================================================
+
 async function waitForAllMedia(timeout = 10000) {
     const allMedia = Array.from(document.querySelectorAll('img, video'));
     const media = allMedia.filter(el => !el.classList.contains("no-wait-media"));
@@ -180,7 +199,7 @@ async function waitForAllMedia(timeout = 10000) {
             m.onload = () => resolve('loaded');
             m.onerror = () => resolve('error');
         } else if (m.tagName === 'VIDEO') {
-            if (m.readyState >= 3) return resolve('loaded');
+            if (m.readyState >= 2) return resolve('loaded');
             m.onloadeddata = () => resolve('loaded');
             m.onerror = () => resolve('error');
         }
@@ -206,6 +225,8 @@ async function waitForAllMedia(timeout = 10000) {
 async function displayPage(callback, fakeLoading = true) {
 
     document.body.style.overflow = "hidden"
+
+    markOffscreenMediaAsNoWait()
 
     await waitForAllMedia()
 

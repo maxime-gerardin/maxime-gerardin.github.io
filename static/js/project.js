@@ -54,7 +54,7 @@ function normalizeArtstationProject(project) {
         name: project.name,
         client: project.client,
         tags: (project.tags ?? []).filter(tag => (tag !== "side" && tag !== "pro")),
-        year: project.publishedAt ? String(new Date(project.publishedAt).getFullYear()) : null,
+        date: project.publishedAt ? String(new Date(project.publishedAt).getFullYear()) : null,
         description: project.description,
         software: (project.software ?? []).map(s => s.name),
         softwares_url: project.software,
@@ -272,7 +272,7 @@ function fillProjectInfo() {
             createProjectBoardRow("Client", project.client)
         }
         createProjectBoardRow("Tags", project.tags.join(", "))
-        createProjectBoardRow("Year", project.year)
+        createProjectBoardRow("Year", String(new Date(project.date).getFullYear()))
         createProjectBoardRow("About", createProjectDescriptionHTML(project))
         createProjectBoardRow("Software", createProjectSoftwareContainerHTML(project))
         createProjectBoardRow("Links", createProjectLinksContainerHTML(project))
@@ -320,7 +320,7 @@ async function main()
 
     fillProjectInfo()
 
-    await displayPage()
+    await displayPage(null, false)
 }
 
 main()

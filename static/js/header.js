@@ -53,7 +53,7 @@ class PortfolioHeader extends HTMLElement {
         links.forEach((link, index) => {
           setTimeout(() => {
             link.classList.add("show");
-          }, index * 200);
+          }, index * 150);
         });
       });
       

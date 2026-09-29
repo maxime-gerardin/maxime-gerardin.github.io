@@ -2,7 +2,7 @@ let allTags = []
 
 function mergeAndSortByDate(configArray, artstationArray) {
   const merged = [
-    ...configArray.map(item => ({ ...item, source: "config", date: new Date(item.year) })),
+    ...configArray.map(item => ({ ...item, source: "config", date: new Date(item.date) })),
     ...artstationArray.map(item => ({ ...item, source: "artstation", date: new Date(item.publishedAt) })),
   ];
 

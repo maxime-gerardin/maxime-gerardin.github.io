@@ -109,7 +109,7 @@ function fillProjects ()
             projectLink.href = `./project.html#${slugify(project.name.replaceAll("<br>", ""))}`
             setVideoUrl(projectThumbnail, project.videoThumbnail)
             projectTitle.innerHTML = project.name
-            projectYear.innerText = project.year
+            projectYear.innerText = String(new Date(project.date).getFullYear())
             projectTag.innerText = project.tags?.[0]
             observer.observe(projectElement);
             projectsNode.appendChild(projectClone)
