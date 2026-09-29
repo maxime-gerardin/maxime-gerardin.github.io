@@ -4,7 +4,11 @@ const { chromium } = require("playwright");
 
 // --- À CONFIGURER ---
 const ARTSTATION_USERNAME = "maximegerardin";
-const ARTSTATION_FILTER_TAG = "side";
+// Projets gardés dans la sortie s'ils ont l'un OU l'autre de ces tags.
+// Le champ "client" n'est cherché dans la description QUE pour les projets
+// "pro" ; les projets "side" auront toujours client: null.
+const TAG_SIDE = "side";
+const TAG_PRO = "pro";
 
 const OUTPUT_PATH = path.join(__dirname, "data", "artstation-projects.json");
 const CACHE_PATH = path.join(__dirname, "data", "artstation-cache.json");
@@ -256,13 +260,16 @@ async function fetchProjectDetails(summary) {
         }
     }
 
+    const tags = data.tags ?? [];
+    const isPro = tags.includes(TAG_PRO);
+
     return {
         id: data.id,
         hashId: data.hash_id,
         name: data.title,
-        description: removeClientFromDescription(data.description),
-        client: extractClient(data.description),
-        tags: data.tags ?? [],
+        description: isPro ? removeClientFromDescription(data.description) : data.description,
+        client: isPro ? extractClient(data.description) : null,
+        tags,
         coverUrl: summary.cover.small_square_url,
         publishedAt: data.published_at,
         url: `https://www.artstation.com/artwork/${data.hash_id}`,
@@ -330,8 +337,9 @@ async function main() {
             try {
                 const details = await fetchProjectDetails(summary);
                 fetchedCount++;
-                const hasTag = details.tags.includes(ARTSTATION_FILTER_TAG);
-                newCache[hashId] = { version, hasTag };
+                const isPro = details.tags.includes(TAG_PRO);
+                const hasTag = details.tags.includes(TAG_SIDE) || isPro;
+                newCache[hashId] = { version, hasTag, isPro };
                 if (hasTag) {
                     console.log(`  ✓ Sélectionné: ${details.name}`);
                     selected.push(details);
@@ -365,7 +373,7 @@ async function main() {
 
         const status = anyDetailError ? " (résultat partiel, voir avertissements ci-dessus)" : "";
         console.log(
-            `\n${selected.length} projets tagués "${ARTSTATION_FILTER_TAG}" écrits dans ${OUTPUT_PATH}${status}`
+            `\n${selected.length} projets tagués "${TAG_SIDE}"/"${TAG_PRO}" écrits dans ${OUTPUT_PATH}${status}`
         );
     } finally {
         await closeBrowser();

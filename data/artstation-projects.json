@@ -175,7 +175,7 @@
     "hashId": "BkAgRl",
     "name": "Arthropod Encounter",
     "description": "<p>I wanted to start doing 3D without overthinking the process too much and spend more time doing concept art.\n<br />I just built a couple node assets yesterday to mix sets of PBR materials with ease, and I had fun tonight building this fun scene using my new tools.</p>",
-    "client": "Myself",
+    "client": null,
     "tags": [
       "NoAI",
       "side"
@@ -265,6 +265,95 @@
       {
         "name": "DaVinci Resolve",
         "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/001/661/default/Resolve.png?1441346332"
+      }
+    ]
+  },
+  {
+    "id": 17426980,
+    "hashId": "04Kgkw",
+    "name": "SIP - Trigger | Desert",
+    "description": "<p>Here's some breakdowns of the Desert Sequence from the music clip I had the chance to work on for Smash Into Pieces.\n<br />I was the environment artist on this project.</p>",
+    "client": "Smash Into Pieces",
+    "tags": [
+      "NoAI",
+      "pro"
+    ],
+    "coverUrl": "https://cdna.artstation.com/p/assets/covers/images/071/465/048/small_square/maxime-gerardin-maxime-gerardin-desert-thumbnail.jpg?1705260040",
+    "publishedAt": "2024-01-14T12:23:06.463-06:00",
+    "url": "https://www.artstation.com/artwork/04Kgkw",
+    "assets": [
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/750/sh010-v001.mp4",
+        "description": "Introduction shot, mountains and ground made with Gaea, Scatter with Geo-Scatter addon"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/808/video010001-0090.mp4",
+        "description": "WIP - Shot 01"
+      },
+      {
+        "type": "cover",
+        "url": "https://cdna.artstation.com/p/assets/covers/images/071/465/048/large/maxime-gerardin-maxime-gerardin-desert-thumbnail.jpg?1705260040",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/823/video020001-0127.mp4",
+        "description": "Shot 02 - Closeup of the feet walking, variation between 2 versions"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/825/sh050-v003.mp4",
+        "description": "Shot 03"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/828/video030001-0062.mp4",
+        "description": "WIP - Shot 03"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/844/nested-sequence-02-v002.mp4",
+        "description": "Shot 04"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/829/sh160-v001.mp4",
+        "description": "Shot 05"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/832/video040001-0062.mp4",
+        "description": "WIP - Shot 05"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/837/sh030-v002.mp4",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/744/842/sh080-v002.mp4",
+        "description": null
+      }
+    ],
+    "software": [
+      {
+        "name": "Blender",
+        "iconUrl": "https://cdna.artstation.com/p/softwares/icons/000/000/008/default/blender_icon_1024x1024.png?1570478232"
+      },
+      {
+        "name": "Gaea",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/039/999/default/Gaea_Icon_256.png?1549036528"
+      },
+      {
+        "name": "After Effects",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/000/003/default/aftereffects.png?1608144443"
+      },
+      {
+        "name": "Geo-Scatter",
+        "iconUrl": "https://cdn.artstation.com/static_media/placeholders/software/default.png"
       }
     ]
   }

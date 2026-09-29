@@ -47,14 +47,14 @@ function normalizeArtstationProject(project) {
     return {
         name: project.name,
         client: project.client,
-        tags: (project.tags ?? []).filter(tag => tag !== "side"),
+        tags: (project.tags ?? []).filter(tag => (tag !== "side" && tag !== "pro")),
         year: project.publishedAt ? String(new Date(project.publishedAt).getFullYear()) : null,
         description: project.description,
         software: (project.software ?? []).map(s => s.name),
         softwares_url: project.software,
         links: project.url ? [{ url: project.url, text: "View on ArtStation" }] : [],
         imgThumbnail: project.assets?.find(asset => asset.type === "cover")?.url ?? project.assets?.find(asset => asset.type === "image")?.url,
-        videoThumbnail: null,
+        videoThumbnail: project.assets?.find(asset => asset.type === "video")?.url ?? null,
         medias,
     };
 }
@@ -117,7 +117,7 @@ function createProjectSoftwareContainerHTML(project) {
         projectSoftwareContainer.classList.add("project-links-container");
         project.software.forEach(software => {
             softwareUrls = project.softwares_url ? project.softwares_url : null
-            let projectSoftware = createSoftwareTag(software, `./projects.html?tag=${software.toLowerCase()}`, softwareUrls)
+            let projectSoftware = createSoftwareTag(software, `./projects?tag=${software.toLowerCase()}`, softwareUrls)
             projectSoftwareContainer.append(projectSoftware);
         })
 
@@ -254,13 +254,13 @@ function fillProjectInfo() {
         projectTitleNode.innerHTML = project.name;
         let projectThumbnailNodeImg = document.getElementById("project-thumbnail-img");
         let projectThumbnailNode = document.getElementById("project-thumbnail");
-        if (project.imgThumbnail) {
-            projectThumbnailNode.remove()
-            projectThumbnailNodeImg.src = project.imgThumbnail;
-        }
-        else {
+        if (project.videoThumbnail) {
             projectThumbnailNodeImg.remove()
             setVideoUrl(projectThumbnailNode, project.videoThumbnail)
+        }
+        else {
+            projectThumbnailNode.remove()
+            projectThumbnailNodeImg.src = project.imgThumbnail;
         }
         if (project.client) {
             createProjectBoardRow("Client", project.client)
