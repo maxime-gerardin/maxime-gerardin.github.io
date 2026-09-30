@@ -11,7 +11,7 @@ class PortfolioFooter extends HTMLElement {
           if (hasNonEmptyString(obj) && obj?.showFooter !== false) {
             let footerItemTemplate
             let footerItemClone
-            if(obj.url !== "") {
+            if (obj.url) {
                 footerItemTemplate = PortfolioFooter.footerItemLinkTemplate;
                 footerItemClone = footerItemTemplate.content.cloneNode(true);
                 let footerItemLink = footerItemClone.querySelector(".footer-section-item-link")

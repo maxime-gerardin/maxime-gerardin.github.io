@@ -163,7 +163,7 @@ function createProjectDescriptionHTML(project)
 function createMediasGridLayout(project, projectMedias)
 {
     const mediasByGridLine = project.medias.reduce((acc, item) => {
-        if (item.gridLine !== undefined) {
+        if (item.gridLine !== undefined && item.gridLine !== null) {
             const key = item.gridLine;
             if (!acc[key]) {
                 acc[key] = [];

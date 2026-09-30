@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Admin</title>
+</head>
+<body>
+<script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+<script>
+  // Convertit les chemins d'assets en URLs utilisables (y compris fichiers pas encore commit)
+  function resolveAssets(value, getAsset) {
+    if (typeof value === 'string') {
+      return value.startsWith('/static/assets') ? getAsset(value).toString() : value;
+    }
+    if (Array.isArray(value)) return value.map(function (v) { return resolveAssets(v, getAsset); });
+    if (value && typeof value === 'object') {
+      var out = {};
+      for (var k in value) out[k] = resolveAssets(value[k], getAsset);
+      return out;
+    }
+    return value;
+  }
+
+  // Adapte cette liste à tes vraies pages
+  var PAGES = [
+    { url: '/index.html', label: 'Accueil' },
+    { url: '/projects.html', label: 'Projets' },
+    { url: '/about.html', label: 'À propos' }
+  ];
+
+  var SitePreview = createClass({
+    getInitialState: function () {
+      // page     = emplacement actuel de l'iframe (mis à jour sans rechargement)
+      // loadPage = URL utilisée pour (re)créer l'iframe
+      return { page: PAGES[0].url, loadPage: PAGES[0].url, version: 0 };
+    },
+
+    send: function () {
+      if (!this.iframe || !this.iframe.contentWindow) return;
+      var data = this.props.entry.get('data').toJS();
+      data = resolveAssets(data, this.props.getAsset);
+      this.iframe.contentWindow.postMessage({ type: 'cms-preview', data: data }, '*');
+    },
+
+    componentDidMount: function () {
+      var self = this;
+      this.onMsg = function (e) {
+        if (!e.data) return;
+        // Le site demande les données
+        if (e.data.type === 'preview-ready' &&
+            self.iframe && e.source === self.iframe.contentWindow) {
+          self.send();
+        }
+        // Clic sur un lien dans le site : on change de page (avec hash)
+        if (e.data.type === 'preview-navigate') {
+          self.setState({
+            page: e.data.page,
+            loadPage: e.data.page,
+            version: self.state.version + 1
+          });
+        }
+        // Le hash a changé dans le site : on mémorise, sans recharger
+        if (e.data.type === 'preview-location') {
+          self.setState({ page: e.data.page });
+        }
+      };
+      window.addEventListener('message', this.onMsg);
+    },
+
+    componentWillUnmount: function () {
+      window.removeEventListener('message', this.onMsg);
+      clearTimeout(this.timer);
+    },
+
+    // À chaque modification : recharge l'iframe sur la page courante (avec debounce)
+    componentDidUpdate: function (prevProps) {
+      var self = this;
+      if (prevProps.entry.get('data') !== this.props.entry.get('data')) {
+        clearTimeout(this.timer);
+        this.timer = setTimeout(function () {
+          self.setState({
+            loadPage: self.state.page,
+            version: self.state.version + 1
+          });
+        }, 500);
+      }
+    },
+
+    render: function () {
+      var self = this;
+
+      // Chemin courant sans hash ni query (pour le sélecteur)
+      var current = this.state.page.split('#')[0].split('?')[0];
+      var options = PAGES.slice();
+      if (!options.some(function (p) { return p.url === current; })) {
+        options.push({ url: current, label: current });
+      }
+
+      // URL de l'iframe : cms-preview=1 doit être AVANT le hash
+      var parts = this.state.loadPage.split('#');
+      var base = parts[0];
+      var hash = parts[1] ? '#' + parts[1] : '';
+      var sep = base.indexOf('?') !== -1 ? '&' : '?';
+      var src = base + sep + 'cms-preview=1' + hash;
+
+      return h('div', { style: { height: '100vh', display: 'flex', flexDirection: 'column' } },
+        h('select', {
+          value: current,
+          style: { padding: '6px', margin: '4px' },
+          onChange: function (e) {
+            self.setState({
+              page: e.target.value,
+              loadPage: e.target.value,
+              version: self.state.version + 1
+            });
+          }
+        }, options.map(function (p) {
+          return h('option', { key: p.url, value: p.url }, p.label);
+        })),
+        h('iframe', {
+          key: 'frame|' + this.state.version,
+          name: 'cms-preview',
+          ref: function (el) { self.iframe = el; },
+          src: src,
+          style: { flex: 1, border: 0, width: '100%' }
+        })
+      );
+    }
+  });
+
+  // "portfolio" = le `name` du fichier dans config.yml
+  CMS.registerPreviewTemplate('portfolio', SitePreview);
+</script>
+</body>
+</html>
