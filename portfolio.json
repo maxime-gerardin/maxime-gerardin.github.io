@@ -1,7 +1,7 @@
 {
   "info": {
     "fullName": "Maxime Gerardin",
-    "personalDescription": "3D Environment Generalist artist based in the south of France, creating immersive visuals for Music Clips, Ads, Films and Series",
+    "personalDescription": "3D Environment Generalist artist based in the south of France, creating immersive visuals for Music Clips, Ads, Films and Series test",
     "logo": "https://yt3.googleusercontent.com/XZsvMWCVnMLFll6oGUoG93DaPpa3AhnaZ71bc97kfCuVf-1evgLtbE48heJ3R6cIm3Wyl-ngiA=s160-c-k-c0x00ffffff-no-rj",
     "logoCircle": true,
     "logoAlt": "Logo icon",
@@ -16,6 +16,7 @@
       "img": "static/assets/medias/photoMaxime.jpg"
     },
     {
+      "title": "",
       "text": "",
       "img": "static/assets/medias/about02.jpg"
     }
@@ -54,15 +55,20 @@
       "iconUrl": "/static/assets/icons/software/Nuke.png"
     },
     {
-      "iconUrl": "/static/assets/icons/software/maya.png",
-      "name": "Maya"
+      "name": "Maya",
+      "iconUrl": "/static/assets/icons/software/maya.png"
+    },
+    {
+      "name": "Unreal Engine",
+      "iconUrl": "/static/assets/icons/software/unreal-engine.webp"
     }
   ],
   "socials": [
     {
       "text": "ArtStation",
       "icon": "./static/assets/icons/artstation.svg",
-      "url": "https://www.artstation.com/maximegerardin"
+      "url": "https://www.artstation.com/maximegerardin",
+      "showContact": false
     },
     {
       "text": "Instagram",
@@ -79,401 +85,529 @@
     {
       "text": "Patreon",
       "icon": "./static/assets/icons/patreon.svg",
-      "url": "https://www.patreon.com/maximegerardin"
+      "url": "https://www.patreon.com/maximegerardin",
+      "showContact": false
     },
     {
       "text": "Youtube",
       "icon": "./static/assets/icons/youtube.svg",
-      "url": "https://www.youtube.com/@maximusgerardin"
+      "url": "https://www.youtube.com/@maximusgerardin",
+      "showContact": false
     }
   ],
   "projects": [
     {
-      "software": [
-        "Blender"
-      ],
       "name": "Valorant - SUPERPOWER",
-      "client": "Riot Games",
+      "main": true,
       "date": "2025-06",
-      "medias": [
-        {
-          "src": "./static/assets/medias/valorant_2.mp4",
-          "type": "video"
-        },
-        {
-          "src": "https://cdn.artstation.com/p/video_sources/002/700/731/shot02.mp4",
-          "type": "video"
-        },
-        {
-          "src": "https://cdn.artstation.com/p/video_sources/002/700/732/shot03.mp4",
-          "type": "video"
-        },
-        {
-          "src": "./static/assets/medias/valorant_3.mp4",
-          "type": "video"
-        },
-        {
-          "src": "https://cdn.artstation.com/p/video_sources/002/700/734/shot06.mp4",
-          "type": "video"
-        }
-      ],
-      "videoThumbnail": "./static/assets/thumbnails/valorant.mp4",
-      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/covers/images/089/449/851/smaller_square/maxime-gerardin-maxime-gerardin-thumbnail-1-1-1.jpg?1750975661",
       "tags": [
         "Environments"
       ],
-      "main": true,
+      "description": "Last year, I had the opportunity to work as an environment artist at Wizz Studio for the Valorant Champions Anthem music clip - SUPERPOWER. <br>It was a great opportunity for me, you can see in the post all the shot I was responsible for the environments!",
+      "client": "Riot Games",
+      "software": [
+        "Blender"
+      ],
+      "videoThumbnail": "./static/assets/thumbnails/valorant.mp4",
+      "imgThumbnail": "",
+      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/covers/images/089/449/851/smaller_square/maxime-gerardin-maxime-gerardin-thumbnail-1-1-1.jpg?1750975661",
       "links": [
         {
-          "url": "https://www.youtube.com/watch?v=DX4BE9GmpH4&list=RDDX4BE9GmpH4&start_radio=1",
-          "text": "View on Youtube"
+          "text": "View on Youtube",
+          "url": "https://www.youtube.com/watch?v=DX4BE9GmpH4&list=RDDX4BE9GmpH4&start_radio=1"
         }
       ],
-      "description": "Last year, I had the opportunity to work as an environment artist at Wizz Studio for the Valorant Champions Anthem music clip - SUPERPOWER. <br>It was a great opportunity for me, you can see in the post all the shot I was responsible for the environments!"
+      "medias": [
+        {
+          "src": "./static/assets/medias/valorant_2.mp4",
+          "type": "video",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
+        },
+        {
+          "src": "https://cdn.artstation.com/p/video_sources/002/700/731/shot02.mp4",
+          "type": "video",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
+        },
+        {
+          "src": "https://cdn.artstation.com/p/video_sources/002/700/732/shot03.mp4",
+          "type": "video",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
+        },
+        {
+          "src": "./static/assets/medias/valorant_3.mp4",
+          "type": "video",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
+        },
+        {
+          "src": "https://cdn.artstation.com/p/video_sources/002/700/734/shot06.mp4",
+          "type": "video",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
+        }
+      ]
     },
     {
+      "name": "Run For Forever - little image <br> (Official Visualizer)",
+      "main": true,
+      "date": "2025-11",
+      "tags": [
+        "All Aspects"
+      ],
+      "description": "Earlier this year, the music band 'Little Image' contacted me to make a looping visualizer animation for one of their song 'Run For Forever'.They gave me 2 weeks and a lot of creative freedom, only some references as an input.I was in charge of the everything, including the final edit, and I decided to break the loop with some extra shots, which they loved!I'm genuinely happy to have worked on this, I could think of a million ways to make it better, but the published result goes deep in my heart.",
+      "client": "little image",
       "software": [
         "Blender",
         "Nuke",
         "DaVinci Resolve"
       ],
-      "name": "Run For Forever - little image <br> (Official Visualizer)",
-      "client": "little image",
-      "date": "2025-11",
+      "videoThumbnail": "./static/assets/thumbnails/littleImage.mp4",
+      "imgThumbnail": "",
+      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/covers/images/093/886/281/smaller_square/maxime-gerardin-maxime-gerardin-still-2025-11-22-163851-6-5-1.jpg?1763826041",
+      "links": [
+        {
+          "text": "Watch on Youtube",
+          "url": "https://youtu.be/8FwCfLRSq0k"
+        }
+      ],
       "medias": [
         {
           "src": "https://cdna.artstation.com/p/assets/images/images/093/886/392/large/maxime-gerardin-still-2025-11-22-164547-6-5-3.webp?1763826368",
-          "type": "img"
+          "type": "img",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdnb.artstation.com/p/assets/images/images/093/886/259/large/maxime-gerardin-still-2025-11-22-163851-6-5-1.webp?1763825997",
-          "type": "img"
+          "type": "img",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdna.artstation.com/p/assets/images/images/093/886/260/large/maxime-gerardin-still-2025-11-22-163854-6-5-2.webp?1763826000",
-          "type": "img"
+          "type": "img",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdnb.artstation.com/p/assets/images/images/093/886/263/large/maxime-gerardin-still-2025-11-22-163902-6-9-1.webp?1763826006",
-          "type": "img"
+          "type": "img",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdnb.artstation.com/p/assets/images/images/093/886/267/large/maxime-gerardin-still-2025-11-22-163911-6-6-1.webp?1763826011",
-          "type": "img"
+          "type": "img",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
         }
-      ],
-      "videoThumbnail": "./static/assets/thumbnails/littleImage.mp4",
-      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/covers/images/093/886/281/smaller_square/maxime-gerardin-maxime-gerardin-still-2025-11-22-163851-6-5-1.jpg?1763826041",
+      ]
+    },
+    {
+      "name": "Machine Hall",
+      "main": true,
+      "date": "2025-09",
       "tags": [
         "All Aspects"
       ],
-      "main": true,
-      "links": [
-        {
-          "url": "https://youtu.be/8FwCfLRSq0k",
-          "text": "Watch on Youtube"
-        }
-      ],
-      "description": "Earlier this year, the music band 'Little Image' contacted me to make a looping visualizer animation for one of their song 'Run For Forever'.They gave me 2 weeks and a lot of creative freedom, only some references as an input.I was in charge of the everything, including the final edit, and I decided to break the loop with some extra shots, which they loved!I'm genuinely happy to have worked on this, I could think of a million ways to make it better, but the published result goes deep in my heart."
-    },
-    {
+      "description": "This short project originated from just playing around, cutting shapes from textures.com photos and turning them into sloppy 3d models. I ended up making the cylindrical thing and then planned to throw it away. After seeing some enthusiasm for this project from friends and fellow artists, I decided to give it 2 more days of work. So this project is between 2 and 3 days of work total. A lot of people ask me how I do my projects so fast, but the truthis I spend 90% of my time experimenting on small scenes, different aspects of 3d, not affraid of failing because they're not real projects, and that's usually how you can get easily creative ! Sometimes, I accidentally make something cool and just push it a bit further, but there is a sentence that says \"You do 80% of the work in 20% of the time, and 20% of the rest of the work in 80% of the time\". For me, this means this project received the first 80% of love, but I'm too lazy to finetune the remaining 20% on this side experiment project.",
+      "client": "",
       "software": [
         "Blender",
         "Nuke",
         "DaVinci Resolve"
       ],
-      "name": "Machine Hall",
-      "client": "",
-      "date": "2025-09",
+      "videoThumbnail": "./static/assets/thumbnails/big-machine.mp4",
+      "imgThumbnail": "",
+      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/covers/images/092/135/675/smaller_square/maxime-gerardin-maxime-gerardin-still-2025-09-25-111115-3-1-1.jpg?1758793697",
+      "links": [],
       "medias": [
         {
           "src": "https://cdnb.artstation.com/p/assets/images/images/092/163/157/large/maxime-gerardin-still-2025-09-25-111115-3-1-1.webp?1758849680",
-          "type": "img"
+          "type": "img",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdna.artstation.com/p/assets/images/images/092/135/178/large/maxime-gerardin-viewport.webp?1758792852",
-          "type": "img"
+          "type": "img",
+          "text": "",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
+        }
+      ]
+    },
+    {
+      "name": "Island",
+      "main": false,
+      "date": "2025-08",
+      "tags": [
+        "All Aspects"
+      ],
+      "description": "This is a very quick test I did a few months ago, to test out my first iterations of my scattering toolkit Sylva. It took me around 3-4 hours to make this render. It does have a lot of issues and stuff that would need refining haha, but I honestly prefer to keep going on different projects than polishing this one. I still think it looks cool so I decide to post it anyways!",
+      "client": "",
+      "software": [
+        "Blender"
+      ],
+      "videoThumbnail": "./static/assets/thumbnails/island.mp4",
+      "imgThumbnail": "",
+      "imgMiniThumbnail": "https://cdna.artstation.com/p/assets/video_clips/images/090/714/606/20250808092912/smaller_square/maxime-gerardin-thumb.jpg?1754663353",
+      "links": [],
+      "medias": []
+    },
+    {
+      "name": "Secret Lab Basement",
+      "main": true,
+      "date": "2025-04",
+      "tags": [
+        "3D",
+        "Animation"
+      ],
+      "description": "Hello, here's an 3D render made a year ago. I originally just wanted to help my girlfriend on her 3D Assignment for her art school",
+      "client": "",
+      "software": [
+        "Blender"
+      ],
+      "videoThumbnail": "./static/assets/thumbnails/secret-lab.mp4",
+      "imgThumbnail": "./static/assets/thumbnails/secret-lab-img-thumbnail.jpg",
+      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/video_clips/images/086/989/989/smaller_square/maxime-gerardin-thumb.jpg?1744627312",
+      "links": [
+        {
+          "text": "View in ArtStation",
+          "url": "https://www.artstation.com/artwork/mAn3De"
         }
       ],
-      "videoThumbnail": "./static/assets/thumbnails/big-machine.mp4",
-      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/covers/images/092/135/675/smaller_square/maxime-gerardin-maxime-gerardin-still-2025-09-25-111115-3-1-1.jpg?1758793697",
-      "tags": [
-        "All Aspects"
-      ],
-      "main": true,
-      "links": [],
-      "description": "This short project originated from just playing around, cutting shapes from textures.com photos and turning them into sloppy 3d models. I ended up making the cylindrical thing and then planned to throw it away. After seeing some enthusiasm for this project from friends and fellow artists, I decided to give it 2 more days of work. So this project is between 2 and 3 days of work total. A lot of people ask me how I do my projects so fast, but the truthis I spend 90% of my time experimenting on small scenes, different aspects of 3d, not affraid of failing because they're not real projects, and that's usually how you can get easily creative ! Sometimes, I accidentally make something cool and just push it a bit further, but there is a sentence that says \"You do 80% of the work in 20% of the time, and 20% of the rest of the work in 80% of the time\". For me, this means this project received the first 80% of love, but I'm too lazy to finetune the remaining 20% on this side experiment project."
-    },
-    {
-      "software": [
-        "Blender"
-      ],
-      "name": "Island",
-      "client": "",
-      "date": "2025-08",
-      "medias": [],
-      "videoThumbnail": "./static/assets/thumbnails/island.mp4",
-      "imgMiniThumbnail": "https://cdna.artstation.com/p/assets/video_clips/images/090/714/606/20250808092912/smaller_square/maxime-gerardin-thumb.jpg?1754663353",
-      "tags": [
-        "All Aspects"
-      ],
-      "links": [],
-      "description": "This is a very quick test I did a few months ago, to test out my first iterations of my scattering toolkit Sylva. It took me around 3-4 hours to make this render. It does have a lot of issues and stuff that would need refining haha, but I honestly prefer to keep going on different projects than polishing this one. I still think it looks cool so I decide to post it anyways!"
-    },
-    {
-      "software": [
-        "Blender"
-      ],
-      "imgThumbnail": "./static/assets/thumbnails/secret-lab-img-thumbnail.jpg",
-      "name": "Secret Lab Basement",
-      "client": "",
-      "date": "2025-04",
       "medias": [
         {
           "src": "./static/assets/thumbnails/secret-lab.mp4",
           "type": "video",
+          "text": "",
           "controls": true,
-          "gridLine": 1
+          "gridLine": 1,
+          "useAutoWidth": false
         },
         {
           "src": "./static/assets/medias/secret-lab-2.jpg",
           "type": "img",
           "text": "Viewport Screenshot",
-          "gridLine": 2
+          "controls": false,
+          "gridLine": 2,
+          "useAutoWidth": false
         },
         {
           "src": "./static/assets/medias/secret-lab-3.jpg",
           "type": "img",
           "text": "Viewport Screenshot in Rendered View",
-          "gridLine": 2
+          "controls": false,
+          "gridLine": 2,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdna.artstation.com/p/assets/images/images/086/911/290/large/maxime-gerardin-basement-grading-1-1-2-1-2-1.jpg?1744379618",
           "type": "img",
-          "text": "Final Render + Color grade"
+          "text": "Final Render + Color grade",
+          "controls": false,
+          "gridLine": null,
+          "useAutoWidth": false
         }
-      ],
-      "videoThumbnail": "./static/assets/thumbnails/secret-lab.mp4",
-      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/video_clips/images/086/989/989/smaller_square/maxime-gerardin-thumb.jpg?1744627312",
-      "tags": [
-        "3D",
-        "Animation"
-      ],
-      "main": true,
-      "links": [
-        {
-          "url": "https://www.artstation.com/artwork/mAn3De",
-          "text": "View in ArtStation"
-        }
-      ],
-      "description": "Hello, here's an 3D render made a year ago. I originally just wanted to help my girlfriend on her 3D Assignment for her art school"
+      ]
     },
     {
+      "name": "Dark Academia Castle - Environment",
+      "main": true,
+      "date": "2024-11",
+      "tags": [
+        "3D"
+      ],
+      "description": "As I'm currently working on a big environment project, I like to experiment and put my skills to the test on quick side projects. Here's one that I think turned out great! I fleshed out the whole shot in just 4-5 hours and then came back and gave it some more love for 2 days.I originally wanted to make the Disney Introduction but in my own style, it differed largely from the Disney intro but I'm still really happy about it!I took the time to give it a proper breakdown, inspired by Lucas Piazzini's Jungle post, so I hope you enjoy!",
+      "client": "",
       "software": [
         "Blender",
         "Nuke",
         "DaVinci Resolve"
       ],
-      "name": "Dark Academia Castle - Environment",
-      "client": "",
-      "date": "2024-11",
+      "videoThumbnail": "https://cdn.artstation.com/p/video_sources/002/274/989/disneydarkacademia-highres-ar.mp4",
+      "imgThumbnail": "",
+      "imgMiniThumbnail": "https://cdna.artstation.com/p/assets/covers/images/081/853/584/smaller_square/maxime-gerardin-maxime-gerardin-still-2024-11-12-125457-2-1-4.jpg?1731416614",
+      "links": [
+        {
+          "text": "See on Artstation",
+          "url": "https://www.artstation.com/artwork/kN2bBz"
+        }
+      ],
       "medias": [
         {
           "src": "https://cdnb.artstation.com/p/assets/images/images/081/852/157/large/maxime-gerardin-still-2024-11-12-125438-2-1-1-1.jpg?1731413780",
           "type": "img",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/002/275/084/breakdown-01.mp4",
           "type": "video",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/002/275/138/breakdown-02.mp4",
           "type": "video",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/002/275/182/breakdown-03.mp4",
           "type": "video",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/002/275/270/breakdown-04.mp4",
           "type": "video",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/002/275/408/breakdown-05.mp4",
           "type": "video",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/002/275/409/breakdown-06.mp4",
           "type": "video",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/002/275/456/breakdown-07.mp4",
           "type": "video",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/002/275/457/breakdown-08.mp4",
           "type": "video",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         }
-      ],
-      "videoThumbnail": "https://cdn.artstation.com/p/video_sources/002/274/989/disneydarkacademia-highres-ar.mp4",
-      "imgMiniThumbnail": "https://cdna.artstation.com/p/assets/covers/images/081/853/584/smaller_square/maxime-gerardin-maxime-gerardin-still-2024-11-12-125457-2-1-4.jpg?1731416614",
+      ]
+    },
+    {
+      "name": "Frozen Bridge",
+      "main": true,
+      "date": "2025-01",
       "tags": [
         "3D"
       ],
-      "main": true,
-      "links": [
-        {
-          "url": "https://www.artstation.com/artwork/kN2bBz",
-          "text": "See on Artstation"
-        }
-      ],
-      "description": "As I'm currently working on a big environment project, I like to experiment and put my skills to the test on quick side projects. Here's one that I think turned out great! I fleshed out the whole shot in just 4-5 hours and then came back and gave it some more love for 2 days.I originally wanted to make the Disney Introduction but in my own style, it differed largely from the Disney intro but I'm still really happy about it!I took the time to give it a proper breakdown, inspired by Lucas Piazzini's Jungle post, so I hope you enjoy!"
-    },
-    {
+      "description": "Here's a different shot I made to get a full grasp at my previous artwork 'Winter Bridge' inspired by Bram Lepelaar concept art",
+      "client": "",
       "software": [
         "Blender",
         "SpeedTree",
         "DaVinci Resolve"
       ],
-      "name": "Frozen Bridge",
-      "client": "",
-      "date": "2025-01",
-      "medias": [],
       "videoThumbnail": "./static/assets/thumbnails/horse.mp4",
+      "imgThumbnail": "",
       "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/video_clips/images/084/424/851/20250131064131/smaller_square/maxime-gerardin-thumb.jpg?1738327292",
+      "links": [
+        {
+          "text": "Bram Lepelaar concept art",
+          "url": "https://www.artstation.com/artwork/VdzaQZ"
+        },
+        {
+          "text": "See on Artstation",
+          "url": "https://www.artstation.com/artwork/ob80B4"
+        }
+      ],
+      "medias": []
+    },
+    {
+      "name": "Birth of a Tyrant",
+      "main": false,
+      "date": "2023-10",
       "tags": [
         "3D"
       ],
-      "main": true,
-      "links": [
-        {
-          "url": "https://www.artstation.com/artwork/VdzaQZ",
-          "text": "Bram Lepelaar concept art"
-        },
-        {
-          "url": "https://www.artstation.com/artwork/ob80B4",
-          "text": "See on Artstation"
-        }
-      ],
-      "description": "Here's a different shot I made to get a full grasp at my previous artwork 'Winter Bridge' inspired by Bram Lepelaar concept art"
-    },
-    {
+      "description": "A shot from my upcoming shortfilm 'Birth of a Tyrant' based on the music named the same way from Joshua Kyan Aalampour.",
+      "client": "",
       "software": [
         "Blender",
         "DaVinci Resolve"
       ],
-      "name": "Birth of a Tyrant",
-      "client": "",
-      "date": "2023-10",
+      "videoThumbnail": "https://cdn.artstation.com/p/video_sources/001/587/795/the-hidden-library-v03.mp4",
+      "imgThumbnail": "",
+      "imgMiniThumbnail": "https://cdna.artstation.com/p/assets/video_clips/images/068/121/262/20231011093205/smaller_square/maxime-gerardin-thumb.jpg?1697034725",
+      "links": [
+        {
+          "text": "See on Artstation",
+          "url": "https://www.artstation.com/artwork/el1Jkw"
+        }
+      ],
       "medias": [
         {
           "src": "https://cdnb.artstation.com/p/assets/images/images/068/121/335/large/maxime-gerardin-0042.jpg?1697034688",
           "type": "img",
+          "text": "",
           "controls": true,
-          "gridLine": 1
+          "gridLine": 1,
+          "useAutoWidth": false
         }
-      ],
-      "videoThumbnail": "https://cdn.artstation.com/p/video_sources/001/587/795/the-hidden-library-v03.mp4",
-      "imgMiniThumbnail": "https://cdna.artstation.com/p/assets/video_clips/images/068/121/262/20231011093205/smaller_square/maxime-gerardin-thumb.jpg?1697034725",
+      ]
+    },
+    {
+      "name": "Winter Bridge",
+      "main": false,
+      "date": "2023-07",
       "tags": [
         "3D"
       ],
-      "links": [
-        {
-          "url": "https://www.artstation.com/artwork/el1Jkw",
-          "text": "See on Artstation"
-        }
-      ],
-      "description": "A shot from my upcoming shortfilm 'Birth of a Tyrant' based on the music named the same way from Joshua Kyan Aalampour."
-    },
-    {
+      "description": "I felt inspired by Bram Lepelaar's wonderful concept art after seeing someone who made a 3D version of it already That's why I wanted to challenge myself and make a 3D environment, as fast as possible, and have an animated shot in the end. It's been an interested 3 days side project and I'm excited to do more Original concept",
+      "client": "",
       "software": [
         "Blender"
       ],
-      "name": "Winter Bridge",
-      "client": "",
-      "date": "2023-07",
+      "videoThumbnail": "https://cdn.artstation.com/p/video_sources/001/472/817/winter-concept-animated-shot.mp4",
+      "imgThumbnail": "",
+      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/covers/images/071/088/127/smaller_square/maxime-gerardin-maxime-gerardin-low-res-v010056.jpg?1704404970",
+      "links": [
+        {
+          "text": "Original Concept",
+          "url": "https://www.artstation.com/artwork/VdzaQZ"
+        },
+        {
+          "text": "See on Artstation",
+          "url": "https://www.artstation.com/artwork/ob80B4"
+        }
+      ],
       "medias": [
         {
           "src": "https://cdna.artstation.com/p/assets/images/images/065/577/578/large/maxime-gerardin-winter-concept-render-v05.jpg?1690737808",
           "type": "img",
+          "text": "",
           "controls": true,
-          "gridLine": 1
+          "gridLine": 1,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/001/472/829/wip-video.mp4",
           "type": "video",
+          "text": "",
           "controls": true,
-          "gridLine": 2
+          "gridLine": 2,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/001/472/822/playblast-v020001-0080.mp4",
           "type": "video",
+          "text": "",
           "controls": true,
-          "gridLine": 3
+          "gridLine": 3,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdnb.artstation.com/p/assets/images/images/065/578/803/large/maxime-gerardin-viewport-view-02.jpg?1690735152",
           "type": "img",
+          "text": "",
           "controls": true,
-          "gridLine": 4
+          "gridLine": 4,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/001/472/865/2023-07-30-18-34-28.mp4",
           "type": "video",
+          "text": "",
           "controls": true,
-          "gridLine": 5
+          "gridLine": 5,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/001/472/868/2023-07-30-18-35-01.mp4",
           "type": "video",
+          "text": "",
           "controls": true,
-          "gridLine": 5
+          "gridLine": 5,
+          "useAutoWidth": false
         }
-      ],
-      "videoThumbnail": "https://cdn.artstation.com/p/video_sources/001/472/817/winter-concept-animated-shot.mp4",
-      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/covers/images/071/088/127/smaller_square/maxime-gerardin-maxime-gerardin-low-res-v010056.jpg?1704404970",
+      ]
+    },
+    {
+      "name": "Gentle Is the Rain",
+      "main": false,
+      "date": "2023-06",
       "tags": [
         "3D"
       ],
-      "links": [
-        {
-          "url": "https://www.artstation.com/artwork/VdzaQZ",
-          "text": "Original Concept"
-        },
-        {
-          "url": "https://www.artstation.com/artwork/ob80B4",
-          "text": "See on Artstation"
-        }
-      ],
-      "description": "I felt inspired by Bram Lepelaar's wonderful concept art after seeing someone who made a 3D version of it already That's why I wanted to challenge myself and make a 3D environment, as fast as possible, and have an animated shot in the end. It's been an interested 3 days side project and I'm excited to do more Original concept"
-    },
-    {
+      "description": "A realism and lighting study based on a Chess Set. The goal was to set an instance rainy mood, playing chess while the weather is heavy",
+      "client": "",
       "software": [
         "Blender"
       ],
-      "name": "Gentle Is the Rain",
-      "client": "",
-      "date": "2023-06",
+      "videoThumbnail": "https://cdn.artstation.com/p/video_sources/001/387/529/shot-01-gentle-is-the-rain.mp4",
+      "imgThumbnail": "",
+      "imgMiniThumbnail": "https://cdna.artstation.com/p/assets/covers/images/094/491/798/smaller_square/maxime-gerardin-maxime-gerardin-still-2025-07-23-005543-1-8-2.jpg?1765543546",
+      "links": [
+        {
+          "text": "See on Artstation",
+          "url": "https://www.artstation.com/artwork/04oGvy"
+        }
+      ],
       "medias": [
         {
           "src": "https://cdn.artstation.com/p/video_sources/001/387/533/shot-02.mp4",
           "type": "video",
+          "text": "",
           "controls": true,
-          "gridLine": 1
+          "gridLine": 1,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdna.artstation.com/p/assets/images/images/094/491/778/large/maxime-gerardin-still-2025-07-23-005543-1-8-2.webp?1765543497",
           "type": "img",
+          "text": "",
           "controls": true,
           "gridLine": 3,
           "useAutoWidth": true
@@ -481,68 +615,72 @@
         {
           "src": "https://cdn.artstation.com/p/video_sources/001/387/739/turn.mp4",
           "type": "video",
+          "text": "",
           "controls": true,
-          "gridLine": 2
+          "gridLine": 2,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdn.artstation.com/p/video_sources/002/733/174/2300.mp4",
           "type": "video",
+          "text": "",
           "controls": true,
-          "gridLine": 2
+          "gridLine": 2,
+          "useAutoWidth": false
         }
-      ],
-      "videoThumbnail": "https://cdn.artstation.com/p/video_sources/001/387/529/shot-01-gentle-is-the-rain.mp4",
-      "imgMiniThumbnail": "https://cdna.artstation.com/p/assets/covers/images/094/491/798/smaller_square/maxime-gerardin-maxime-gerardin-still-2025-07-23-005543-1-8-2.jpg?1765543546",
+      ]
+    },
+    {
+      "name": "Special Order",
+      "main": false,
+      "date": "2022-08",
       "tags": [
         "3D"
       ],
-      "links": [
-        {
-          "url": "https://www.artstation.com/artwork/04oGvy",
-          "text": "See on Artstation"
-        }
-      ],
-      "description": "A realism and lighting study based on a Chess Set. The goal was to set an instance rainy mood, playing chess while the weather is heavy"
-    },
-    {
+      "description": "CG environment of a kitchen I made for a shortfilm",
+      "client": "",
       "software": [
         "Blender"
       ],
-      "name": "Special Order",
-      "client": "",
-      "date": "2022-08",
+      "videoThumbnail": "./static/assets/thumbnails/specialOrder.mp4",
+      "imgThumbnail": "",
+      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/images/images/096/453/503/smaller_square/maxime-gerardin-still-2025-02-02-024947-2-1-1.jpg?1771376576",
+      "links": [
+        {
+          "text": "See on Artstation",
+          "url": "https://www.artstation.com/artwork/5BXNNA"
+        }
+      ],
       "medias": [
         {
           "src": "https://cdnb.artstation.com/p/assets/images/images/096/453/503/large/maxime-gerardin-still-2025-02-02-024947-2-1-1.jpg?1771376576",
           "type": "img",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdna.artstation.com/p/assets/images/images/060/319/218/large/maxime-gerardin-angle1.jpg?1678299199",
           "type": "img",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         },
         {
           "src": "https://cdnb.artstation.com/p/assets/images/images/060/319/233/large/maxime-gerardin-angle3.jpg?1678299233",
           "type": "img",
-          "controls": true
+          "text": "",
+          "controls": true,
+          "gridLine": null,
+          "useAutoWidth": false
         }
-      ],
-      "videoThumbnail": "./static/assets/thumbnails/specialOrder.mp4",
-      "imgMiniThumbnail": "https://cdnb.artstation.com/p/assets/images/images/096/453/503/smaller_square/maxime-gerardin-still-2025-02-02-024947-2-1-1.jpg?1771376576",
-      "tags": [
-        "3D"
-      ],
-      "links": [
-        {
-          "url": "https://www.artstation.com/artwork/5BXNNA",
-          "text": "See on Artstation"
-        }
-      ],
-      "description": "CG environment of a kitchen I made for a shortfilm"
+      ]
     }
   ],
   "footer": {
+    "contactDescription": "",
     "contact": [
       {
         "title": "Mail",
@@ -556,7 +694,6 @@
         "url": "",
         "text": "South of France"
       }
-    ],
-    "contactDescription": ""
+    ]
   }
 }

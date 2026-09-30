@@ -1,5 +1,5 @@
-const isPreview = window.name === 'cms-preview'
-    || new URLSearchParams(location.search).has('cms-preview');
+const isPreview = window.top !== window &&
+    (window.name === 'cms-preview' || new URLSearchParams(location.search).has('cms-preview'));
 
 if (isPreview) {
     window.portfolioTemplate = await new Promise((resolve) => {

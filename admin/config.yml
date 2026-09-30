@@ -2,9 +2,6 @@ backend:
   name: github
   repo: maxime-gerardin/maxime-gerardin.github.io
   branch: main
-  base_url: https://ton-proxy-oauth.workers.dev
-
-local_backend: true
 
 # Dossier par défaut si un champ n'en précise pas
 media_folder: static/assets/medias
