@@ -1,7 +1,7 @@
 {
   "info": {
     "fullName": "Maxime Gerardin",
-    "personalDescription": "3D Environment Generalist artist based in the south of France, creating immersive visuals for Music Clips, Ads, Films and Series test",
+    "personalDescription": "3D Environment Generalist artist based in the south of France, creating immersive visuals for Music Clips, Ads, Films and Series",
     "logo": "https://yt3.googleusercontent.com/XZsvMWCVnMLFll6oGUoG93DaPpa3AhnaZ71bc97kfCuVf-1evgLtbE48heJ3R6cIm3Wyl-ngiA=s160-c-k-c0x00ffffff-no-rj",
     "logoCircle": true,
     "logoAlt": "Logo icon",
@@ -677,6 +677,24 @@
           "useAutoWidth": false
         }
       ]
+    },
+    {
+      "name": "projet test",
+      "main": false,
+      "date": "2026-09",
+      "tags": [
+        "NoAI"
+      ],
+      "description": "Hello test test",
+      "client": "nobody",
+      "software": [
+        "Blender"
+      ],
+      "videoThumbnail": "",
+      "imgThumbnail": "",
+      "imgMiniThumbnail": "",
+      "links": [],
+      "medias": []
     }
   ],
   "footer": {
