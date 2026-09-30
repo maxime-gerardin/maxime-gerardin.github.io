@@ -69,7 +69,7 @@ class PortfolioHeader extends HTMLElement {
             portfolioLogo.classList.add("circle")
         }
         portfolioLogo.src = portfolioTemplate.info.logo;
-        portfolioLogo.alt = portfolioTemplate.info.logoAlt;
+        portfolioLogo.alt = portfolioTemplate.info.logoAlt ?? "";
         document.querySelector("link[rel~='icon']").href = portfolioTemplate.info.logo
         document.querySelector("title").innerText = portfolioTemplate.info.fullName;
       }
