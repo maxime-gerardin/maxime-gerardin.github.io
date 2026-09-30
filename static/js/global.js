@@ -62,40 +62,29 @@ function getDiffYear(date)
 
 // =====================================================================
 // =====================================================================
-
+    
 function createSoftwareTag(software, link = null, projectSoftwares = null)
 {
-    let tagElm = document.createElement("div")
-    let softwareKey = Object.keys(portfolioTemplate.softwares).find(k => k.toLowerCase() === software.toLowerCase());
-    if (softwareKey !== undefined)
+    const tagElm = document.createElement("div")
+    const wanted = software.toLowerCase()
+
+    const softwareObj =
+        portfolioTemplate.softwares.find(s => s.name.toLowerCase() === wanted) ??
+        projectSoftwares?.find(s => s.name.toLowerCase() === wanted)
+
+    if (softwareObj?.iconUrl)
     {
-        let tagIcon = document.createElement("img")
+        const tagIcon = document.createElement("img")
         tagIcon.classList.add("project-software-icon")
-        tagIcon.src = `./static/assets/icons/software/${portfolioTemplate.softwares[softwareKey]}`
+        tagIcon.src = softwareObj.iconUrl
         tagElm.append(tagIcon)
-    } 
-    else {
-    	softwareKey = software
-        if (projectSoftwares) {
-	    	for (const softwareObj of projectSoftwares) {
-		    if(softwareObj.name.toLowerCase() === software.toLowerCase())
-		    {
-		    	let tagIcon = document.createElement("img")
-			tagIcon.classList.add("project-software-icon")
-			tagIcon.src = softwareObj.iconUrl
-			tagElm.append(tagIcon)
-			softwareKey = softwareObj.name
-			break
-		    }
-		}
-	}
-        
     }
-    tagElm.insertAdjacentText("beforeend", softwareKey);
+    tagElm.insertAdjacentText("beforeend", softwareObj?.name ?? software)
     tagElm.classList.add("project-software")
+
     if (link)
     {
-        let linkElm = document.createElement("a")
+        const linkElm = document.createElement("a")
         linkElm.href = link
         linkElm.appendChild(tagElm)
         return linkElm

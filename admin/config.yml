@@ -1,0 +1,160 @@
+backend:
+  name: github
+  repo: maxime-gerardin/maxime-gerardin.github.io
+  branch: main
+  base_url: https://ton-proxy-oauth.workers.dev
+
+local_backend: true
+
+# Dossier par défaut si un champ n'en précise pas
+media_folder: static/assets/medias
+public_folder: /static/assets/medias
+
+collections:
+  - name: site
+    label: Portfolio
+    files:
+      - name: portfolio
+        label: Contenu du portfolio
+        file: portfolio.json
+        format: json
+        fields:
+
+          # ---------- INFOS ----------
+          - label: Infos
+            name: info
+            widget: object
+            fields:
+              - { label: Nom complet, name: fullName, widget: string }
+              - { label: Description, name: personalDescription, widget: text }
+              - label: Logo
+                name: logo
+                widget: image
+                media_folder: /static/assets/
+                public_folder: /static/assets/
+              - { label: Logo en rond, name: logoCircle, widget: boolean, default: true }
+              - { label: Texte alternatif du logo, name: logoAlt, widget: string, required: false }
+              - label: Vidéo d'arrière-plan
+                name: backgroundVideo
+                widget: file
+                media_folder: /static/assets/thumbnails
+                public_folder: /static/assets/thumbnails
+              - { label: Date de naissance, name: birthday, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: Début d'activité, name: startWorkingDate, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+
+          # ---------- À PROPOS ----------
+          - label: À propos
+            name: about
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Titre, name: title, widget: string, required: false }
+              - { label: Texte, name: text, widget: text, required: false, hint: "Garder {AGE} et {WORK_YEARS}, ils sont remplacés automatiquement" }
+              - label: Image
+                name: img
+                widget: image
+                media_folder: /static/assets/medias
+                public_folder: /static/assets/medias
+
+          # ---------- LOGICIELS ----------
+          - label: Logiciels
+            name: softwares
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Nom, name: name, widget: string }
+              - label: Icône
+                name: iconUrl
+                widget: image
+                media_folder: /static/assets/icons/software
+                public_folder: /static/assets/icons/software
+
+          # ---------- RÉSEAUX SOCIAUX ----------
+          - label: Réseaux sociaux
+            name: socials
+            widget: list
+            summary: "{{fields.text}}"
+            fields:
+              - { label: Nom, name: text, widget: string }
+              - label: Icône
+                name: icon
+                widget: image
+                media_folder: /static/assets/icons
+                public_folder: /static/assets/icons
+              - { label: URL, name: url, widget: string }
+              - { label: Afficher dans la section contact, name: showContact, widget: boolean, required: false }
+
+          # ---------- PROJETS ----------
+          - label: Projets
+            name: projects
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Nom, name: name, widget: string, hint: "Peut contenir <br> pour un retour à la ligne" }
+              - { label: Projet principal, name: main, widget: boolean, required: false }
+              - { label: Date (AAAA-MM), name: date, widget: string }
+              - { label: Tags, name: tags, widget: list, field: { label: Tag, name: tag, widget: string } }
+              - { label: Description, name: description, widget: text }
+              - { label: Client, name: client, widget: string, required: false }
+              - { label: Logiciels utilisés, name: software, widget: list, field: { label: Logiciel, name: s, widget: string } }
+              - label: Video principale (prioritaire par rapport à Image principale )
+                name: videoThumbnail
+                widget: file
+                required: false
+                media_folder: /static/assets/thumbnails
+                public_folder: /static/assets/thumbnails
+              - label: Image principale 
+                name: imgThumbnail
+                widget: image
+                required: false
+                media_folder: /static/assets/thumbnails
+                public_folder: /static/assets/thumbnails
+              - label: Cover image (carré)
+                name: imgMiniThumbnail
+                widget: image
+                required: false
+                media_folder: /static/assets/thumbnails
+                public_folder: /static/assets/thumbnails
+              - label: Liens
+                name: links
+                widget: list
+                required: false
+                fields:
+                  - { label: Texte, name: text, widget: string }
+                  - { label: URL, name: url, widget: string }
+              - label: Médias
+                name: medias
+                widget: list
+                required: false
+                summary: "{{fields.type}} : {{fields.src}}"
+                fields:
+                  - label: Fichier ou URL
+                    name: src
+                    widget: file
+                    media_folder: /static/assets/medias
+                    public_folder: /static/assets/medias
+                  - { label: Type, name: type, widget: select, options: [img, video] }
+                  - { label: Légende, name: text, widget: string, required: false }
+                  - { label: Contrôles vidéo, name: controls, widget: boolean, required: false }
+                  - { label: Ligne de la grille, name: gridLine, widget: number, value_type: int, required: false }
+                  - { label: Largeur automatique, name: useAutoWidth, widget: boolean, required: false }
+
+          # ---------- FOOTER ----------
+          - label: Pied de page
+            name: footer
+            widget: object
+            fields:
+              - { label: Description du contact, name: contactDescription, widget: string, required: false }
+              - label: Contacts
+                name: contact
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Titre, name: title, widget: string }
+                  - label: Icône
+                    name: icon
+                    widget: image
+                    media_folder: /static/assets/icons
+                    public_folder: /static/assets/icons
+                  - { label: URL, name: url, widget: string, required: false }
+                  - { label: Texte, name: text, widget: string }
