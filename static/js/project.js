@@ -50,6 +50,11 @@ function normalizeArtstationProject(project) {
     const imgThumbnail = firstAsset && !isFirstAssetVideo ? firstAsset.url : null;
     const videoThumbnail = firstAsset && isFirstAssetVideo ? firstAsset.url : null;
 
+    const links = [
+        ...(project.url ? [{ url: project.url, text: "View on ArtStation" }] : []),
+        ...(project.links ?? []).filter(l => l?.url && l.url !== project.url),
+    ];
+
     return {
         name: project.name,
         client: project.client,
@@ -58,7 +63,7 @@ function normalizeArtstationProject(project) {
         description: project.description,
         software: (project.software ?? []).map(s => s.name),
         softwares_url: project.software,
-        links: project.url ? [{ url: project.url, text: "View on ArtStation" }] : [],
+        links,
         imgThumbnail,
         videoThumbnail,
         medias,
