@@ -230,6 +230,15 @@ function removeClientFromDescription(html) {
     return kept.join("");
 }
 
+function extractYoutubeLink(embedHtml) {
+    if (!embedHtml) return null;
+    const match = embedHtml.match(
+        /src=["']https?:\/\/(?:www\.)?youtube(?:-nocookie)?\.com\/embed\/([A-Za-z0-9_-]{11})/i
+    );
+    if (!match) return null;
+    return { text: "Watch on Youtube", url: `https://www.youtube.com/watch?v=${match[1]}` };
+}
+
 async function fetchProjectDetails(summary) {
     const hashId = summary.hash_id;
     const result = await fetchWithRetry(`https://www.artstation.com/projects/${hashId}.json`);
@@ -237,8 +246,7 @@ async function fetchProjectDetails(summary) {
     const data = result.json;
 
     const simplifiedAssets = [];
-
-    const coverUrl = summary.cover?.small_square_url;
+    const links = [];
 
     for (const asset of data.assets ?? []) {
         if (asset.asset_type === "image") {
@@ -259,6 +267,14 @@ async function fetchProjectDetails(summary) {
                 url: videoUrl,
                 description: asset.title || null,
             });
+            continue;
+        }
+
+        if (asset.asset_type === "video") {
+            const link = extractYoutubeLink(asset.player_embedded);
+            if (link && !links.some(l => l.url === link.url)) {
+                links.push(link);
+            }
         }
     }
 
@@ -276,6 +292,7 @@ async function fetchProjectDetails(summary) {
         publishedAt: data.published_at,
         url: `https://www.artstation.com/artwork/${data.hash_id}`,
         assets: simplifiedAssets,
+        links,
         software: (data.software_items ?? []).map(s => ({
             name: s.name,
             iconUrl: s.icon_url,

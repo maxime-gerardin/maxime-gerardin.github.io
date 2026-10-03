@@ -74,6 +74,12 @@
         "description": null
       }
     ],
+    "links": [
+      {
+        "text": "Watch on Youtube",
+        "url": "https://www.youtube.com/watch?v=mSmFNL_dQD4"
+      }
+    ],
     "software": [
       {
         "name": "Blender",
@@ -121,6 +127,7 @@
         "description": "showcase of the waves crashing on the beach"
       }
     ],
+    "links": [],
     "software": [
       {
         "name": "Blender",
@@ -177,6 +184,7 @@
         "description": "I also built my own \"Astigmatism\" node in blender's compositor. Inspired by the anamorphic edge blur gizmos in Nuke"
       }
     ],
+    "links": [],
     "software": [
       {
         "name": "Blender",
@@ -227,6 +235,7 @@
         "description": null
       }
     ],
+    "links": [],
     "software": [
       {
         "name": "Blender",
@@ -277,6 +286,7 @@
         "description": "showcase of the pbr mixing workflow for this project's ground material"
       }
     ],
+    "links": [],
     "software": [
       {
         "name": "Blender",
@@ -325,6 +335,7 @@
         "description": "Subtle retexturing work, I wanted to add more wear to the airplane asset"
       }
     ],
+    "links": [],
     "software": [
       {
         "name": "Blender",
@@ -337,6 +348,113 @@
       {
         "name": "DaVinci Resolve",
         "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/001/661/default/Resolve.png?1441346332"
+      }
+    ]
+  },
+  {
+    "id": 17427546,
+    "hashId": "49QgZL",
+    "name": "SIP Trigger - Shipyard / Container",
+    "description": "<p>Here are some breakdowns of the Container / Shipyard Sequence from the music clip I had the chance to work on for Smash Into Pieces.\n<br />I was in charge of all environments/lighting, some modeling and texturing\n<br />",
+    "client": "Smash Into Pieces",
+    "tags": [
+      "pro",
+      "NoAI"
+    ],
+    "coverUrl": "https://cdnb.artstation.com/p/assets/covers/images/071/466/041/small_square/maxime-gerardin-maxime-gerardin-desert-thumbnail-v06.jpg?1705262072",
+    "publishedAt": "2024-01-14T13:54:41.707-06:00",
+    "url": "https://www.artstation.com/artwork/49QgZL",
+    "assets": [
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/069/sh360-v001.mp4",
+        "description": "Shot 01"
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/092/653/495/large/maxime-gerardin-sh360-still-grading.webp?1760281844",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/117/sh515-v003.mp4",
+        "description": "Shot 10"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/119/sh517-v001.mp4",
+        "description": "Shot 11"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/120/sh550-v005.mp4",
+        "description": "Shot 12"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/121/81799e98cb7fb9ea56d3d618e858a414.mp4",
+        "description": "The hologram is a setup I made with Blender Geometry Nodes and Shaders"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/123/sh700-v002.mp4",
+        "description": "Shot 13 - The glitch transparent effect is a procuedural setup I made in Cycles Shaders"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/091/video080001-0081.mp4",
+        "description": "WIP - Shot 01"
+      },
+      {
+        "type": "image",
+        "url": "https://cdna.artstation.com/p/assets/images/images/071/465/610/large/maxime-gerardin-sh360-still-it2-grading.jpg?1705261204",
+        "description": "Different lighting scenario - Personal Test"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/096/sh380-v002.mp4",
+        "description": "Shot 03"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/099/sh390-v002.mp4",
+        "description": "Shot 04"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/102/sh400-v002.mp4",
+        "description": "Shot 05"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/108/sh420-v002.mp4",
+        "description": "Shot 06"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/109/sh430-v002.mp4",
+        "description": "Shot 07"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/116/sh540-v003.mp4",
+        "description": "Shot 08 - Hologram apparition"
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/001/745/114/sh510-v002.mp4",
+        "description": "Shot 09"
+      }
+    ],
+    "links": [],
+    "software": [
+      {
+        "name": "Blender",
+        "iconUrl": "https://cdna.artstation.com/p/softwares/icons/000/000/008/default/blender_icon_1024x1024.png?1570478232"
+      },
+      {
+        "name": "After Effects",
+        "iconUrl": "https://cdnb.artstation.com/p/softwares/icons/000/000/003/default/aftereffects.png?1608144443"
       }
     ]
   },
@@ -420,6 +538,12 @@
         "description": "Shot 09"
       }
     ],
+    "links": [
+      {
+        "text": "Watch on Youtube",
+        "url": "https://www.youtube.com/watch?v=3NpjfRKOblg"
+      }
+    ],
     "software": [
       {
         "name": "Blender",
@@ -500,6 +624,12 @@
         "description": null
       }
     ],
+    "links": [
+      {
+        "text": "Watch on Youtube",
+        "url": "https://www.youtube.com/watch?v=3NpjfRKOblg"
+      }
+    ],
     "software": [
       {
         "name": "Blender",
@@ -562,6 +692,12 @@
         "type": "image",
         "url": "https://cdnb.artstation.com/p/assets/images/images/065/384/447/large/maxime-gerardin-capture01.jpg?1690239648",
         "description": null
+      }
+    ],
+    "links": [
+      {
+        "text": "Watch on Youtube",
+        "url": "https://www.youtube.com/watch?v=k4gAoku-46g"
       }
     ],
     "software": [
