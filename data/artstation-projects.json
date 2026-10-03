@@ -1,5 +1,87 @@
 [
   {
+    "id": 22953462,
+    "hashId": "wOr4rY",
+    "name": "Pixie Chess - Trailer (environments)",
+    "description": "<p>Here are some shots I woked on for 'Pixie Chess - Official Trailer' at the amazing studio Wizz (crcr), which is one of the best team of artists I've ever worked with! (not glazing haha)</p>\n\n<p>These shots are the one I made an environment for. Of course, the incredible team at crcr made sure my humble environments looked super nice in the end: Very precise direction from the directors, super cool 2D animated elements, and great compositing, which I was not responsible for. But the teamwork made it super nice.</p>",
+    "client": "Wizz (crcr)",
+    "tags": [
+      "NoAI",
+      "pro"
+    ],
+    "coverUrl": "https://cdna.artstation.com/p/assets/covers/images/102/898/076/small_square/maxime-gerardin-maxime-gerardin-still-2026-10-02-144232-1-18-1.jpg?1790945922",
+    "publishedAt": "2026-10-02T07:58:50.191-05:00",
+    "url": "https://www.artstation.com/artwork/wOr4rY",
+    "assets": [
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/503/770/shot01.mp4",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdna.artstation.com/p/assets/images/images/102/897/756/large/maxime-gerardin-still-2026-10-02-144215-1-15-1.jpg?1790945028",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/503/771/shot02.mp4",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdna.artstation.com/p/assets/images/images/102/897/766/large/maxime-gerardin-still-2026-10-02-144226-1-16-1.jpg?1790945046",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/503/772/shot03.mp4",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/503/773/shot04.mp4",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdna.artstation.com/p/assets/images/images/102/897/796/large/maxime-gerardin-still-2026-10-02-144232-1-18-1.jpg?1790945095",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/503/774/shot05.mp4",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdna.artstation.com/p/assets/images/images/102/897/828/large/maxime-gerardin-still-2026-10-02-144235-1-19-1.jpg?1790945142",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/503/775/shot06.mp4",
+        "description": null
+      },
+      {
+        "type": "image",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/102/897/839/large/maxime-gerardin-still-2026-10-02-144238-1-20-1.jpg?1790945173",
+        "description": null
+      },
+      {
+        "type": "video",
+        "url": "https://cdn.artstation.com/p/video_sources/003/503/776/shot07.mp4",
+        "description": null
+      }
+    ],
+    "software": [
+      {
+        "name": "Blender",
+        "iconUrl": "https://cdna.artstation.com/p/softwares/icons/000/000/008/default/blender_icon_1024x1024.png?1570478232"
+      }
+    ]
+  },
+  {
     "id": 22793057,
     "hashId": "b05vOa",
     "name": "Island Practice",
