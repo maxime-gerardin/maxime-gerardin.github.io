@@ -230,13 +230,15 @@ function removeClientFromDescription(html) {
     return kept.join("");
 }
 
-function extractYoutubeLink(embedHtml) {
+function extractYoutubeLink(asset) {
+    const embedHtml = asset.player_embedded;
     if (!embedHtml) return null;
     const match = embedHtml.match(
         /src=["']https?:\/\/(?:www\.)?youtube(?:-nocookie)?\.com\/embed\/([A-Za-z0-9_-]{11})/i
     );
     if (!match) return null;
-    return { text: "Watch on Youtube", url: `https://www.youtube.com/watch?v=${match[1]}` };
+    let linkText = asset.title ?? "Watch on Youtube"
+    return { text: linkText, url: `https://www.youtube.com/watch?v=${match[1]}` };
 }
 
 async function fetchProjectDetails(summary) {
@@ -271,7 +273,7 @@ async function fetchProjectDetails(summary) {
         }
 
         if (asset.asset_type === "video") {
-            const link = extractYoutubeLink(asset.player_embedded);
+            const link = extractYoutubeLink(asset);
             if (link && !links.some(l => l.url === link.url)) {
                 links.push(link);
             }
