@@ -257,6 +257,25 @@ function handleDescriptionSize(first = false)
 // =====================================================================
 // =====================================================================
 
+function setupThumbnailBgVideo(video, bgVideo, url) {
+    bgVideo.src = url
+    bgVideo.muted = true
+    bgVideo.load()
+    bgVideo.onloadeddata = () => {
+        bgVideo.play().catch(() => {})
+    }
+
+    // keep the blurred copy in sync with the main video
+    video.addEventListener("timeupdate", () => {
+        if (Math.abs(bgVideo.currentTime - video.currentTime) > 0.2) {
+            bgVideo.currentTime = video.currentTime
+        }
+    })
+}
+
+// =====================================================================
+// =====================================================================
+
 function fillProjectInfo() {
     let project = getProjectByHash()
 
@@ -265,13 +284,19 @@ function fillProjectInfo() {
         projectTitleNode.innerHTML = project.name;
         let projectThumbnailNodeImg = document.getElementById("project-thumbnail-img");
         let projectThumbnailNode = document.getElementById("project-thumbnail");
+        let projectThumbnailBgVideo = document.getElementById("project-thumbnail-bg-video");
+        let projectThumbnailBgImg = document.getElementById("project-thumbnail-bg-img");
         if (project.videoThumbnail) {
             projectThumbnailNodeImg.remove()
+            projectThumbnailBgImg.remove()
             setVideoUrl(projectThumbnailNode, project.videoThumbnail)
+            setupThumbnailBgVideo(projectThumbnailNode, projectThumbnailBgVideo, project.videoThumbnail)
         }
         else {
             projectThumbnailNode.remove()
+            projectThumbnailBgVideo.remove()
             projectThumbnailNodeImg.src = project.imgThumbnail;
+            projectThumbnailBgImg.style.backgroundImage = `url("${String(project.imgThumbnail).replaceAll('"', "%22")}")`
         }
         if (project.client) {
             createProjectBoardRow("Client", project.client)

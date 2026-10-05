@@ -51,10 +51,14 @@
 
             <div id="project-container">
                 <div id="project-title"></div>
-                <video id="project-thumbnail" autoplay loop muted playsinline>
-                    <source src="" type="" />
-                </video>
-                <img id="project-thumbnail-img" src="" alt="">
+                <div id="project-thumbnail-wrapper">
+                    <video id="project-thumbnail-bg-video" class="project-thumbnail-bg" autoplay loop muted playsinline aria-hidden="true" tabindex="-1"></video>
+                    <div id="project-thumbnail-bg-img" class="project-thumbnail-bg" aria-hidden="true"></div>
+                    <video id="project-thumbnail" autoplay loop muted playsinline>
+                        <source src="" type="" />
+                    </video>
+                    <img id="project-thumbnail-img" src="" alt="">
+                </div>
                 <div id="project-board-container">
                     <div id="project-board"></div>
                 </div>
