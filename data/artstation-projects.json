@@ -103,7 +103,7 @@
     "assets": [
       {
         "type": "video",
-        "url": "https://cdn.artstation.com/p/video_sources/003/445/073/timeline-1.mp4",
+        "url": null,
         "description": null
       },
       {
@@ -123,7 +123,7 @@
       },
       {
         "type": "video",
-        "url": "https://cdn.artstation.com/p/video_sources/003/444/588/2026-08-26-02-08-08.mp4",
+        "url": null,
         "description": "showcase of the waves crashing on the beach"
       }
     ],
